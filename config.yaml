@@ -1,4 +1,4 @@
-baseUrl: /
+baseUrl: https://www.adityakonarde.com/
 languageCode: en-us
 theme: hello-friend
 copyright: '2019 Aditya Konarde'
@@ -14,7 +14,7 @@ params:
 
 languages:
   en:
-    title: Your site title
+    title: Aditya Konarde's Blog
     subtitle: Your site subtitle
     keywords: ''
     menuMore: Show more
@@ -40,6 +40,12 @@ languages:
       - identifier: about
         name: About
         url: /about
-      - identifier: showcase
-        name: Showcase
-        url: /showcase
+      - identifier: Blog
+        name: Blog
+        url: /posts
+      - identifier: Travel
+        name: Travel
+        url: /Travel
+      - identifier: Photography
+        name: Photography
+        url: /Photography
