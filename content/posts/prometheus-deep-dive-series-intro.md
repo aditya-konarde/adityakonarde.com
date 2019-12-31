@@ -1,7 +1,7 @@
 ---
 title: "Prometheus Deep Dive Series: Intro"
 date: 2019-12-31T14:48:44+01:00
-draft: true
+draft: false
 ---
 
 ## What is Prometheus
