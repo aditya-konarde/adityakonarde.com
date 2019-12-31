@@ -1,27 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Aditya Konarde&#39;s Blog</title>
-    <link>https://www.adityakonarde.com/</link>
-    <description>Recent content on Aditya Konarde&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>2019 Aditya Konarde</copyright>
-    <lastBuildDate>Tue, 31 Dec 2019 10:40:35 +0100</lastBuildDate>
-    
-	<atom:link href="https://www.adityakonarde.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Here&#39;s to the 2010s</title>
-      <link>https://www.adityakonarde.com/posts/heres-to-2010s/</link>
-      <pubDate>Tue, 31 Dec 2019 10:40:35 +0100</pubDate>
-      
-      <guid>https://www.adityakonarde.com/posts/heres-to-2010s/</guid>
-      <description>Hello World!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Aditya Konarde's Blog</title><link>https://www.adityakonarde.com/</link><description>Recent content on Aditya Konarde's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>2019 Aditya Konarde</copyright><lastBuildDate>Tue, 31 Dec 2019 10:40:35 +0100</lastBuildDate><atom:link href="https://www.adityakonarde.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Here's to the 2010s</title><link>https://www.adityakonarde.com/posts/heres-to-2010s/</link><pubDate>Tue, 31 Dec 2019 10:40:35 +0100</pubDate><guid>https://www.adityakonarde.com/posts/heres-to-2010s/</guid><description>Hello World!
 As we approach the end of the year, I wanted to take a moment to reflect on what I learnt in these 10 years leading to 2020.
-I must start off by saying its been such a roller coaster ride. Starting from the early 2010s where I was in ahem School (!) all the way up to now me sitting here in a cafe in my new home - Berlin.</description>
-    </item>
-    
-  </channel>
-</rss>
+I must start off by saying its been such a roller coaster ride. Starting from the early 2010s where I was in ahem School (!) all the way up to now me sitting here in a cafe in my new home - Berlin.</description></item><item><title/><link>https://www.adityakonarde.com/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.adityakonarde.com/about/</guid><description>Hello There TLDR:
+Software Engineer - living in Berlin On the side: Amateur Photographer + Music and Coffee enthusiast
+Outside of work I only recently discovered that I love travelling and experiencing new cultures.
+I've been to many countries and will continue to do so. I currently live in Berlin, Germany.
+You can find my photography (Travel, Abstract, some random pics) on my Instagram page here: https://www.instagram.com/aditya.konarde/
+Other than that, I love good music (almost all genres) and good coffee.</description></item></channel></rss>
