@@ -16,7 +16,7 @@ params:
 languages:
   en:
     title: Aditya Konarde's Blog
-    subtitle: Your site subtitle
+    subtitle: ''
     keywords: ''
     menuMore: Show more
     writtenBy: Written by
