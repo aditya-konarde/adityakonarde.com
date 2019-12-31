@@ -3,14 +3,15 @@ languageCode: en-us
 theme: hello-friend
 copyright: '2019 Aditya Konarde'
 paginate: 5
+googleAnalytics: UA-155171810-1
 
 params:
   # dir name of your blog content (default is `content/posts`)
   contentTypeName: posts
   # "dark" or "light"
-  defaultTheme: dark
+  defaultTheme: light
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems: 2
+  showMenuItems: 3
 
 languages:
   en:
@@ -43,9 +44,6 @@ languages:
       - identifier: Blog
         name: Blog
         url: /posts
-      - identifier: Travel
-        name: Travel
-        url: /Travel
       - identifier: Photography
         name: Photography
-        url: /Photography
+        url: https://www.instagram.com/aditya.konarde
