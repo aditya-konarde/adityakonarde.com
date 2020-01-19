@@ -3,7 +3,11 @@ new_page_extension: md
 auto_deploy: false
 admin_path: ''
 webhook_url: 
-sections: 
+sections:
+- type: document
+  path: content/posts
+  label: Blog
+  match: "**/*"
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
@@ -13,6 +17,7 @@ build:
   preview_env:
   - HUGO_VERSION=v0.62.2
   preview_output_directory: public
+  install_dependencies_command: npm install
   preview_docker_image: forestryio/hugo:latest
   mount_path: "/srv"
   working_dir: "/srv"
