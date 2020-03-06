@@ -71,37 +71,37 @@ But the good news is, you actually can, in two simple steps:
 
 1. Add another folder to the providers in your grafana dashboards config, like so:
 
-    ```yaml
-    apiVersion: v1
-    data:
-    dashboards.yaml: |-
-        {
-            "apiVersion": 1,
-            "providers": [
-                {
-                    "folder": "",
-                    "name": "0",
-                    "options": {
-                        "path": "/grafana-dashboard-definitions/0"
-                    },
-                    "orgId": 1,
-                    "type": "file"
+```yaml
+apiVersion: v1
+data:
+dashboards.yaml: |-
+    {
+        "apiVersion": 1,
+        "providers": [
+            {
+                "folder": "",
+                "name": "0",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/0"
                 },
-                {
-                    "folder": "Bar",
-                    "name": "0",
-                    "options": {
-                        "path": "/grafana-dashboard-definitions/Bar"
-                    },
-                    "orgId": 1,
-                    "type": "file"
-                }
-            ]
-        }
-    kind: ConfigMap
-    metadata:
-    name: grafana-dashboards
-    ```
+                "orgId": 1,
+                "type": "file"
+            },
+            {
+                "folder": "Bar",
+                "name": "0",
+                "options": {
+                    "path": "/grafana-dashboard-definitions/Bar"
+                },
+                "orgId": 1,
+                "type": "file"
+            }
+        ]
+    }
+kind: ConfigMap
+metadata:
+name: grafana-dashboards
+```
 
 2. When mounting the configmaps, mount them under a path listed in providers:
 
