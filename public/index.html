@@ -36,7 +36,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.adityakonarde.com/" />
-<meta property="og:updated_time" content="2019-12-31T10:40:35+01:00" /><meta property="og:site_name" content="Aditya Konarde&#39;s Blog" />
+<meta property="og:updated_time" content="2020-03-06T23:06:55+01:00" /><meta property="og:site_name" content="Aditya Konarde&#39;s Blog" />
 
 
 
@@ -75,9 +75,27 @@
         
       
         
-          <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+          <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
         
       
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+              
+            
+          </ul>
+        </ul>
       
     
   </ul>
@@ -90,6 +108,10 @@
     
       
         <li><a href="/posts">Blog</a></li>
+      
+    
+      
+        <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
       
     
       
@@ -131,6 +153,64 @@
     
     
 
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/">Provisioning Dashboards with Grafana</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-03-06
+          </span>
+        
+        
+        
+      </div>
+
+
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
+Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:
+Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/provisioning-dashboards-grafana/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/">Prometheus Deep Dive Series: Intro</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2019-12-31
+          </span>
+        
+        
+        
+      </div>
+
+
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            What is Prometheus If you're an engineer working with Cloud technologies, chances are that you've already heard of Prometheus
+Prometheus is an Open Source monitoring tool. Its development started at SoundCloud and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.
+Prometheus does a few things and does it well.
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/prometheus-deep-dive-series-intro/">Read more →</a></div>
+    </div>
     
     <div class="post on-list">
       <h1 class="post-title"><a href="https://www.adityakonarde.com/posts/heres-to-2010s/">Here's to the 2010s</a></h1>

@@ -38,6 +38,9 @@ languages:
     
     menu:
       main:
+      - identifier: Contact
+        name: Contact
+        url: https://calendly.com/aditya-konarde
       - identifier: about
         name: About
         url: /about
