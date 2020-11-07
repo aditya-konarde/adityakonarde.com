@@ -7,10 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019 Aditya Konarde</copyright>
-    <lastBuildDate>Tue, 31 Dec 2019 10:40:35 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 23:06:55 +0100</lastBuildDate>
     
 	<atom:link href="https://www.adityakonarde.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Provisioning Dashboards with Grafana</title>
+      <link>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</link>
+      <pubDate>Fri, 06 Mar 2020 23:06:55 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</guid>
+      <description>Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
+Based on this philosophy, I have been running a Grafana setup at Red Hat, here&#39;s some key points:
+ Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades.</description>
+    </item>
+    
+    <item>
+      <title>Prometheus Deep Dive Series: Intro</title>
+      <link>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</link>
+      <pubDate>Tue, 31 Dec 2019 14:48:44 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</guid>
+      <description>What is Prometheus If you&#39;re an engineer working with Cloud technologies, chances are that you&#39;ve already heard of Prometheus
+Prometheus is an Open Source monitoring tool. Its development started at SoundCloud and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.
+Prometheus does a few things and does it well.</description>
+    </item>
     
     <item>
       <title>Here&#39;s to the 2010s</title>
