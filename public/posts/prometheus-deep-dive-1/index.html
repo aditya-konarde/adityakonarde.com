@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Prometheus Deep Dive - Part 1 :: Aditya Konarde&#39;s Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="About a year ago, I said on this blog that I would do a Prometheus deep dive series. Life happened and 2020 flew by, but now I am finally getting around to actually doing this. Thank you for the patience 🙌
+Prior art Instead of starting from scratch, I would like to point to the excellent content that the community has already created. I will try to extend on these and try to avoid redundancy."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.adityakonarde.com/posts/prometheus-deep-dive-1/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://www.adityakonarde.com/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prometheus Deep Dive - Part 1"/>
+<meta name="twitter:description" content="About a year ago, I said on this blog that I would do a Prometheus deep dive series. Life happened and 2020 flew by, but now I am finally getting around to actually doing this. Thank you for the patience 🙌
+Prior art Instead of starting from scratch, I would like to point to the excellent content that the community has already created. I will try to extend on these and try to avoid redundancy."/>
+
+
+
+<meta property="og:title" content="Prometheus Deep Dive - Part 1" />
+<meta property="og:description" content="About a year ago, I said on this blog that I would do a Prometheus deep dive series. Life happened and 2020 flew by, but now I am finally getting around to actually doing this. Thank you for the patience 🙌
+Prior art Instead of starting from scratch, I would like to point to the excellent content that the community has already created. I will try to extend on these and try to avoid redundancy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.adityakonarde.com/posts/prometheus-deep-dive-1/" />
+<meta property="article:published_time" content="2020-12-28T20:12:20+01:00" />
+<meta property="article:modified_time" content="2020-12-28T20:12:20+01:00" /><meta property="og:site_name" content="Aditya Konarde&#39;s Blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Aditya Konarde</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Blog</a></li>
+        
+      
+        
+          <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Blog</a></li>
+      
+    
+      
+        <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+      
+    
+      
+        <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://www.adityakonarde.com/posts/prometheus-deep-dive-1/">Prometheus Deep Dive - Part 1</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2020-12-28
+        </span>
+      
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      <p>About a year ago, I said on this blog that I would do a Prometheus deep dive series. Life happened and 2020 flew by, but now I am finally getting around to actually doing this. Thank you for the patience 🙌</p>
+<h2 id="prior-art">Prior art</h2>
+<p>Instead of starting from scratch, I would like to point to the excellent content that the community has already created. I will try to extend on these and try to avoid redundancy.</p>
+<p>If you are not already familiar with Prometheus, here's some content I recommend going through before we dive deeper.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=5O1djJ13gRU">GOTO 2019 • An Introduction to Systems &amp; Service Monitoring with Prometheus • Julius Volz</a></li>
+<li><a href="https://prometheus.io/docs/introduction/overview/">Prometheus Overview - Official Documentation</a></li>
+</ul>
+<h2 id="prometheus-architecture">Prometheus architecture</h2>
+<p>Now that we are hopefully familiar with the high-level components, let's look at the architecture once again.</p>
+<p><img src="/static/prometheus-architecture.png" alt="Prometheus Architecture"></p>
+<blockquote>
+<p>Source: <a href="https://prometheus.io/docs/introduction/overview/#architecture">Prometheus documentation - as on 28-Dec-2020</a></p>
+</blockquote>
+<p>Quoting directly from the official documentation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">The Prometheus ecosystem consists of multiple components, many of which are optional:
+
+the main Prometheus server which scrapes and stores time series data
+client libraries for instrumenting application code
+a push gateway for supporting short-lived jobs
+special-purpose exporters for services like HAProxy, StatsD, Graphite, etc.
+an alertmanager to handle alerts
+various support tools
+</code></pre></div><p>Let's kick off this blog series with the most important component: The Prometheus Server</p>
+<p>The Prometheus server is arguably the most important component in this ecosystem. I like the no-dependency approach here.</p>
+<p>The Prometheus server runs as a single binary with the only dependency being the storage layer on the node. This architecture allows a single Prometheus Server to have less strong dependencies and avoids having to implement synchronization across nodes.</p>
+<p>Can you already think of the tradeoffs being made here? Since the Prometheus server depends directly on a single node, it faces some limitations:</p>
+<ul>
+<li>The RAM available to the Prometheus server is capped at the maximum RAM that can be added to a single Node</li>
+<li>If the underlying volume/disk used for Prometheus fills up, Prometheus has no smart mechanism to offload tasks to another server</li>
+<li>If the network link to the node running a Prometheus server has a failure, it will result in a full outage for querying and retrieval of data</li>
+</ul>
+<p>There are ways of working around some of these limitations to scale a fleet of Prometheus servers, which we will take a look at in a later section of this blog post.</p>
+<h2 id="responsibilities-of-the-prometheus-server">Responsibilities of the Prometheus Server</h2>
+<p>It is easier to think of this as a timeline: Applications (commonly, web services) are instrumented and expose a set of metrics on an HTTP/HTTPS web API endpoint. Prometheus then scrapes these endpoints and retrieves time-series data. This time-series data is stored on-disk by Prometheus, and is used to serve background processing and consumer queries.</p>
+<p>At a very high level, a Prometheus Server has four primary responsibilities:</p>
+<ul>
+<li>Data Retrieval</li>
+<li>Data Storage</li>
+<li>Processing Stored data</li>
+<li>Making the Stored data available to consumers</li>
+</ul>
+<p>While each of these flows are worthy of several blog posts, we can now go a bit more detail here.</p>
+<h3 id="data-retrieval">Data Retrieval</h3>
+<p>How does Prometheus know where to find these endpoints? And how does Prometheus go about making sure the data is consistent and according to the standards?</p>
+<p>Luckily, the Prometheus team created a standard format for exposing these metrics. This inspired a new actual standard known as <a href="https://openmetrics.io/">OpenMetrics</a></p>
+<p>Prometheus works with time-series data which is exported by the applications on an HTTP web API endpoint. Prometheus has two ways to get a list of targets to scrape metrics from:</p>
+<ul>
+<li>Static configs : A simple static list of targets to be scraped</li>
+<li>Service Discovery : Dynamically generated list of targets using discovery integrations with external providers such as Kubernetes</li>
+</ul>
+<p>Once Prometheus has a list of targets to scrape and a scrape configuration for each of the targets, it periodically hits the metrics endpoints on each of these targets. Additionally, Prometheus maintains it's own metrics around scrape success and other scrape metadata</p>
+<p>At this point, the retrieved time series data is stored in-memory on the Prometheus server. Brian Brazil created a handy <a href="https://www.robustperception.io/how-much-ram-does-prometheus-2-x-need-for-cardinality-and-ingestion">calculator</a> to give you an estimate on how much RAM a certain number of time series needs. Note that this is an old post and there have been several improvements to memory usage, so I would need to check with him on the calculator's accuracy :)</p>
+<h3 id="data-storage">Data Storage</h3>
+<p>Prometheus cannot store everything in memory</p>
+<p>Write ahead log</p>
+<p>Writing to disk</p>
+<p>Remote storage</p>
+<h3 id="processing-stored-data">Processing Stored data</h3>
+<p>PromQL is read-only
+Recording rules
+Alerting rules
+Sending alerts</p>
+<h3 id="making-the-stored-data-available-to-consumers">Making the Stored data available to consumers</h3>
+<p>HTTP query API &lt;-&gt; PromQL engine &lt;-&gt; Storage &lt;-&gt; Disk</p>
+<p><img src="/static/prometheus-query-lifecycle.png" alt="Prometheus Query Lifecycle"></p>
+<blockquote>
+<p>Source: Björn Rabenstein - Life of a PromQL query - Percona Live 2017</p>
+</blockquote>
+<p>Range queries, Instant queries
+Federation API
+Remote read</p>
+<p>Shoutout to Beorn's talk</p>
+<h2 id="scaling-the-prometheus-server">Scaling the Prometheus Server</h2>
+<p>The usual recommendation for high availability here is to run two such servers and load balance queries across them. In case of multiple servers scraping the same targets, Aggregation and Deduplication at query time are expected to be implemented by an additional layer, such as the Thanos Query component.</p>
+<p>Write about systems like Thanos, Cortex etc.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li>
+<p>Blog: <a href="https://fabxc.org/tsdb/">Fabian Reinartz: Writing a Time Series Database from Scratch</a></p>
+</li>
+<li>
+<p>Blog: <a href="https://ganeshvernekar.com/blog/prometheus-tsdb-the-head-block">Ganesh Vernekar's Blog Series on the Prometheus TSDB</a></p>
+</li>
+<li>
+<p>Blog: <a href="https://www.robustperception.io/blog">The RobustPerception Blog</a></p>
+</li>
+<li>
+<p>Book: <a href="https://learning.oreilly.com/library/view/prometheus-up/9781492034131/">Brian Brazil. (2018). Prometheus: Up &amp; Running. O'Reilly Media, Inc.</a></p>
+</li>
+<li>
+<p>Youtube: <a href="https://www.youtube.com/watch?v=5O1djJ13gRU&amp;list=PLZZkOcECFJqO-8oi64la7jGHEWdQZo2nu">Prometheus Learning Youtube Playlist</a> : For those who prefer video over text content :)</p>
+</li>
+</ul>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://www.adityakonarde.com/posts/sre-time-management/">
+                  <span class="button__text">How much do SRE&#39;s really Code?</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+    
+
+    
+      
+        
+
+      
+    
+    
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">2019 Aditya Konarde</div>
+    
+  </div>
+</footer>
+
+<script src="https://www.adityakonarde.com/assets/main.js"></script>
+<script src="https://www.adityakonarde.com/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-155171810-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>
