@@ -4,6 +4,7 @@ theme: hello-friend
 copyright: '2019 Aditya Konarde'
 paginate: 5
 googleAnalytics: UA-155171810-1
+enableEmoji: true
 
 params:
   # dir name of your blog content (default is `content/posts`)

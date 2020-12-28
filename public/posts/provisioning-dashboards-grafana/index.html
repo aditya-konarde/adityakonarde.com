@@ -1,81 +1,339 @@
-<!doctype html><html lang=en><head><title>Provisioning Dashboards with Grafana :: Aditya Konarde's Blog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content="Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
-Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:
- Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/><link rel=stylesheet href=https://www.adityakonarde.com/assets/style.css><link rel=stylesheet href=https://www.adityakonarde.com/style.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=https://www.adityakonarde.com/img/favicon.png><meta name=twitter:card content="summary"><meta name=twitter:title content="Provisioning Dashboards with Grafana"><meta name=twitter:description content="Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
-Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:
- Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades."><meta property="og:title" content="Provisioning Dashboards with Grafana"><meta property="og:description" content="Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
-Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:
- Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades."><meta property="og:type" content="article"><meta property="og:url" content="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/"><meta property="article:published_time" content="2020-03-06T23:06:55+01:00"><meta property="article:modified_time" content="2020-03-07T00:21:37+01:00"><meta property="og:site_name" content="Aditya Konarde's Blog"></head><body><div class=container><header class=header><span class=header__inner><a href=/ class=logo style=text-decoration:none><span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg></span><span class=logo__text>Aditya Konarde</span>
-<span class=logo__cursor></span></a><span class=header__right><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/about>About</a></li><li><a href=/posts>Blog</a></li><li><a href=https://calendly.com/aditya-konarde>Contact</a></li><li><a href=https://www.instagram.com/aditya.konarde>Photography</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/about>About</a></li><li><a href=/posts>Blog</a></li><li><a href=https://calendly.com/aditya-konarde>Contact</a></li><li><a href=https://www.instagram.com/aditya.konarde>Photography</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class=theme-toggle><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><h2 class=post-title><a href=https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/>Provisioning Dashboards with Grafana</a></h2><div class=post-meta><span class=post-date>2020-03-06</span></div><div class=post-content><h2 id=background>Background</h2><p>Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.</p><p>Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:</p><ul><li>Grafana runs as pods on a Kubernetes (OpenShift) cluster</li><li>Each dashboard is mounted into the pod via ConfigMap</li><li>Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git</li></ul><p>One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades. Because the pods are stateless, you can simply roll out a new version as long as the dashboard schema stays consistent.</p><h2 id=the-how>The how</h2><p>For this exercise, we use a feature in Grafana called Provisioning</p><p>Provisioning allows you to inject certain configuration such as dashboards, plugins and notifiers into Grafana via a config file, and Grafana will know to load them at startup (and in the case of dashboards, watch them for updates).</p><h2 id=provisioning-challenges-too-many-dashboards-on-the-main-page>Provisioning Challenges: Too many dashboards on the main page</h2><p>So once you discover the awesome technique of dashboard provisioning, you are likely to read the documentation and start with a configuration that looks like the following:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>apiVersion: v1
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Provisioning Dashboards with Grafana :: Aditya Konarde&#39;s Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
+Based on this philosophy, I have been running a Grafana setup at Red Hat, here&#39;s some key points:
+ Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://www.adityakonarde.com/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Provisioning Dashboards with Grafana"/>
+<meta name="twitter:description" content="Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
+Based on this philosophy, I have been running a Grafana setup at Red Hat, here&#39;s some key points:
+ Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades."/>
+
+
+
+<meta property="og:title" content="Provisioning Dashboards with Grafana" />
+<meta property="og:description" content="Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
+Based on this philosophy, I have been running a Grafana setup at Red Hat, here&#39;s some key points:
+ Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git  One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/" />
+<meta property="article:published_time" content="2020-03-06T23:06:55+01:00" />
+<meta property="article:modified_time" content="2020-03-06T23:06:55+01:00" /><meta property="og:site_name" content="Aditya Konarde&#39;s Blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Aditya Konarde</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Blog</a></li>
+        
+      
+        
+          <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Blog</a></li>
+      
+    
+      
+        <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+      
+    
+      
+        <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/">Provisioning Dashboards with Grafana</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2020-03-06
+        </span>
+      
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      <h2 id="background">Background</h2>
+<p>Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.</p>
+<p>Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:</p>
+<ul>
+<li>Grafana runs as pods on a Kubernetes (OpenShift) cluster</li>
+<li>Each dashboard is mounted into the pod via ConfigMap</li>
+<li>Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git</li>
+</ul>
+<p>One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades. Because the pods are stateless, you can simply roll out a new version as long as the dashboard schema stays consistent.</p>
+<h2 id="the-how">The how</h2>
+<p>For this exercise, we use a feature in Grafana called Provisioning</p>
+<p>Provisioning allows you to inject certain configuration such as dashboards, plugins and notifiers into Grafana via a config file, and Grafana will know to load them at startup (and in the case of dashboards, watch them for updates).</p>
+<h2 id="provisioning-challenges-too-many-dashboards-on-the-main-page">Provisioning Challenges: Too many dashboards on the main page</h2>
+<p>So once you discover the awesome technique of dashboard provisioning, you are likely to read the documentation and start with a configuration that looks like the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v1
 data:
-  dashboards.yaml: |<span style=color:#e6db74>-
-</span><span style=color:#e6db74>   </span><span style=color:#e6db74> </span><span style=color:#e6db74>{</span>
-        <span style=color:#e6db74>&#34;apiVersion&#34;</span>: <span style=color:#ae81ff>1</span>,
-        <span style=color:#e6db74>&#34;providers&#34;</span>: [
+  dashboards.yaml: |<span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>
+        <span style="color:#e6db74">&#34;apiVersion&#34;</span>: <span style="color:#ae81ff">1</span>,
+        <span style="color:#e6db74">&#34;providers&#34;</span>: [
             {
-                <span style=color:#e6db74>&#34;folder&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
-                <span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
-                <span style=color:#e6db74>&#34;options&#34;</span>: {
-                    <span style=color:#e6db74>&#34;path&#34;</span>: <span style=color:#e6db74>&#34;/grafana-dashboard-definitions/0&#34;</span>
+                <span style="color:#e6db74">&#34;folder&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+                <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
+                <span style="color:#e6db74">&#34;options&#34;</span>: {
+                    <span style="color:#e6db74">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/grafana-dashboard-definitions/0&#34;</span>
                 },
-                <span style=color:#e6db74>&#34;orgId&#34;</span>: <span style=color:#ae81ff>1</span>,
-                <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;file&#34;</span>
+                <span style="color:#e6db74">&#34;orgId&#34;</span>: <span style="color:#ae81ff">1</span>,
+                <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;file&#34;</span>
             }
         ]
     }
 kind: ConfigMap
 metadata:
   name: grafana-dashboards
-</code></pre></div><p>And the dashboards will be mounted as a volume in the Kubernetes deployment spec:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>          - mountPath: /grafana-dashboard-definitions/<span style=color:#ae81ff>0</span>/grafana-dashboard-foo
+</code></pre></div><p>And the dashboards will be mounted as a volume in the Kubernetes deployment spec:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">          - mountPath: /grafana-dashboard-definitions/<span style="color:#ae81ff">0</span>/grafana-dashboard-foo
             name: grafana-dashboard-foo
 
             - configMap:
-                defaultMode: <span style=color:#ae81ff>420</span>
+                defaultMode: <span style="color:#ae81ff">420</span>
                 name: grafana-dashboard-foo
             name: grafana-dashboard-foo
-</code></pre></div><p>And soon as you add more dashboards, you will have corresponding Volumemounts under the same paths. At some point, your <code>/dashboards</code> page has a few dozen dashboards and it is a challenge trying to quickly get to the relevant ones</p><h2 id=provisioning-dashboards-into-their-own-folders>Provisioning dashboards into their own folders</h2><p>In the spirit of keeping our workspace hygenic, I wanted to clean up the mess that the <code>/dashboards</code> page was. I wasn't very sure if the documentation around provisioning already provided a way to group dashboards into a folder, so I had given up on that.</p><p>But the good news is, you actually can, in two simple steps:</p><ol><li>Add another folder to the providers in your grafana dashboards config, like so:</li></ol><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>apiVersion: v1
+</code></pre></div><p>And soon as you add more dashboards, you will have corresponding Volumemounts under the same paths. At some point, your <code>/dashboards</code> page has a few dozen dashboards and it is a challenge trying to quickly get to the relevant ones</p>
+<h2 id="provisioning-dashboards-into-their-own-folders">Provisioning dashboards into their own folders</h2>
+<p>In the spirit of keeping our workspace hygenic, I wanted to clean up the mess that the <code>/dashboards</code> page was. I wasn't very sure if the documentation around provisioning already provided a way to group dashboards into a folder, so I had given up on that.</p>
+<p>But the good news is, you actually can, in two simple steps:</p>
+<ol>
+<li>Add another folder to the providers in your grafana dashboards config, like so:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v1
 data:
-dashboards.yaml: |<span style=color:#e6db74>-
-</span><span style=color:#e6db74>   </span><span style=color:#e6db74> </span><span style=color:#e6db74>{</span>
-        <span style=color:#e6db74>&#34;apiVersion&#34;</span>: <span style=color:#ae81ff>1</span>,
-        <span style=color:#e6db74>&#34;providers&#34;</span>: [
+dashboards.yaml: |<span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>
+        <span style="color:#e6db74">&#34;apiVersion&#34;</span>: <span style="color:#ae81ff">1</span>,
+        <span style="color:#e6db74">&#34;providers&#34;</span>: [
             {
-                <span style=color:#e6db74>&#34;folder&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
-                <span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
-                <span style=color:#e6db74>&#34;options&#34;</span>: {
-                    <span style=color:#e6db74>&#34;path&#34;</span>: <span style=color:#e6db74>&#34;/grafana-dashboard-definitions/0&#34;</span>
+                <span style="color:#e6db74">&#34;folder&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+                <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
+                <span style="color:#e6db74">&#34;options&#34;</span>: {
+                    <span style="color:#e6db74">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/grafana-dashboard-definitions/0&#34;</span>
                 },
-                <span style=color:#e6db74>&#34;orgId&#34;</span>: <span style=color:#ae81ff>1</span>,
-                <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;file&#34;</span>
+                <span style="color:#e6db74">&#34;orgId&#34;</span>: <span style="color:#ae81ff">1</span>,
+                <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;file&#34;</span>
             },
             {
-                <span style=color:#e6db74>&#34;folder&#34;</span>: <span style=color:#e6db74>&#34;Bar&#34;</span>,
-                <span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
-                <span style=color:#e6db74>&#34;options&#34;</span>: {
-                    <span style=color:#e6db74>&#34;path&#34;</span>: <span style=color:#e6db74>&#34;/grafana-dashboard-definitions/Bar&#34;</span>
+                <span style="color:#e6db74">&#34;folder&#34;</span>: <span style="color:#e6db74">&#34;Bar&#34;</span>,
+                <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
+                <span style="color:#e6db74">&#34;options&#34;</span>: {
+                    <span style="color:#e6db74">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/grafana-dashboard-definitions/Bar&#34;</span>
                 },
-                <span style=color:#e6db74>&#34;orgId&#34;</span>: <span style=color:#ae81ff>1</span>,
-                <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;file&#34;</span>
+                <span style="color:#e6db74">&#34;orgId&#34;</span>: <span style="color:#ae81ff">1</span>,
+                <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;file&#34;</span>
             }
         ]
     }
 kind: ConfigMap
 metadata:
 name: grafana-dashboards
-</code></pre></div><ol start=2><li>When mounting the configmaps, mount them under a path listed in providers:</li></ol><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>          - mountPath: /grafana-dashboard-definitions/<span style=color:#ae81ff>0</span>/grafana-dashboard-foo
+</code></pre></div><ol start="2">
+<li>When mounting the configmaps, mount them under a path listed in providers:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">          - mountPath: /grafana-dashboard-definitions/<span style="color:#ae81ff">0</span>/grafana-dashboard-foo
             name: grafana-dashboard-foo
           - mountPath: /grafana-dashboard-definitions/Bar/grafana-dashboard-bar
             name: grafana-dashboard-bar
 
             - configMap:
-                defaultMode: <span style=color:#ae81ff>420</span>
+                defaultMode: <span style="color:#ae81ff">420</span>
                 name: grafana-dashboard-foo
             name: grafana-dashboard-foo
             - configMap:
-                defaultMode: <span style=color:#ae81ff>420</span>
+                defaultMode: <span style="color:#ae81ff">420</span>
                 name: grafana-dashboard-bar
             name: grafana-dashboard-bar
 
-</code></pre></div><blockquote><p>Note: Any dashboards which are not under any of the paths in providers will just disappear. Also, I would recommend you at least always have the <code>/0/</code> path available for General dashboards</p></blockquote><p>And that's a win! now your dashboards will be grouped by folders on the <code>/dashboards</code> page, making it super easy for teams to get to them in the time of need.</p><h2 id=grafana-on-kubernetes-quick-start>Grafana on Kubernetes: Quick Start</h2><p>I was only able to discover this because <a href="https://twitter.com/fredbrancz?lang=en">Frederic</a> mentioned that someone added this feature to his repo.</p><p>Only later I found that this repo is a gold mine. Not only it allows you to easily generate dashboards from jsonnet and create a ready-to-deploy configuration from it, but it also comes enabled with the folder-wise provisioning we talked about in this blog post.</p><p>If you're not already running Grafana this way on Kubernetes, I would highly recommend giving this repo a try: <a href=https://github.com/brancz/kubernetes-grafana>https://github.com/brancz/kubernetes-grafana</a></p><p>Some documentation for further reading:</p><ul><li><a href=https://grafana.com/docs/grafana/latest/administration/provisioning/>https://grafana.com/docs/grafana/latest/administration/provisioning/</a></li><li><a href=https://github.com/brancz/kubernetes-grafana>https://github.com/brancz/kubernetes-grafana</a></li><li><a href=https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/>https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/</a></li></ul></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://www.adityakonarde.com/posts/sre-time-management/><span class=button__icon>←</span>
-<span class=button__text>How much do SRE's really Code?</span></a></span>
-<span class="button next"><a href=https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/><span class=button__text>Prometheus Deep Dive Series: Intro</span>
-<span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><div class=footer__inner><div class="copyright copyright--user">2019 Aditya Konarde</div></div></footer><script src=https://www.adityakonarde.com/assets/main.js></script><script src=https://www.adityakonarde.com/assets/prism.js></script></div><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-155171810-1','auto');ga('send','pageview');}</script></body></html>
+</code></pre></div><blockquote>
+<p>Note: Any dashboards which are not under any of the paths in providers will just disappear. Also, I would recommend you at least always have the <code>/0/</code> path available for General dashboards</p>
+</blockquote>
+<p>And that's a win! now your dashboards will be grouped by folders on the <code>/dashboards</code> page, making it super easy for teams to get to them in the time of need.</p>
+<h2 id="grafana-on-kubernetes-quick-start">Grafana on Kubernetes: Quick Start</h2>
+<p>I was only able to discover this because <a href="https://twitter.com/fredbrancz?lang=en">Frederic</a> mentioned that someone added this feature to his repo.</p>
+<p>Only later I found that this repo is a gold mine. Not only it allows you to easily generate dashboards from jsonnet and create a ready-to-deploy configuration from it, but it also comes enabled with the folder-wise provisioning we talked about in this blog post.</p>
+<p>If you're not already running Grafana this way on Kubernetes, I would highly recommend giving this repo a try: <a href="https://github.com/brancz/kubernetes-grafana">https://github.com/brancz/kubernetes-grafana</a></p>
+<p>Some documentation for further reading:</p>
+<ul>
+<li><a href="https://grafana.com/docs/grafana/latest/administration/provisioning/">https://grafana.com/docs/grafana/latest/administration/provisioning/</a></li>
+<li><a href="https://github.com/brancz/kubernetes-grafana">https://github.com/brancz/kubernetes-grafana</a></li>
+<li><a href="https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/">https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/</a></li>
+</ul>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.adityakonarde.com/posts/sre-time-management/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">How much do SRE&#39;s really Code?</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/">
+                  <span class="button__text">Prometheus Deep Dive Series: Intro</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+    
+
+    
+      
+        
+
+      
+    
+    
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">2019 Aditya Konarde</div>
+    
+  </div>
+</footer>
+
+<script src="https://www.adityakonarde.com/assets/main.js"></script>
+<script src="https://www.adityakonarde.com/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-155171810-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

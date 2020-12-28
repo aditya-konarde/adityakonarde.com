@@ -1,9 +1,269 @@
-<!doctype html><html lang=en><head><title>How much do SRE's really Code? :: Aditya Konarde's Blog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content="A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google's Site Reliability Team, SRE is &amp;ldquo;what happens when a software engineer is tasked with what used to be called operations.&amp;rdquo;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>How much do SRE&#39;s really Code? :: Aditya Konarde&#39;s Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google&#39;s Site Reliability Team, SRE is &amp;ldquo;what happens when a software engineer is tasked with what used to be called operations.&amp;rdquo;
 ^ Source: Wikipedia
-How much time do you spend coding?"><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://www.adityakonarde.com/posts/sre-time-management/><link rel=stylesheet href=https://www.adityakonarde.com/assets/style.css><link rel=stylesheet href=https://www.adityakonarde.com/style.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=https://www.adityakonarde.com/img/favicon.png><meta name=twitter:card content="summary"><meta name=twitter:title content="How much do SRE's really Code?"><meta name=twitter:description content="A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google's Site Reliability Team, SRE is &ldquo;what happens when a software engineer is tasked with what used to be called operations.&rdquo;
+How much time do you spend coding?"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.adityakonarde.com/posts/sre-time-management/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://www.adityakonarde.com/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How much do SRE&#39;s really Code?"/>
+<meta name="twitter:description" content="A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google&#39;s Site Reliability Team, SRE is &ldquo;what happens when a software engineer is tasked with what used to be called operations.&rdquo;
 ^ Source: Wikipedia
-How much time do you spend coding?"><meta property="og:title" content="How much do SRE's really Code?"><meta property="og:description" content="A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google's Site Reliability Team, SRE is &ldquo;what happens when a software engineer is tasked with what used to be called operations.&rdquo;
+How much time do you spend coding?"/>
+
+
+
+<meta property="og:title" content="How much do SRE&#39;s really Code?" />
+<meta property="og:description" content="A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google&#39;s Site Reliability Team, SRE is &ldquo;what happens when a software engineer is tasked with what used to be called operations.&rdquo;
 ^ Source: Wikipedia
-How much time do you spend coding?"><meta property="og:type" content="article"><meta property="og:url" content="https://www.adityakonarde.com/posts/sre-time-management/"><meta property="article:published_time" content="2020-12-28T14:29:04+01:00"><meta property="article:modified_time" content="2020-12-28T15:54:20+01:00"><meta property="og:site_name" content="Aditya Konarde's Blog"></head><body><div class=container><header class=header><span class=header__inner><a href=/ class=logo style=text-decoration:none><span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg></span><span class=logo__text>Aditya Konarde</span>
-<span class=logo__cursor></span></a><span class=header__right><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/about>About</a></li><li><a href=/posts>Blog</a></li><li><a href=https://calendly.com/aditya-konarde>Contact</a></li><li><a href=https://www.instagram.com/aditya.konarde>Photography</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/about>About</a></li><li><a href=/posts>Blog</a></li><li><a href=https://calendly.com/aditya-konarde>Contact</a></li><li><a href=https://www.instagram.com/aditya.konarde>Photography</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class=theme-toggle><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><h2 class=post-title><a href=https://www.adityakonarde.com/posts/sre-time-management/>How much do SRE's really Code?</a></h2><div class=post-meta><span class=post-date>2020-12-28</span></div><div class=post-content><h2 id=a-quick-recap-on-sre>A quick recap on SRE</h2><p>Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google's Site Reliability Team, SRE is &ldquo;what happens when a software engineer is tasked with what used to be called operations.&rdquo;</p><p>^ Source: Wikipedia</p><h2 id=how-much-time-do-you-spend-coding>How much time do you spend coding?</h2><p>I get this question quite often: &ldquo;How much time do you spend writing code?&rdquo;</p><p>With the rising popularity of the SRE mindset, companies each have their own take on what SRE means, which ends up confusing the average reader.</p><p>In an ideal world, SRE's spend no more than 50% of their working time on operations work. SRE teams also strive to minimize their &lsquo;toil&rsquo;.</p><p>For example, Google places a 50% cap on the aggregate &ldquo;ops&rdquo; work for all SREs—tickets, on-call, manual tasks, etc</p><p>Let's look at what an average SRE day looks like:</p><h3 id=anatomy-of-an-sre-day>Anatomy of an SRE day</h3><p>There is no such thing as a &lsquo;normal&rsquo; day in the SRE world. My answer to the earlier question is always: &ldquo;It depends on what problem I am trying to solve&rdquo;. Let's see why:</p><p>SRE's are tasked with a lot of responsibilities. Let's pick a few from the Google SRE book's index:</p><ul><li>Monitoring and Alerting</li><li>Eliminating Toil</li><li>On-call and Incident Response</li><li>Configuration Design and Best Practices</li><li>Managing Load</li></ul><p>While many of these are software problems, one does not use the same tool to solve all of them. Remember: one should not use a hammer to chop a tree.</p><p>Some problem can be solved by writing code, while another can be solved without. Incident response is a critical part of an SRE's job, but doesn't involve code. The same for documentation, architecture reviews, consulting and many other aspects of the role.</p><p>It also depends on what &lsquo;code&rsquo; really means for you. Is configuration management considered &lsquo;code&rsquo;? What about something like jsonnet? Is writing BASH or Python scripts considered code? People have various opinions about this, which are outside the scope of this blog.</p><h3 id=the-realistic-model-for-sre-time>The realistic model for SRE time</h3><p>I currently work with Red Hat as an SRE. Here's what my breakdown looks like:</p><ul><li>40% Development</li><li>30% Operations</li><li>20% Consulting, Documentation, Reviews, Meetings, Training, Research</li><li>10% Meetings :)</li></ul><p>While this may sound much less than ideal, I would like to note that I believe knowledge sharing and collaboration with others are one of the harder software engineering problems, and should be treated as such. Consistency, documentation and &lsquo;teaching how to fish&rsquo; can have a surprisingly good long-term impact, so I love spending time there. This totally depends on your organization.</p><p>The breakdown is definitely not set in stone, and one must always be prepared to move things around as per the needs of the business. An SRE team is also not a single person, so a good manager will know to encourage individuals to work on their core areas while also adding a fine balance to this breakdown.</p><p>If you would like to know more, feel free to reach out to me on <a href=https://twitter.com/aditya_konarde>Twitter</a> or <a href=https://www.linkedin.com/in/adityakonarde/>LinkedIn</a> and I would be happy to write a follow-up to this blog :)</p><h2 id=further-reading>Further reading</h2><ul><li><a href=https://sre.google/sre-book>Google SRE book</a></li><li><a href=https://sre.google/workbook/eliminating-toil/>Eliminating Toil Chapter from the Google SRE Workbook</a></li><li><a href=https://sre.google/workbook/overload/>Managing SRE load</a></li></ul></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/><span class=button__text>Provisioning Dashboards with Grafana</span>
-<span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><div class=footer__inner><div class="copyright copyright--user">2019 Aditya Konarde</div></div></footer><script src=https://www.adityakonarde.com/assets/main.js></script><script src=https://www.adityakonarde.com/assets/prism.js></script></div><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-155171810-1','auto');ga('send','pageview');}</script></body></html>
+How much time do you spend coding?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.adityakonarde.com/posts/sre-time-management/" />
+<meta property="article:published_time" content="2020-12-28T14:29:04+01:00" />
+<meta property="article:modified_time" content="2020-12-28T14:29:04+01:00" /><meta property="og:site_name" content="Aditya Konarde&#39;s Blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Aditya Konarde</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Blog</a></li>
+        
+      
+        
+          <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Blog</a></li>
+      
+    
+      
+        <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+      
+    
+      
+        <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://www.adityakonarde.com/posts/sre-time-management/">How much do SRE's really Code?</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2020-12-28
+        </span>
+      
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      <h2 id="a-quick-recap-on-sre">A quick recap on SRE</h2>
+<p>Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google's Site Reliability Team, SRE is &ldquo;what happens when a software engineer is tasked with what used to be called operations.&rdquo;</p>
+<p>^ Source: Wikipedia</p>
+<h2 id="how-much-time-do-you-spend-coding">How much time do you spend coding?</h2>
+<p>I get this question quite often: &ldquo;How much time do you spend writing code?&rdquo;</p>
+<p>With the rising popularity of the SRE mindset, companies each have their own take on what SRE means, which ends up confusing the average reader.</p>
+<p>In an ideal world, SRE's spend no more than 50% of their working time on operations work. SRE teams also strive to minimize their &lsquo;toil&rsquo;.</p>
+<p>For example, Google places a 50% cap on the aggregate &ldquo;ops&rdquo; work for all SREs—tickets, on-call, manual tasks, etc</p>
+<p>Let's look at what an average SRE day looks like:</p>
+<h3 id="anatomy-of-an-sre-day">Anatomy of an SRE day</h3>
+<p>There is no such thing as a &lsquo;normal&rsquo; day in the SRE world. My answer to the earlier question is always: &ldquo;It depends on what problem I am trying to solve&rdquo;. Let's see why:</p>
+<p>SRE's are tasked with a lot of responsibilities. Let's pick a few from the Google SRE book's index:</p>
+<ul>
+<li>Monitoring and Alerting</li>
+<li>Eliminating Toil</li>
+<li>On-call and Incident Response</li>
+<li>Configuration Design and Best Practices</li>
+<li>Managing Load</li>
+</ul>
+<p>While many of these are software problems, one does not use the same tool to solve all of them. Remember: one should not use a hammer to chop a tree.</p>
+<p>Some problem can be solved by writing code, while another can be solved without. Incident response is a critical part of an SRE's job, but doesn't involve code. The same for documentation, architecture reviews, consulting and many other aspects of the role.</p>
+<p>It also depends on what &lsquo;code&rsquo; really means for you. Is configuration management considered &lsquo;code&rsquo;? What about something like jsonnet? Is writing BASH or Python scripts considered code? People have various opinions about this, which are outside the scope of this blog.</p>
+<h3 id="the-realistic-model-for-sre-time">The realistic model for SRE time</h3>
+<p>I currently work with Red Hat as an SRE. Here's what my breakdown looks like:</p>
+<ul>
+<li>40% Development</li>
+<li>30% Operations</li>
+<li>20% Consulting, Documentation, Reviews, Meetings, Training, Research</li>
+<li>10% Meetings :)</li>
+</ul>
+<p>While this may sound much less than ideal, I would like to note that I believe knowledge sharing and collaboration with others are one of the harder software engineering problems, and should be treated as such. Consistency, documentation and &lsquo;teaching how to fish&rsquo; can have a surprisingly good long-term impact, so I love spending time there. This totally depends on your organization.</p>
+<p>The breakdown is definitely not set in stone, and one must always be prepared to move things around as per the needs of the business. An SRE team is also not a single person, so a good manager will know to encourage individuals to work on their core areas while also adding a fine balance to this breakdown.</p>
+<p>If you would like to know more, feel free to reach out to me on <a href="https://twitter.com/aditya_konarde">Twitter</a> or <a href="https://www.linkedin.com/in/adityakonarde/">LinkedIn</a> and I would be happy to write a follow-up to this blog :)</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://sre.google/sre-book">Google SRE book</a></li>
+<li><a href="https://sre.google/workbook/eliminating-toil/">Eliminating Toil Chapter from the Google SRE Workbook</a></li>
+<li><a href="https://sre.google/workbook/overload/">Managing SRE load</a></li>
+</ul>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.adityakonarde.com/posts/prometheus-deep-dive-1/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Prometheus Deep Dive - Part 1</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/">
+                  <span class="button__text">Provisioning Dashboards with Grafana</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+    
+
+    
+      
+        
+
+      
+    
+    
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">2019 Aditya Konarde</div>
+    
+  </div>
+</footer>
+
+<script src="https://www.adityakonarde.com/assets/main.js"></script>
+<script src="https://www.adityakonarde.com/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-155171810-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

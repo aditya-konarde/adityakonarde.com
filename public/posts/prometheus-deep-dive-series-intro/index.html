@@ -1,11 +1,260 @@
-<!doctype html><html lang=en><head><title>Prometheus Deep Dive Series: Intro :: Aditya Konarde's Blog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content="What is Prometheus If you're an engineer working with Cloud technologies, chances are that you've already heard of Prometheus
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Prometheus Deep Dive Series: Intro :: Aditya Konarde&#39;s Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="What is Prometheus If you&#39;re an engineer working with Cloud technologies, chances are that you&#39;ve already heard of Prometheus
 Prometheus is an Open Source monitoring tool. Its development started at SoundCloud and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.
-Prometheus does a few things and does it well."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/><link rel=stylesheet href=https://www.adityakonarde.com/assets/style.css><link rel=stylesheet href=https://www.adityakonarde.com/style.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=https://www.adityakonarde.com/img/favicon.png><meta name=twitter:card content="summary"><meta name=twitter:title content="Prometheus Deep Dive Series: Intro"><meta name=twitter:description content="What is Prometheus If you're an engineer working with Cloud technologies, chances are that you've already heard of Prometheus
+Prometheus does a few things and does it well."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://www.adityakonarde.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.adityakonarde.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://www.adityakonarde.com/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prometheus Deep Dive Series: Intro"/>
+<meta name="twitter:description" content="What is Prometheus If you&#39;re an engineer working with Cloud technologies, chances are that you&#39;ve already heard of Prometheus
 Prometheus is an Open Source monitoring tool. Its development started at SoundCloud and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.
-Prometheus does a few things and does it well."><meta property="og:title" content="Prometheus Deep Dive Series: Intro"><meta property="og:description" content="What is Prometheus If you're an engineer working with Cloud technologies, chances are that you've already heard of Prometheus
+Prometheus does a few things and does it well."/>
+
+
+
+<meta property="og:title" content="Prometheus Deep Dive Series: Intro" />
+<meta property="og:description" content="What is Prometheus If you&#39;re an engineer working with Cloud technologies, chances are that you&#39;ve already heard of Prometheus
 Prometheus is an Open Source monitoring tool. Its development started at SoundCloud and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.
-Prometheus does a few things and does it well."><meta property="og:type" content="article"><meta property="og:url" content="https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/"><meta property="article:published_time" content="2019-12-31T14:48:44+01:00"><meta property="article:modified_time" content="2019-12-31T15:38:04+01:00"><meta property="og:site_name" content="Aditya Konarde's Blog"></head><body><div class=container><header class=header><span class=header__inner><a href=/ class=logo style=text-decoration:none><span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg></span><span class=logo__text>Aditya Konarde</span>
-<span class=logo__cursor></span></a><span class=header__right><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/about>About</a></li><li><a href=/posts>Blog</a></li><li><a href=https://calendly.com/aditya-konarde>Contact</a></li><li><a href=https://www.instagram.com/aditya.konarde>Photography</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/about>About</a></li><li><a href=/posts>Blog</a></li><li><a href=https://calendly.com/aditya-konarde>Contact</a></li><li><a href=https://www.instagram.com/aditya.konarde>Photography</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class=theme-toggle><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><h2 class=post-title><a href=https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/>Prometheus Deep Dive Series: Intro</a></h2><div class=post-meta><span class=post-date>2019-12-31</span></div><div class=post-content><h2 id=what-is-prometheus>What is Prometheus</h2><p>If you're an engineer working with Cloud technologies, chances are that you've already heard of <a href=https://prometheus.io/>Prometheus</a></p><p>Prometheus is an Open Source monitoring tool. Its development started at <a href=https://soundcloud.com/pages/contact>SoundCloud</a> and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.</p><p>Prometheus does a few things and does it well. While doing this, it does have some nice modularity as you can mix and match it with other tooling such as <a href=https://github.com/grafana/grafana>Grafana</a> and <a href=https://github.com/prometheus/alertmanager>Alertmanager</a>.</p><p>I don't want to make the first paragraph a clickbait. While it was important to set the context, this is <em>not</em> a post that introduces Prometheus itself. Others in the community have done a very good job at doing this, and here's a few recommended talks and blogs about Prometheus if you have some catching up to do.</p><h3 id=prerequisite-reading-a-prometheus-crash-course>Prerequisite reading: A Prometheus crash course</h3><ul><li><a href=https://prometheus.io/docs/introduction/overview/>Get an overview</a></li><li><a href="https://www.youtube.com/watch?v=9GMWvFcQjYI">Understand the architecture</a></li><li><a href=https://www.katacoda.com/courses/prometheus/>And please get your hands dirty</a></li></ul><blockquote><p>Again, note that this is a &lsquo;deep dive&rsquo; series. If you're new to Prometheus, I would highly recommend making sure you're familiar with the terminology first with the material above</p></blockquote><h2 id=prometheus-diving-into-the-fire>Prometheus: Diving into the fire</h2><p>When I first started learning to use and set up Prometheus, I faced certain challenges that I don't want other users to see. One of them is the lack of documentation around the details around how Prometheus really works.</p><p>The Prometheus project maintainers are busy people, but I'm hoping to talk to them one at a time and write up a post each on the major subsystems of the codebase.</p><p>Here's an overview of what I currently think the roadmap for the series is going to be. I may add tweaks to this post as my understanding of the project evolves.</p><ul><li>The Prometheus Data Model</li><li>Life cycle of a scrape</li><li>TSDB - The Prometheus time series database layer</li><li>Prometheus Query evaluation</li><li>Alerting walkthrough</li><li>Service Discovery in Prometheus</li><li>Monitoring Prometheus with Prometheus</li></ul><p>And finally here's a disclaimer that I'm not an expert on any of these. I hope to be a gatherer instead, collecting bits of knowledge from everyone's heads and recording it :)</p><p>If you have topic suggestions/requests, please let me know on twitter @aditya_konarde</p><p>A special shoutout to everyone who contributes to this project and have given talks/written content around the Project. I will try to quote them directly as much as I can, but do note if I miss something, all credits belong to whoever they belong to. I have no claims ;)</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/><span class=button__icon>←</span>
-<span class=button__text>Provisioning Dashboards with Grafana</span></a></span>
-<span class="button next"><a href=https://www.adityakonarde.com/posts/heres-to-2010s/><span class=button__text>Here's to the 2010s</span>
-<span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><div class=footer__inner><div class="copyright copyright--user">2019 Aditya Konarde</div></div></footer><script src=https://www.adityakonarde.com/assets/main.js></script><script src=https://www.adityakonarde.com/assets/prism.js></script></div><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-155171810-1','auto');ga('send','pageview');}</script></body></html>
+Prometheus does a few things and does it well." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/" />
+<meta property="article:published_time" content="2019-12-31T14:48:44+01:00" />
+<meta property="article:modified_time" content="2019-12-31T14:48:44+01:00" /><meta property="og:site_name" content="Aditya Konarde&#39;s Blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Aditya Konarde</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Blog</a></li>
+        
+      
+        
+          <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Blog</a></li>
+      
+    
+      
+        <li><a href="https://calendly.com/aditya-konarde">Contact</a></li>
+      
+    
+      
+        <li><a href="https://www.instagram.com/aditya.konarde">Photography</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/">Prometheus Deep Dive Series: Intro</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-12-31
+        </span>
+      
+      
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      <h2 id="what-is-prometheus">What is Prometheus</h2>
+<p>If you're an engineer working with Cloud technologies, chances are that you've already heard of <a href="https://prometheus.io/">Prometheus</a></p>
+<p>Prometheus is an Open Source monitoring tool. Its development started at <a href="https://soundcloud.com/pages/contact">SoundCloud</a> and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.</p>
+<p>Prometheus does a few things and does it well. While doing this, it does have some nice modularity as you can mix and match it with other tooling such as <a href="https://github.com/grafana/grafana">Grafana</a> and <a href="https://github.com/prometheus/alertmanager">Alertmanager</a>.</p>
+<p>I don't want to make the first paragraph a clickbait. While it was important to set the context, this is <em>not</em> a post that introduces Prometheus itself. Others in the community have done a very good job at doing this, and here's a few recommended talks and blogs about Prometheus if you have some catching up to do.</p>
+<h3 id="prerequisite-reading-a-prometheus-crash-course">Prerequisite reading: A Prometheus crash course</h3>
+<ul>
+<li><a href="https://prometheus.io/docs/introduction/overview/">Get an overview</a></li>
+<li><a href="https://www.youtube.com/watch?v=9GMWvFcQjYI">Understand the architecture</a></li>
+<li><a href="https://www.katacoda.com/courses/prometheus/">And please get your hands dirty</a></li>
+</ul>
+<blockquote>
+<p>Again, note that this is a &lsquo;deep dive&rsquo; series. If you're new to Prometheus, I would highly recommend making sure you're familiar with the terminology first with the material above</p>
+</blockquote>
+<h2 id="prometheus-diving-into-the-fire">Prometheus: Diving into the fire</h2>
+<p>When I first started learning to use and set up Prometheus, I faced certain challenges that I don't want other users to see. One of them is the lack of documentation around the details around how Prometheus really works.</p>
+<p>The Prometheus project maintainers are busy people, but I'm hoping to talk to them one at a time and write up a post each on the major subsystems of the codebase.</p>
+<p>Here's an overview of what I currently think the roadmap for the series is going to be. I may add tweaks to this post as my understanding of the project evolves.</p>
+<ul>
+<li>The Prometheus Data Model</li>
+<li>Life cycle of a scrape</li>
+<li>TSDB - The Prometheus time series database layer</li>
+<li>Prometheus Query evaluation</li>
+<li>Alerting walkthrough</li>
+<li>Service Discovery in Prometheus</li>
+<li>Monitoring Prometheus with Prometheus</li>
+</ul>
+<p>And finally here's a disclaimer that I'm not an expert on any of these. I hope to be a gatherer instead, collecting bits of knowledge from everyone's heads and recording it :)</p>
+<p>If you have topic suggestions/requests, please let me know on twitter @aditya_konarde</p>
+<p>A special shoutout to everyone who contributes to this project and have given talks/written content around the Project. I will try to quote them directly as much as I can, but do note if I miss something, all credits belong to whoever they belong to. I have no claims ;)</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Provisioning Dashboards with Grafana</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.adityakonarde.com/posts/heres-to-2010s/">
+                  <span class="button__text">Here&#39;s to the 2010s</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+    
+
+    
+      
+        
+
+      
+    
+    
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">2019 Aditya Konarde</div>
+    
+  </div>
+</footer>
+
+<script src="https://www.adityakonarde.com/assets/main.js"></script>
+<script src="https://www.adityakonarde.com/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-155171810-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>
