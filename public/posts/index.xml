@@ -1,9 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aditya Konarde's Blog</title><link>https://www.adityakonarde.com/posts/</link><description>Recent content in Posts on Aditya Konarde's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>2019 Aditya Konarde</copyright><lastBuildDate>Mon, 28 Dec 2020 14:29:04 +0100</lastBuildDate><atom:link href="https://www.adityakonarde.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How much do SRE's really Code?</title><link>https://www.adityakonarde.com/posts/sre-time-management/</link><pubDate>Mon, 28 Dec 2020 14:29:04 +0100</pubDate><guid>https://www.adityakonarde.com/posts/sre-time-management/</guid><description>A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google's Site Reliability Team, SRE is &amp;ldquo;what happens when a software engineer is tasked with what used to be called operations.&amp;rdquo;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Aditya Konarde&#39;s Blog</title>
+    <link>https://www.adityakonarde.com/posts/</link>
+    <description>Recent content in Posts on Aditya Konarde&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>2019 Aditya Konarde</copyright>
+    <lastBuildDate>Sat, 10 Dec 2022 02:06:37 +0100</lastBuildDate><atom:link href="https://www.adityakonarde.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tech hardware for productivity</title>
+      <link>https://www.adityakonarde.com/posts/tech-hardware/</link>
+      <pubDate>Sat, 10 Dec 2022 02:06:37 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/tech-hardware/</guid>
+      <description>As a software engineer, having the right hardware can make a huge difference in your productivity and success. In this post, I&amp;rsquo;ll share the hardware that I currently use on a daily basis as a remote software engineer.
+First and foremost, I use a M1 Macbook Pro for my laptop. This computer is incredibly fast and reliable, which is essential for the work that I do. It also has a beautiful display, which makes it a good laptop for editing pictures.</description>
+    </item>
+    
+    <item>
+      <title>How much do SRE&#39;s really Code?</title>
+      <link>https://www.adityakonarde.com/posts/sre-time-management/</link>
+      <pubDate>Mon, 28 Dec 2020 14:29:04 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/sre-time-management/</guid>
+      <description>A quick recap on SRE Site reliability engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems.[1] The main goals are to create scalable and highly reliable software systems. According to Ben Treynor, founder of Google&amp;rsquo;s Site Reliability Team, SRE is &amp;ldquo;what happens when a software engineer is tasked with what used to be called operations.&amp;rdquo;
 ^ Source: Wikipedia
-How much time do you spend coding?</description></item><item><title>Provisioning Dashboards with Grafana</title><link>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</link><pubDate>Fri, 06 Mar 2020 23:06:55 +0100</pubDate><guid>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</guid><description>Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
-Based on this philosophy, I have been running a Grafana setup at Red Hat, here's some key points:
-Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades.</description></item><item><title>Prometheus Deep Dive Series: Intro</title><link>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</link><pubDate>Tue, 31 Dec 2019 14:48:44 +0100</pubDate><guid>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</guid><description>What is Prometheus If you're an engineer working with Cloud technologies, chances are that you've already heard of Prometheus
+How much time do you spend coding?</description>
+    </item>
+    
+    <item>
+      <title>Provisioning Dashboards with Grafana</title>
+      <link>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</link>
+      <pubDate>Fri, 06 Mar 2020 23:06:55 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</guid>
+      <description>Background Grafana has become the de-facto visualization tool for Prometheus. While it is cool to run a central Grafana hooked up to an RDS database, I think it is even better if you can make Grafana completely configurable via git and thus have stateless Grafana instances which you can scale horizontally.
+Based on this philosophy, I have been running a Grafana setup at Red Hat, here&amp;rsquo;s some key points:
+Grafana runs as pods on a Kubernetes (OpenShift) cluster Each dashboard is mounted into the pod via ConfigMap Our GitOps pipeline takes care of adding the dashboard configmaps into the namespace, so all dashboards and their changes ultimately must end up in Git One of the best benefits of this approach is that you never have to worry about Grafana upgrades/downgrades.</description>
+    </item>
+    
+    <item>
+      <title>Prometheus Deep Dive Series: Intro</title>
+      <link>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</link>
+      <pubDate>Tue, 31 Dec 2019 14:48:44 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</guid>
+      <description>What is Prometheus If you&amp;rsquo;re an engineer working with Cloud technologies, chances are that you&amp;rsquo;ve already heard of Prometheus
 Prometheus is an Open Source monitoring tool. Its development started at SoundCloud and it has now evolved into being a go-to choice for metrics collection. I often relate its rise in popularity to its simple, gitops friendly configuration management, simple setup and modularity.
-Prometheus does a few things and does it well.</description></item><item><title>Here's to the 2010s</title><link>https://www.adityakonarde.com/posts/heres-to-2010s/</link><pubDate>Tue, 31 Dec 2019 10:40:35 +0100</pubDate><guid>https://www.adityakonarde.com/posts/heres-to-2010s/</guid><description>Hello World!
+Prometheus does a few things and does it well.</description>
+    </item>
+    
+    <item>
+      <title>Here&#39;s to the 2010s</title>
+      <link>https://www.adityakonarde.com/posts/heres-to-2010s/</link>
+      <pubDate>Tue, 31 Dec 2019 10:40:35 +0100</pubDate>
+      
+      <guid>https://www.adityakonarde.com/posts/heres-to-2010s/</guid>
+      <description>Hello World!
 As we approach the end of the year, I wanted to take a moment to reflect on what I learnt in these 10 years leading to 2020.
-I must start off by saying its been such a roller coaster ride. Starting from the early 2010s where I was in ahem School (!) all the way up to now me sitting here in a cafe in my new home - Berlin.</description></item></channel></rss>
+I must start off by saying its been such a roller coaster ride. Starting from the early 2010s where I was in ahem School (!) all the way up to now me sitting here in a cafe in my new home - Berlin.</description>
+    </item>
+    
+  </channel>
+</rss>

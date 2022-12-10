@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://www.adityakonarde.com/</loc><lastmod>2020-12-28T15:54:20+01:00</lastmod></url><url><loc>https://www.adityakonarde.com/posts/sre-time-management/</loc><lastmod>2020-12-28T15:54:20+01:00</lastmod></url><url><loc>https://www.adityakonarde.com/posts/</loc><lastmod>2020-12-28T15:54:20+01:00</lastmod></url><url><loc>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</loc><lastmod>2020-03-07T00:21:37+01:00</lastmod></url><url><loc>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</loc><lastmod>2019-12-31T15:38:04+01:00</lastmod></url><url><loc>https://www.adityakonarde.com/posts/heres-to-2010s/</loc><lastmod>2019-12-31T11:14:53+01:00</lastmod></url><url><loc>https://www.adityakonarde.com/about/</loc><priority>0</priority></url><url><loc>https://www.adityakonarde.com/categories/</loc></url><url><loc>https://www.adityakonarde.com/tags/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.adityakonarde.com/</loc>
+    <lastmod>2022-12-10T02:06:37+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/posts/</loc>
+    <lastmod>2022-12-10T02:06:37+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/posts/tech-hardware/</loc>
+    <lastmod>2022-12-10T02:06:37+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/posts/sre-time-management/</loc>
+    <lastmod>2020-12-28T14:29:04+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/posts/provisioning-dashboards-grafana/</loc>
+    <lastmod>2020-03-06T23:06:55+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/posts/prometheus-deep-dive-series-intro/</loc>
+    <lastmod>2019-12-31T14:48:44+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/posts/heres-to-2010s/</loc>
+    <lastmod>2019-12-31T10:40:35+01:00</lastmod>
+  </url><url>
+    <loc>https://www.adityakonarde.com/about/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://www.adityakonarde.com/categories/</loc>
+  </url><url>
+    <loc>https://www.adityakonarde.com/tags/</loc>
+  </url>
+</urlset>
