@@ -1,29 +1,13 @@
 # Hello There
 
-TLDR:
+I am a Software Engineer currently living in Berlin, Germany. After a few years working on Kubernetes, Prometheus, and other cloud-native technologies as a Site Reliability Engineer, I switched tracks to the world of Engineering leadership. 
 
-Software Engineer - living in Berlin, working on Kubernetes, Prometheus and all things cloud-native
+In my free time, I am an amateur photographer and enjoy traveling to experience new cultures. You can see some of my work on my Instagram page: https://www.instagram.com/aditya.konarde/
 
-On the side: [Amateur Photographer](https://www.instagram.com/aditya.konarde/) + Music and Coffee enthusiast
+I also enjoy good music and coffee, and enjoy a good masala chai from time to time.
 
-## Outside of work
+In addition to my work on Kubernetes and Prometheus, I have experience with CI/CD, GitOps, and Observability. I am a regular conference and meetup speaker and help organize the Kubernetes Berlin meetup so feel free to say hi if you see me at an event.
 
-I only recently discovered that I love traveling and experiencing new cultures.
+You can connect with me on LinkedIn at https://www.linkedin.com/in/adityakonarde/
 
-I've been to many countries and will continue to do so. I currently live in Berlin, Germany.
-
-You can find my photography (Travel, Abstract, some random pics) on my [Instagram page](https://www.instagram.com/aditya.konarde/)
-
-Other than that, I love good music (almost all genres) and good coffee. Still enjoy a good Masala chai though ;)
-
-## Work
-
-I am a Site Reliability Engineer working in the Cloud-native world. Currently focusing on Kubernetes, Prometheus and all the usual SRE stuff. :)
-
-At this point I believe an SRE shuffles between Dev, Ops and Consulting. So I work with whatever language my customer speaks (or codes in). Have done some Python, learning Golang.
-
-Regular conference and meetup speaker. Come say hi!
-
-Other stuff I've worked on: CI/CD, GitOps, Ansible, Observability all for SaaS and business-critical platform backends
-
-Add me on [LinkedIn](https://www.linkedin.com/in/adityakonarde/)
+Cheers! :) 
