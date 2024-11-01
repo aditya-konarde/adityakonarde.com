@@ -1,6 +1,6 @@
 baseUrl: https://www.adityakonarde.com/
 languageCode: en-us
-theme: hello-friend
+theme: PaperMod
 copyright: '2024 Aditya Konarde'
 pagination:
   pagerSize: 5

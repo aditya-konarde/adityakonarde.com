@@ -2,6 +2,12 @@
 title: "How much do SRE's really Code?"
 date: 2020-12-28T14:29:04+01:00
 draft: false
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
+canonicalURL: ""
+searchHidden: false
 ---
 
 ## A quick recap on SRE

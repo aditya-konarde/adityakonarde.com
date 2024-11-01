@@ -2,6 +2,12 @@
 title: "Event Report: Devconf Cz 2020"
 date: 2020-02-06T14:23:38+01:00
 draft: true
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
+canonicalURL: ""
+searchHidden: false
 ---
 
 DevConf is an annual developers conference focusing on Open Source software that originally started 10+ years ago in Brno, Czech Republic. In the recent years, the conference is organized in three cities: Brno, Boston and Bangalore.

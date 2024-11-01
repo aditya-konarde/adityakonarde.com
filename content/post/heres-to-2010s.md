@@ -2,6 +2,12 @@
 title: "Here's to the 2010s"
 date: 2019-12-31T10:40:35+01:00
 draft: false
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
+canonicalURL: ""
+searchHidden: false
 ---
 
 Hello World!

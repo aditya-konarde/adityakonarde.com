@@ -2,6 +2,12 @@
 title: "Tech hardware for productivity"
 date: 2022-12-10T02:06:37+01:00
 draft: false
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
+canonicalURL: ""
+searchHidden: false
 ---
 
 As a software engineer, having the right hardware can make a huge difference in your productivity and success. In this post, I'll share the hardware that I currently use on a daily basis as a remote software engineer.

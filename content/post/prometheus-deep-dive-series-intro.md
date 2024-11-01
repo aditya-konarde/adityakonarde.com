@@ -2,6 +2,12 @@
 title: "Prometheus Deep Dive Series: Intro"
 date: 2019-12-31T14:48:44+01:00
 draft: false
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
+canonicalURL: ""
+searchHidden: false
 ---
 
 ## What is Prometheus
