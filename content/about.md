@@ -1,13 +1,11 @@
-# Hello There
+# About Me
 
-I am a Software Engineer currently living in Berlin, Germany. After a few years working on Kubernetes, Prometheus, and other cloud-native technologies as a Site Reliability Engineer, I switched tracks to the world of Engineering leadership. 
+I am a Software Engineer based in Berlin, Germany. 
 
-In my free time, I am an amateur photographer and enjoy traveling to experience new cultures. You can see some of my work on my Instagram page: https://www.instagram.com/aditya.konarde/
+My background includes extensive experience with open source, cloud-native technologies. I worked as a Site Reliability Engineer before transitioning into Engineering Leadership, and I currently work as an Engineering Manager at  Grafana labs.
 
-I also enjoy good music and coffee, and enjoy a good masala chai from time to time.
+I enjoy sharing my learnings and brainstorming at industry conferences and actively contribute to the tech community as an organizer of the Kubernetes Berlin meetup. I welcome connections at these events and am always eager to engage in meaningful technical discussions.
 
-In addition to my work on Kubernetes and Prometheus, I have experience with CI/CD, GitOps, and Observability. I am a regular conference and meetup speaker and help organize the Kubernetes Berlin meetup so feel free to say hi if you see me at an event.
+Outside of work, you will find me trying new types of coffee, wine and enjoying some traditional Indian masala chai.
 
-You can connect with me on LinkedIn at https://www.linkedin.com/in/adityakonarde/
-
-Cheers! :) 
+For professional inquiries and networking, you can reach me on LinkedIn: https://www.linkedin.com/in/adityakonarde/
