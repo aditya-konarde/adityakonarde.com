@@ -19,9 +19,9 @@ params:
     imageHeight: 150
     buttons:
       - name: "Blog"
-        url: "/posts"
+        url: "posts"
       - name: "About"
-        url: "/about"
+        url: "about"
       - name: "Photography"
         url: "https://www.instagram.com/aditya.konarde"
       - name: "Contact"
@@ -71,4 +71,6 @@ languages:
       - identifier: Photography
         name: Photography
         url: https://www.instagram.com/aditya.konarde
+
+contentDir: "content"
 
