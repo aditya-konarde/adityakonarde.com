@@ -9,11 +9,34 @@ services:
     ID: "G-32YZMDJ7FF" 
 
 params:
-  # dir name of your blog content (default is `content/posts`)
-  contentTypeName: posts
-  # "dark" or "light"
+  profileMode:
+    enabled: true
+    title: "Aditya Konarde"
+    subtitle: "Engineering Leader | Technology Enthusiast | Photographer"
+    imageUrl: "images/propic-square.jpeg"
+    imageTitle: "Aditya Konarde"
+    imageWidth: 150
+    imageHeight: 150
+    buttons:
+      - name: "Blog"
+        url: "/posts"
+      - name: "About"
+        url: "/about"
+      - name: "Photography"
+        url: "https://www.instagram.com/aditya.konarde"
+      - name: "Contact"
+        url: "https://calendly.com/aditya-konarde"
+
+  socialIcons:
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/adityakonarde/"
+    - name: "github"
+      url: "https://github.com/adityakonarde"
+    - name: "instagram"
+      url: "https://www.instagram.com/aditya.konarde"
+
+  # Keep your existing params
   defaultTheme: light
-  # if you set this to 0, only submenu trigger will be visible
   showMenuItems: 4
 
 languages:
