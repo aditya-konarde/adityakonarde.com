@@ -1,9 +1,12 @@
 baseUrl: https://www.adityakonarde.com/
 languageCode: en-us
 theme: hello-friend
-copyright: '2019 Aditya Konarde'
-paginate: 5
-googleAnalytics: UA-155171810-1
+copyright: '2024 Aditya Konarde'
+pagination:
+  pagerSize: 5
+services:
+  googleAnalytics:
+    ID: "G-32YZMDJ7FF" 
 
 params:
   # dir name of your blog content (default is `content/posts`)
@@ -16,25 +19,20 @@ params:
 languages:
   en:
     title: Aditya Konarde's Blog
-    subtitle: ''
-    keywords: ''
-    menuMore: Show more
-    writtenBy: Written by
-    readMore: Read more
-    readOtherPosts: Read other posts
-    newerPosts: Newer posts
-    olderPosts: Older posts
-    dateFormatSingle: 2006-01-02
-    dateFormatList: 2006-01-02
-    
     params:
+      subtitle: ''
+      keywords: ''
+      menuMore: Show more
+      writtenBy: Written by
+      readMore: Read more
+      readOtherPosts: Read other posts
+      newerPosts: Newer posts
+      olderPosts: Older posts
+      dateFormatSingle: 2006-01-02
+      dateFormatList: 2006-01-02
       logo:
         logoText: Aditya Konarde
         logoHomeLink: /
-    #   or
-    #
-    #   path: /img/your-example-logo.svg
-    #   alt: Your example logo alt text
     
     menu:
       main:
@@ -50,3 +48,4 @@ languages:
       - identifier: Photography
         name: Photography
         url: https://www.instagram.com/aditya.konarde
+
