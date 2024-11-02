@@ -15,8 +15,8 @@ params:
     subtitle: "Engineering Leader | Technology Enthusiast | Photographer"
     imageUrl: "images/propic-square.jpeg"
     imageTitle: "Aditya Konarde"
-    imageWidth: 150
-    imageHeight: 150
+    imageWidth: 200
+    imageHeight: 200
     buttons:
       - name: "Blog"
         url: "posts"
@@ -71,6 +71,3 @@ languages:
       - identifier: Photography
         name: Photography
         url: https://www.instagram.com/aditya.konarde
-
-contentDir: "content"
-
