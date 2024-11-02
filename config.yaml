@@ -18,22 +18,18 @@ params:
     imageWidth: 200
     imageHeight: 200
     buttons:
-      - name: "Blog"
-        url: "posts"
       - name: "About"
         url: "about"
-      - name: "Photography"
-        url: "https://www.instagram.com/aditya.konarde"
+      - name: "Blog"
+        url: "posts"
       - name: "Contact"
-        url: "https://calendly.com/aditya-konarde"
+        url: "https://www.linkedin.com/in/adityakonarde/"
 
   socialIcons:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/adityakonarde/"
     - name: "github"
-      url: "https://github.com/adityakonarde"
-    - name: "instagram"
-      url: "https://www.instagram.com/aditya.konarde"
+      url: "https://github.com/aditya-konarde"
 
   # Keep your existing params
   defaultTheme: light
@@ -59,15 +55,9 @@ languages:
     
     menu:
       main:
-      - identifier: Contact
-        name: Contact
-        url: https://calendly.com/aditya-konarde
       - identifier: about
         name: About
         url: /about
       - identifier: Blog
         name: Blog
         url: /posts
-      - identifier: Photography
-        name: Photography
-        url: https://www.instagram.com/aditya.konarde
