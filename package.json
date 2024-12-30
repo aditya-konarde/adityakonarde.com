@@ -5,6 +5,10 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.0"
+  },
+  "lint-staged": {
+    "*": "echo 'No linting configured'"
   }
 }
