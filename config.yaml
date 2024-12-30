@@ -4,6 +4,8 @@ theme: PaperMod
 copyright: '2024 Aditya Konarde'
 pagination:
   pagerSize: 5
+  sortBy: "date"
+  sortDirection: "desc"
 services:
   googleAnalytics:
     ID: "G-32YZMDJ7FF" 

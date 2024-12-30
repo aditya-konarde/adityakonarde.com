@@ -12,18 +12,13 @@ When I'm not working, you can find me:
 - Sharing photography on Instagram
 - Engaging in tech discussions on Twitter
 
-## 🌐 CNCF Contributions
+## 🌐 Work
 
-As an active member of the Cloud Native Computing Foundation (CNCF) community, I contribute to several key projects:
-
-### [Prometheus](https://prometheus.io) 📊
-Contributed to exporter development and alerting best practices. Focused on making monitoring more accessible and reliable.
+As an active member of the Cloud Native Computing Foundation (CNCF) community, I have primarily focused/worked on these projects:
 
 ### [Kubernetes](https://kubernetes.io) 🐳
-Active contributor to core components and documentation. Specialized in cluster operations and scalability patterns.
-
+### [Prometheus](https://prometheus.io) 📊
 ### [OpenTelemetry](https://opentelemetry.io) 🔍
-Worked on instrumentation libraries and collector configurations to improve observability across distributed systems.
 
 ✨ **Join the CNCF Community!**  
 The CNCF ecosystem thrives on community contributions. Whether you're interested in code, documentation, or community building, there's a place for you. Check out the [CNCF Contributor Guide](https://contribute.cncf.io/) to get started!
