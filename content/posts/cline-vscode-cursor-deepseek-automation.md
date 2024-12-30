@@ -1,8 +1,9 @@
 ---
 title: "How I Use Cline, VSCode, Cursor and Deepseek V3 to Automate Most of My Development"
 date: 2024-03-28
-draft: true
 ---
+
+### Blog post written with Cline :) 
 
 In today's fast-paced development environment, automation has become key to maintaining productivity and efficiency. In this post, I'll share how I've leveraged a powerful combination of tools - Cline, VSCode, Cursor, and Deepseek V3 - to automate most of my development workflow.
 
