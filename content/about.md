@@ -20,9 +20,6 @@ As an active member of the Cloud Native Computing Foundation (CNCF) community, I
 ### [Prometheus](https://prometheus.io) 📊
 ### [OpenTelemetry](https://opentelemetry.io) 🔍
 
-✨ **Join the CNCF Community!**  
-The CNCF ecosystem thrives on community contributions. Whether you're interested in code, documentation, or community building, there's a place for you. Check out the [CNCF Contributor Guide](https://contribute.cncf.io/) to get started!
-
 ## 🌍 Community Involvement
 
 I'm actively involved in organizing and speaking at various cloud-native meetups:
@@ -39,3 +36,6 @@ Let's connect:
 - LinkedIn: https://www.linkedin.com/in/adityakonarde/
 - Twitter: https://twitter.com/aditya-konarde
 - Instagram: https://instagram.com/aditya.konarde
+
+✨ **Join the CNCF Community!**  
+The CNCF ecosystem thrives on community contributions. Whether you're interested in code, documentation, or community building, there's a place for you. Check out the [CNCF Contributor Guide](https://contribute.cncf.io/) to get started!
