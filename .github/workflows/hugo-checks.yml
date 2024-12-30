@@ -1,0 +1,41 @@
+name: Hugo Site Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Markdown Lint
+        uses: actionshub/markdownlint@2
+        with:
+          config_file: .markdownlint.json
+
+      - name: Spell Check
+        uses: rojopolis/spellcheck-github-actions@0.25.0
+        with:
+          task: 'spellcheck'
+          config_path: '.spellcheck.yml'
+
+      - name: Link Check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'

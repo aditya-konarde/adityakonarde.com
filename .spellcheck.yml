@@ -1,0 +1,15 @@
+task: spellcheck
+dictionary:
+  wordlists:
+    - .spellcheck-words.txt
+  output: .spellcheck-words.txt
+spelling:
+  locale: en-US
+  ignore:
+    - node_modules/
+    - .git/
+    - .github/
+    - themes/
+    - public/
+    - resources/
+    - content/posts/cline-vscode-cursor-deepseek-automation.md
