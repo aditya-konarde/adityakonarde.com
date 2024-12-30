@@ -1,6 +1,6 @@
 ---
 title: "Alertmanager Deployment Patterns"
-date: 2020-02-03T22:08:20+01:00
+date: 2020-01-15T22:08:20+01:00
 description: "A comprehensive guide to different deployment patterns for Prometheus Alertmanager, from single instance to high availability configurations"
 tags: ["prometheus", "alertmanager", "monitoring", "devops", "high-availability"]
 author: "Aditya Konarde"

@@ -30,10 +30,27 @@ params:
       url: "https://www.linkedin.com/in/adityakonarde/"
     - name: "github"
       url: "https://github.com/aditya-konarde"
+    - name: "twitter"
+      url: "https://twitter.com/aditya-konarde"
+    - name: "instagram"
+      url: "https://instagram.com/aditya.konarde"
 
-  # Keep your existing params
-  defaultTheme: light
+  # Theme settings
+  defaultTheme: auto
+  disableThemeToggle: false
   showMenuItems: 4
+
+  # Search configuration
+  search:
+    enable: true
+    type: "fuse"
+    fuseOptions:
+      isCaseSensitive: false
+      shouldSort: true
+      location: 0
+      distance: 100
+      threshold: 0.4
+      minMatchCharLength: 2
 
 languages:
   en:
