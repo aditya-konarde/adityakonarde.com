@@ -5,8 +5,14 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.0"
+    "eslint": "^9.39.2",
+    "htmlhint": "^1.8.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "markdownlint-cli": "^0.47.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
+    "yaml-lint": "^1.7.0"
   },
   "lint-staged": {
     "*": "echo 'No linting configured'"
