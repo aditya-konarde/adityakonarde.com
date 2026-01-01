@@ -3,13 +3,14 @@ title: "How I Use Cline, VSCode, Cursor and Deepseek V3 to Automate Most of My D
 date: 2024-03-28
 ---
 
-### Blog post written with Cline :) 
+### Blog post written with Cline :)
 
 In today's fast-paced development environment, automation has become key to maintaining productivity and efficiency. In this post, I'll share how I've leveraged a powerful combination of tools - Cline, VSCode, Cursor, and Deepseek V3 - to automate most of my development workflow.
 
 ## The Tool Stack
 
 ### Cline
+
 Cline's advanced natural language processing capabilities allow it to understand complex development contexts. Its API integration enables direct communication with other tools in the stack. Here's an example configuration:
 
 ```json
@@ -26,6 +27,7 @@ Cline's advanced natural language processing capabilities allow it to understand
 ```
 
 ### VSCode
+
 VSCode's extension API allows deep integration with our automation stack. Key extensions include:
 
 - Cline Integration (v2.3.1)
@@ -48,6 +50,7 @@ The workspace settings (`settings.json`) include:
 ```
 
 ### Cursor
+
 Cursor's architecture uses a transformer-based model fine-tuned on code completion tasks. Its context-aware suggestions are generated using:
 
 ```python
@@ -57,6 +60,7 @@ def generate_suggestion(context):
 ```
 
 ### Deepseek V3
+
 Deepseek V3's static analysis engine combines:
 
 1. Abstract Syntax Tree (AST) parsing
@@ -91,6 +95,7 @@ graph LR
 ### Detailed Workflow Breakdown
 
 1. **Code Generation Workflow**
+
 ```mermaid
 sequenceDiagram
     participant V as VSCode
@@ -100,7 +105,8 @@ sequenceDiagram
     V->>V: Insert and format code
 ```
 
-2. **Code Completion Pipeline**
+1. **Code Completion Pipeline**
+
 ```python
 def get_completion(context):
     # Get context from VSCode
@@ -115,7 +121,8 @@ def get_completion(context):
     return ranked_suggestions(validated)
 ```
 
-3. **Code Analysis Process**
+1. **Code Analysis Process**
+
 ```mermaid
 graph TD
     A[Code Change] --> B[Deepseek Analysis]
@@ -137,6 +144,7 @@ graph TD
 ### Advanced Use Cases
 
 1. **Multi-file Context Awareness**
+
 ```json
 {
   "context": {
@@ -147,7 +155,8 @@ graph TD
 }
 ```
 
-2. **Custom Rule Configuration**
+1. **Custom Rule Configuration**
+
 ```yaml
 deepseek:
   rules:
@@ -157,7 +166,8 @@ deepseek:
       message: "Potential XSS vulnerability detected"
 ```
 
-3. **Automated Refactoring**
+1. **Automated Refactoring**
+
 ```javascript
 // Before
 function oldMethod(a, b) {
@@ -180,6 +190,7 @@ const newMethod = (a, b) => a + b;
 The automation stack implements robust error handling mechanisms to ensure reliability:
 
 ### Error Recovery Workflow
+
 ```mermaid
 graph TD
     A[Error Detected] --> B{Type?}
@@ -192,6 +203,7 @@ graph TD
 ```
 
 ### Circuit Breaker Pattern Implementation
+
 ```javascript
 class CircuitBreaker {
     constructor(maxFailures = 3, cooldown = 30000) {
@@ -232,6 +244,7 @@ class CircuitBreaker {
 ```
 
 ### Monitoring and Alerting
+
 ```yaml
 monitoring:
   metrics:
@@ -249,6 +262,7 @@ monitoring:
 ### Challenges and Considerations
 
 While automation tools provide significant benefits, it's important to:
+
 - Maintain code quality standards through rigorous testing
 - Implement proper error handling and fallback mechanisms
 - Avoid over-reliance on generated code by maintaining human oversight

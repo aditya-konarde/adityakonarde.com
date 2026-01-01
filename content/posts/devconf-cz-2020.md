@@ -49,4 +49,4 @@ After this talk, I felt like the work being done in the SRE team at Red Hat gain
 
 ### What I learnt from x miles of hiking Tim Burke
 
-Tim Burke is the VP of Linux Engineering at Red Hat. 
+Tim Burke is the VP of Linux Engineering at Red Hat.

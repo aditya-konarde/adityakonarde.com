@@ -37,7 +37,7 @@ Oh, but you indeed also need HA for your alerting system:
 
 Prometheus 1 and 2 -> Alertmanager 1,2,3 -> Slack
 
-At this stage, you have introduced a new alertmanager functionality, which is Gossip. Some of the interesting defaults for this protocol can be found here: https://github.com/prometheus/alertmanager/blob/master/cluster/cluster.go#L98-L106
+At this stage, you have introduced a new alertmanager functionality, which is Gossip. Some of the interesting defaults for this protocol can be found here: <https://github.com/prometheus/alertmanager/blob/master/cluster/cluster.go#L98-L106>
 
 It is important to note that for this trick to work, each Prometheus individually must fire its alerts to *all* Alertmanagers
 
@@ -52,13 +52,17 @@ The Gossip protocol used by Alertmanager is based on the SWIM protocol (Scalable
 ## Advanced Deployment Patterns
 
 ### Multi-Datacenter Setup
+
 For organizations with multiple datacenters, Alertmanager can be deployed in a way that:
+
 - Maintains local alerting within each DC
 - Forwards critical alerts to a global Alertmanager cluster
 - Implements cross-DC redundancy
 
 ### Federation Setup
+
 In large organizations with multiple Prometheus instances, Alertmanager can be deployed in a federated manner:
+
 - Each team maintains their own Alertmanager instance
 - A central Alertmanager handles organization-wide alerts
 - Implements hierarchical alert routing
@@ -67,10 +71,10 @@ In large organizations with multiple Prometheus instances, Alertmanager can be d
 
 1. **Dead Man's Snitch**: Implement a dead man's switch using a constantly firing alert to ensure your alerting system is working. If the alert stops firing, it indicates a problem with your monitoring system
 2. **Monitoring Alertmanager**: Always monitor your Alertmanager instances using Prometheus itself
-2. **Configuration Management**: Use version control and CI/CD for Alertmanager configurations
-3. **Alert Deduplication**: Configure proper grouping and inhibition rules to reduce alert noise
-4. **Capacity Planning**: Monitor alert volume and scale Alertmanager accordingly
-5. **Disaster Recovery**: Implement backup and restore procedures for Alertmanager state
+3. **Configuration Management**: Use version control and CI/CD for Alertmanager configurations
+4. **Alert Deduplication**: Configure proper grouping and inhibition rules to reduce alert noise
+5. **Capacity Planning**: Monitor alert volume and scale Alertmanager accordingly
+6. **Disaster Recovery**: Implement backup and restore procedures for Alertmanager state
 
 ## Troubleshooting Common Issues
 

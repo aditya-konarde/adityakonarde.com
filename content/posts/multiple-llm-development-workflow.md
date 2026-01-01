@@ -3,9 +3,9 @@ title: "My Multi-LLM Development Workflow: Leveraging Different AI Models"
 date: 2025-11-01
 ---
 
-After I switched to engineering management, I realized that I missed coding. With my new job, I spend more time on github, and innovation is very much encouraged at the company. As such, I've been fiddling around with LLM's to see what works (and not). 
+After I switched to engineering management, I realized that I missed coding. With my new job, I spend more time on github, and innovation is very much encouraged at the company. As such, I've been fiddling around with LLM's to see what works (and not).
 
-As I explore various models and learn more, I've developed a workflow that leverages multiple LLMs, each chosen for its specific strengths. 
+As I explore various models and learn more, I've developed a workflow that leverages multiple LLMs, each chosen for its specific strengths.
 
 Here's how I use various AI models to boost my development productivity.
 
@@ -17,6 +17,7 @@ For work things, GitHub Copilot is my primary assistant for several reasons:
 2. **Team Consistency**: Entire team using the same model ensures consistent suggestions
 
 I primarily use Copilot for:
+
 - Quick code completions during active development
 - Documentation generation
 - Repetitive code pattern implementation
@@ -28,33 +29,36 @@ I also sometimes use the OpenAI models, but I'm not a big fan of those.
 For personal projects, I use Cursor as my primary IDE with two different models. The subscription is a tad bit expensive, so I'll see how it goes.
 
 ### Claude Sonnet v3.5
+
 - **Use Case**: Best coding model so far. Using this to bootstrap my personal projects.
-- **Strengths**: 
+- **Strengths**:
   - Good at understanding context
   - Excellent for completing partial code
   - Decent context window
-  - Agent mode, MCP, and other neat features. 
+  - Agent mode, MCP, and other neat features.
 - **Weaknesses**:
   - Still slow for many use cases
   - Expensive, limited usage either with cursor or direct API with openrouter
 
 ## Roo-cline with Deepseek v3
 
-Deepseek v3 is my go-to model for fast and cheap iterations. It does sometimes get lost, but it's quite nice alongside Claude. 
+Deepseek v3 is my go-to model for fast and cheap iterations. It does sometimes get lost, but it's quite nice alongside Claude.
 
 **Specific Strengths**:
-   - Great at understanding complex codebases
-   - Great at suggesting optimizations
-   - Feels faster than claude sonnet v3.5 
+
+- Great at understanding complex codebases
+- Great at suggesting optimizations
+- Feels faster than claude sonnet v3.5
 
 **Weaknesses**:
-   - Decent context window size, sometimes is a limiting factor as the codebase gets large
-   - Sometimes gets lost in the codebase. Needs to be prompted to stay focused
-   - 
+
+- Decent context window size, sometimes is a limiting factor as the codebase gets large
+- Sometimes gets lost in the codebase. Needs to be prompted to stay focused
+-
 
 ## Local Phi-3 Setup with Continue
 
-I'm currently setting up a local setup using Continue with Phi-3. 
+I'm currently setting up a local setup using Continue with Phi-3.
 
 1. **Offline Capabilities**:
    - Works without internet connection
@@ -63,7 +67,7 @@ I'm currently setting up a local setup using Continue with Phi-3.
 2. **Use Cases**:
    - Quick syntax checks
    - Documentation / Markdown edits
-   - A better search and replace :) 
+   - A better search and replace :)
 
 3. **Weaknesses**:
    - You can only get so much out of it compared to the other two models
@@ -94,7 +98,7 @@ Here's how I typically combine these tools in my daily workflow:
 
 ## Conclusion
 
-While it might seem complex to juggle multiple LLMs, for me the benefits far outweigh the initial setup complexity. Each model brings its unique strengths (and weaknesses), and learning when to use which tool has significantly improved my development workflow. 
+While it might seem complex to juggle multiple LLMs, for me the benefits far outweigh the initial setup complexity. Each model brings its unique strengths (and weaknesses), and learning when to use which tool has significantly improved my development workflow.
 
 In the coming weeks, I plan to explore a multi-agent setup.
 

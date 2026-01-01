@@ -109,7 +109,7 @@ metadata:
 name: grafana-dashboards
 ```
 
-2. When mounting the configmaps, mount them under a path listed in providers:
+1. When mounting the configmaps, mount them under a path listed in providers:
 
 ```yaml
           - mountPath: /grafana-dashboard-definitions/0/grafana-dashboard-foo
@@ -138,10 +138,10 @@ I was only able to discover this because [Frederic](https://twitter.com/fredbran
 
 Only later I found that this repo is a gold mine. Not only it allows you to easily generate dashboards from jsonnet and create a ready-to-deploy configuration from it, but it also comes enabled with the folder-wise provisioning we talked about in this blog post.
 
-If you're not already running Grafana this way on Kubernetes, I would highly recommend giving this repo a try: https://github.com/brancz/kubernetes-grafana
+If you're not already running Grafana this way on Kubernetes, I would highly recommend giving this repo a try: <https://github.com/brancz/kubernetes-grafana>
 
 Some documentation for further reading:
 
-- https://grafana.com/docs/grafana/latest/administration/provisioning/
-- https://github.com/brancz/kubernetes-grafana
-- https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/
+- <https://grafana.com/docs/grafana/latest/administration/provisioning/>
+- <https://github.com/brancz/kubernetes-grafana>
+- <https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/>
