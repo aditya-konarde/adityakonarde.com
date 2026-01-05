@@ -10,7 +10,6 @@ hidemeta: false
 comments: false
 canonicalURL: ""
 searchHidden: false
-weight: 1
 ---
 
 This is a quick knowledge sharing post before it gets out of my head :)
