@@ -1,6 +1,9 @@
 ---
 title: "How much do SRE's really Code?"
 date: 2020-12-28T14:29:04+01:00
+description: "A realistic breakdown of how Site Reliability Engineers spend their time between development, operations, and collaboration"
+tags: ["sre", "devops", "time-management", "engineering-culture", "career"]
+author: "Aditya Konarde"
 draft: false
 showToc: true
 TocOpen: false
@@ -59,7 +62,7 @@ While this may sound much less than ideal, I would like to note that I believe k
 
 The breakdown is definitely not set in stone, and one must always be prepared to move things around as per the needs of the business. An SRE team is also not a single person, so a good manager will know to encourage individuals to work on their core areas while also adding a fine balance to this breakdown.
 
-If you would like to know more, feel free to reach out to me on [Twitter](https://twitter.com/aditya_konarde) or [LinkedIn](https://www.linkedin.com/in/adityakonarde/) and I would be happy to write a follow-up to this blog :)
+If you would like to know more, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/adityakonarde/) and I would be happy to write a follow-up to this blog :)
 
 ## Further reading
 

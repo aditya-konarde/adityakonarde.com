@@ -1,6 +1,13 @@
 ---
 title: "My Multi-LLM Development Workflow: Leveraging Different AI Models"
 date: 2025-11-01
+description: "How I leverage multiple AI models including GitHub Copilot, Claude, Deepseek, and Phi-3 for different development tasks and contexts"
+tags: ["ai", "llm", "cursor", "copilot", "deepseek", "developer-productivity", "workflow"]
+author: "Aditya Konarde"
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
 ---
 
 After I switched to engineering management, I realized that I missed coding. With my new job, I spend more time on github, and innovation is very much encouraged at the company. As such, I've been fiddling around with LLM's to see what works (and not).
@@ -54,7 +61,6 @@ Deepseek v3 is my go-to model for fast and cheap iterations. It does sometimes g
 
 - Decent context window size, sometimes is a limiting factor as the codebase gets large
 - Sometimes gets lost in the codebase. Needs to be prompted to stay focused
--
 
 ## Local Phi-3 Setup with Continue
 

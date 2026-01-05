@@ -1,6 +1,9 @@
 ---
 title: "Here's to the 2010s"
 date: 2019-12-31T10:40:35+01:00
+description: "Reflections on a decade of learning, growth, and life lessons as I welcome a new chapter in Berlin"
+tags: ["personal", "reflections", "life-lessons", "career"]
+author: "Aditya Konarde"
 draft: false
 showToc: true
 TocOpen: false
@@ -14,12 +17,12 @@ Hello World!
 
 As we approach the end of the year, I wanted to take a moment to reflect on what I learnt in these 10 years leading to 2020.
 
-I must start off by saying its been such a roller coaster ride. Starting from the early 2010s where I was in *ahem* School (!) all the way up to now me sitting here in a cafe in my new home - Berlin.
+I must start off by saying it's been such a roller coaster ride. Starting from the early 2010s where I was in *ahem* School (!) all the way up to now me sitting here in a cafe in my new home - Berlin.
 
 I'm not a writer, and I'm gonna keep this short. Here's 10 years of mistakes and good decisions, summarized:
 
 - Do what you can't
-- Its never too late to start travelling
+- It's never too late to start travelling
 - Keep your mind open to possibilities
 - Cherish the people who were around for you in your rough times
 - Social Media is fake validation. Know that, use it to your advantage if you can but don't let it consume you

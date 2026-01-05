@@ -1,6 +1,13 @@
 ---
 title: "Look ma, I made an AI Frankenstein"
 date: 2026-01-05
+description: "A voice-first, multi-agent AI development workflow using OpenCode, Wispr Flow, and multiple LLMs for faster iteration on side projects"
+tags: ["ai", "llm", "opencode", "voice-coding", "developer-tools", "workflow", "claude", "gemini"]
+author: "Aditya Konarde"
+showToc: true
+TocOpen: false
+hidemeta: false
+comments: false
 ---
 
 The bottleneck in AI-assisted coding isn't the models—it's the interface. After months of experimenting with various AI-powered development tools, I've landed on a voice-first, multi-agent setup that removes the friction between thought and code.

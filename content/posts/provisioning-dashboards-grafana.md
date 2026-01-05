@@ -1,6 +1,9 @@
 ---
 title: "Provisioning Dashboards with Grafana"
 date: 2020-03-06T23:06:55+01:00
+description: "How to provision Grafana dashboards on Kubernetes using GitOps, ConfigMaps, and folder organization for a stateless setup"
+tags: ["grafana", "kubernetes", "gitops", "monitoring", "devops", "observability"]
+author: "Aditya Konarde"
 draft: false
 showToc: true
 TocOpen: false

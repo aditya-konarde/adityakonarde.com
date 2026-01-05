@@ -1,6 +1,9 @@
 ---
-title: "Tech hardware for productivity"
+title: "My 2022 Tech Hardware Setup"
 date: 2022-12-10T02:06:37+01:00
+description: "My 2022 hardware setup as a remote software engineer - laptop, monitors, keyboard, mouse, audio, and video equipment for productivity"
+tags: ["hardware", "productivity", "remote-work", "home-office", "developer-setup"]
+author: "Aditya Konarde"
 draft: false
 showToc: true
 TocOpen: false
@@ -10,7 +13,9 @@ canonicalURL: ""
 searchHidden: false
 ---
 
-As a software engineer, having the right hardware can make a huge difference in your productivity and success. In this post, I'll share the hardware that I currently use on a daily basis as a remote software engineer.
+> **Note**: This post reflects my setup as of December 2022. Some of this hardware has since been upgraded, but I'm keeping this as a snapshot of what worked well for me at the time.
+
+As a software engineer, having the right hardware can make a huge difference in your productivity and success. In this post, I'll share the hardware that I was using on a daily basis as a remote software engineer.
 
 First and foremost, I use a M1 Macbook Pro for my laptop. This computer is incredibly fast and reliable, which is essential for the work that I do. It also has a beautiful display, which makes it a good laptop for editing pictures. :)
 
