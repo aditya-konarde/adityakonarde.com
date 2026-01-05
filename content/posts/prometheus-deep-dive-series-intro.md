@@ -1,6 +1,9 @@
 ---
-title: "Prometheus Deep Dive Series: Intro"
+title: "Prometheus Deep Dive: Understanding the Fundamentals"
 date: 2019-12-31T14:48:44+01:00
+description: "An introduction to Prometheus monitoring, its architecture, and why it has become the go-to choice for metrics collection in cloud-native environments"
+tags: ["prometheus", "monitoring", "observability", "cloud-native", "devops"]
+author: "Aditya Konarde"
 draft: false
 showToc: true
 TocOpen: false
@@ -30,22 +33,20 @@ I don't want to make the first paragraph a clickbait. While it was important to 
 
 ## Prometheus: Diving into the fire
 
-When I first started learning to use and set up Prometheus, I faced certain challenges that I don't want other users to see. One of them is the lack of documentation around the details around how Prometheus really works.
+When I first started learning to use and set up Prometheus, I faced certain challenges that I don't want other users to see. One of them is the lack of documentation around the details of how Prometheus really works under the hood.
 
-The Prometheus project maintainers are busy people, but I'm hoping to talk to them one at a time and write up a post each on the major subsystems of the codebase.
+Understanding these core subsystems will help you become a more effective Prometheus operator:
 
-Here's an overview of what I currently think the roadmap for the series is going to be. I may add tweaks to this post as my understanding of the project evolves.
+- **The Prometheus Data Model**: How metrics are structured and labeled
+- **Life cycle of a scrape**: What happens when Prometheus collects metrics from targets
+- **TSDB**: The time series database layer that powers storage and queries
+- **Query evaluation**: How PromQL queries are parsed and executed
+- **Alerting**: The flow from alert rules to notifications via Alertmanager
+- **Service Discovery**: How Prometheus automatically finds scrape targets
+- **Self-monitoring**: Using Prometheus to monitor Prometheus itself
 
-- The Prometheus Data Model
-- Life cycle of a scrape
-- TSDB - The Prometheus time series database layer
-- Prometheus Query evaluation
-- Alerting walkthrough
-- Service Discovery in Prometheus
-- Monitoring Prometheus with Prometheus
+For deeper exploration of these topics, I recommend the [Prometheus documentation](https://prometheus.io/docs/introduction/overview/) and the various conference talks from the maintainers.
 
-And finally here's a disclaimer that I'm not an expert on any of these. I hope to be a gatherer instead, collecting bits of knowledge from everyone's heads and recording it :)
+A special shoutout to everyone who contributes to this project and has given talks or written content around it. The community's knowledge sharing is what makes Prometheus so accessible.
 
-If you have topic suggestions/requests, please let me know on twitter @aditya_konarde
-
-A special shoutout to everyone who contributes to this project and have given talks/written content around the Project. I will try to quote them directly as much as I can, but do note if I miss something, all credits belong to whoever they belong to. I have no claims ;)
+If you'd like to discuss Prometheus or have questions, feel free to reach out on [LinkedIn](https://www.linkedin.com/in/adityakonarde/).
