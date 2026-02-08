@@ -24,9 +24,10 @@ jobs:
         run: hugo --minify
 
       - name: Markdown Lint
-        uses: actionshub/markdownlint@2
+        uses: DavidAnson/markdownlint-cli2-action@v19
         with:
-          config_file: .markdownlint.json
+          config: .markdownlint.json
+          globs: "content/**/*.md"
 
       - name: Spell Check
         uses: rojopolis/spellcheck-github-actions@0.25.0
