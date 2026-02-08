@@ -36,3 +36,67 @@ Thumbs.db
 # Environment variables
 .env
 .env.*
+.env.local
+.env.*.local
+
+# =============================================================================
+# Security - Secrets & Credentials
+# =============================================================================
+
+# Secrets and credentials
+secrets.yaml
+secrets.yml
+secrets.json
+credentials.json
+service-account.json
+**/secrets/
+**/credentials/
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# SSH keys (CRITICAL - never commit these)
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.ppk
+
+# API keys and tokens
+*.token
+api_key.txt
+api-key.txt
+auth.json
+oauth.json
+
+# =============================================================================
+# Logs (may contain sensitive data)
+# =============================================================================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================================================
+# Database & Data Files
+# =============================================================================
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+*.dump
+
+# =============================================================================
+# Temporary & Backup Files
+# =============================================================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
