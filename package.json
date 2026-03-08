@@ -5,7 +5,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.2",
     "htmlhint": "^1.8.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
