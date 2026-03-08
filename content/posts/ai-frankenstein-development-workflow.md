@@ -12,10 +12,9 @@ comments: false
 
 The bottleneck in AI-assisted coding isn't the models—it's the interface. After months of experimenting with various AI-powered development tools, I've landed on a voice-first, multi-agent setup that removes the friction between thought and code.
 
-For context, my primary role is an Engineering Manager. I don't write production code at work, but I build apps on the side and experiment with new AI tooling. The challenge: typing instructions slows down iteration, especially when exploring ideas or debugging complex problems. 
+For context, my primary role is an Engineering Manager. I don't write production code at work, but I build apps on the side and experiment with new AI tooling. The challenge: typing instructions slows down iteration, especially when exploring ideas or debugging complex problems.
 
-In my [previous post on multi-LLM workflows](/posts/multiple-llm-development-workflow), I described using different AI models for different tasks. 
-
+In my [previous post on multi-LLM workflows](/posts/multiple-llm-development-workflow), I described using different AI models for different tasks.
 
 In this fast-moving world, my bottleneck was typing requests and instructions. Voice interaction removes that friction. Speaking instructions feels more natural than typing them, and it's helped me iterate faster and overcome writer's block when exploring new ideas.
 
@@ -41,20 +40,24 @@ The debate about which AI model is "best" misses the point. As professionals, we
 - **GLM 4.7 (Z.AI)**: Provides practically unlimited tokens at low cost. While quality doesn't match Gemini or Opus, it's perfect for experimentation, simple refactoring, and tasks where I need to iterate without budget concerns.
 
 If you'd like to get the same setup, I provide my OpenCode config in these GitHub gists:
+
 - [OpenCode](https://gist.github.com/aditya-konarde/eef6e5c71d1fa004d2a092d3a221d4ae)
 - [Oh-my-OpenCode](https://gist.github.com/aditya-konarde/80c61b6e2178a3d5fcea3fa9a956672e)
 
 ## Challenges and Solutions
 
 ### Challenge 1: Context Loss in Long-Running Tasks
-**Problem**: When using oh-my-opencode, agents sometimes lose track of context during extended sessions. I've noticed this especially with long-running commands (which they don't know to interrupt) or when the LLM's context window gets closer to full. 
+
+**Problem**: When using oh-my-opencode, agents sometimes lose track of context during extended sessions. I've noticed this especially with long-running commands (which they don't know to interrupt) or when the LLM's context window gets closer to full.
 **Solution**: Breaking work into smaller, focused sessions helps. Planning mode is another useful approach: you can use Gemini for planning, then switch to Opus for the actual implementation. This pattern reduces context loss while managing costs.
 
 ### Challenge 2: Voice Dictation in Shared Spaces
+
 **Problem**: Dictating code instructions feels awkward when others are nearby, and ambient noise can interfere with accuracy.
 **Solution**: Using headphones with a directional microphone significantly improves accuracy and reduces self-consciousness. The awkwardness fades once you establish a flow, and most people adapt to speaking code naturally after a few sessions.
 
 ### Challenge 3: Cost Management
+
 **Problem**: Running multiple high-quality models simultaneously can get expensive, especially with Opus 4.5.
 **Solution**: I use a tiered approach: GLM 4.7 for simple tasks and experimentation (free/low-cost), Gemini Flash for exploration and documentation (moderate cost), and Opus 4.5 only for complex reasoning tasks (high cost). I also configure reasoning effort limits and hard dollar limits in OpenRouter to cap costs on expensive models. This keeps my monthly spend somewhat predictable while maintaining quality where it matters.
 
@@ -86,4 +89,4 @@ The combination of voice input and multi-model routing removes the friction that
 
 *What's your experience with voice coding or multi-agent setups? I'd love to hear your thoughts: [LinkedIn](https://www.linkedin.com/in/aditya-konarde/)*
 
-*This post was written with AI assistance—voice-to-text conversion and proofreading. The thoughts and setup are my own.* 
+*This post was written with AI assistance—voice-to-text conversion and proofreading. The thoughts and setup are my own.*
