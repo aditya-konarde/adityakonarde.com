@@ -74,7 +74,7 @@ And soon as you add more dashboards, you will have corresponding Volumemounts un
 
 ## Provisioning dashboards into their own folders
 
-In the spirit of keeping our workspace hygenic, I wanted to clean up the mess that the `/dashboards` page was. I wasn't very sure if the documentation around provisioning already provided a way to group dashboards into a folder, so I had given up on that.
+In the spirit of keeping our workspace hygienic, I wanted to clean up the mess that the `/dashboards` page was. I wasn't very sure if the documentation around provisioning already provided a way to group dashboards into a folder, so I had given up on that.
 
 But the good news is, you actually can, in two simple steps:
 
