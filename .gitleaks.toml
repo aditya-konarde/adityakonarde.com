@@ -7,18 +7,13 @@ title = "Gitleaks Config"
 # Use the default gitleaks config as base
 useDefault = true
 
-# Allowlist for false positives in blog content
-[[allowlist]]
+[allowlist]
 description = "Blog content and sample data"
 paths = [
     '''content\/.*\.md$''',
     '''.*\.example$''',
     '''README\.md$''',
 ]
-
-# Allow specific patterns that are commonly false positives in blogs
-[[allowlist]]
-description = "Common false positive patterns"
 regexes = [
     '''example\.com''',
     '''localhost''',
