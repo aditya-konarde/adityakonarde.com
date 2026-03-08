@@ -11,6 +11,9 @@ services:
     ID: "G-32YZMDJ7FF" 
 
 params:
+  author:
+    name: "Aditya Konarde"
+    email: "aditya.konarde@gmail.com"
   profileMode:
     enabled: true
     title: "Aditya Konarde"
