@@ -1,15 +1,20 @@
-task: spellcheck
-dictionary:
-  wordlists:
-    - .spellcheck-words.txt
-  output: .spellcheck-words.txt
-spelling:
-  locale: en-US
-  ignore:
-    - node_modules/
-    - .git/
-    - .github/
-    - themes/
-    - public/
-    - resources/
-    - content/posts/cline-vscode-cursor-deepseek-automation.md
+matrix:
+  - name: Markdown
+    aspell:
+      lang: en
+    dictionary:
+      wordlists:
+        - .spellcheck-words.txt
+      encoding: utf-8
+    pipeline:
+      - pyspelling.filters.markdown:
+          markdown_extensions:
+            - pymdownnx.superfences
+      - pyspelling.filters.html:
+          comments: false
+          ignores:
+            - code
+            - pre
+    sources:
+      - 'content/**/*.md'
+    default_encoding: utf-8
