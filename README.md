@@ -5,3 +5,5 @@
 This is my personal website built with Hugo and deployed on Netlify. I write about technology, engineering leadership, and my experiences in the tech industry. If you'd like to suggest a blog post topic or connect professionally, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/adityakonarde/).
 
 I'm always happy to engage in meaningful technical discussions!
+
+> **Note:** This repo is AI-assisted and serves as my personal playground/sandbox. Content and code are best-effort.
