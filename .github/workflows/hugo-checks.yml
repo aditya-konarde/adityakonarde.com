@@ -38,7 +38,6 @@ jobs:
       - name: Spell Check
         uses: rojopolis/spellcheck-github-actions@0.59.0
         with:
-          task: 'spellcheck'
           config_path: '.spellcheck.yml'
 
       - name: Link Check
@@ -51,6 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: read
     steps:
       - uses: actions/checkout@v6
         with:
