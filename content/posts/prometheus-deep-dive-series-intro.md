@@ -27,7 +27,7 @@ I don't want to make the first paragraph a clickbait. While it was important to 
 
 - [Get an overview](https://prometheus.io/docs/introduction/overview/)
 - [Understand the architecture](https://www.youtube.com/watch?v=9GMWvFcQjYI)
-- [And please get your hands dirty](https://www.katacoda.com/courses/prometheus/)
+- [And please get your hands dirty](https://prometheus.io/docs/tutorials/getting_started/)
 
 > Again, note that this is a 'deep dive' series. If you're new to Prometheus, I would highly recommend making sure you're familiar with the terminology first with the material above
 
