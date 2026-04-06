@@ -6,6 +6,20 @@ pagination:
   pagerSize: 5
   sortBy: "date"
   sortDirection: "desc"
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
 services:
   googleAnalytics:
     ID: "G-32YZMDJ7FF" 
@@ -44,6 +58,7 @@ params:
   defaultTheme: auto
   disableThemeToggle: false
   showMenuItems: 4
+  ShowRssButtonInSectionTermList: true
 
   # Search configuration
   search:
@@ -83,3 +98,6 @@ languages:
       - identifier: Blog
         name: Blog
         url: /posts
+      - identifier: newsletter
+        name: Newsletter
+        url: /tags/weekly-roundup/
