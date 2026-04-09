@@ -1,0 +1,8 @@
+{{- /* Load blog animations via Hugo's asset pipeline */ -}}
+{{- $animations := resources.Get "js/blog-animations.js" | js.Build | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $animations = $animations | fingerprint -}}
+<script defer crossorigin="anonymous" src="{{ $animations.RelPermalink }}" integrity="{{ $animations.Data.Integrity }}"></script>
+{{- else -}}
+<script defer crossorigin="anonymous" src="{{ $animations.RelPermalink }}"></script>
+{{- end -}}

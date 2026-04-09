@@ -1,0 +1,9 @@
+{{- /* Font preloads for typography upgrade */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+{{- /* Reading progress bar - only on single pages (articles) */ -}}
+{{- if eq .Kind "page" -}}
+<div class="reading-progress" aria-hidden="true"></div>
+{{- end -}}
