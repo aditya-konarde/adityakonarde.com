@@ -30,7 +30,7 @@ Anthropic released Claude Opus 4.7 on April 16, shipping notable improvements ov
 
 ## Site Reliability Engineering
 
-**Kubernetes 1.36 "Haru" ships with 70 enhancements, including gang scheduling for AI workloads** --
+**Kubernetes 1.36 "Haru" ships with 68 enhancements, including gang scheduling for AI workloads** --
 Kubernetes 1.36 dropped on April 22 with 18 stable, 25 beta, and 25 alpha features. The standout for AI teams: gang scheduling enters alpha, letting the scheduler guarantee all-or-nothing pod placement for distributed training and batch inference jobs instead of processing pods individually (which wastes resources when only half a gang gets scheduled). Fine-grained kubelet API authorization goes GA, applying least-privilege access to individual kubelet endpoints -- a big win for observability setups that previously required broad node proxy permissions. Resource Health Status moves to beta with DRA support, so you can now determine whether pod crashes correlate with unhealthy or unknown device states on GPUs and other dynamic resources. User namespaces also graduate to stable.
 [Source](https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/)
 
