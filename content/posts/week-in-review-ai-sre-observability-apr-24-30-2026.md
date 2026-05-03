@@ -21,7 +21,7 @@ OpenAI released GPT-5.5, calling it the next step toward AI that actually does t
 [Source](https://help.openai.com/en/articles/11909943-gpt-53-and-gpt-55-in-chatgpt)
 
 **OpenAI ends Azure exclusivity, brings models to AWS Bedrock** --
-A day after restructuring its partnership with Microsoft, OpenAI announced its models will be available through Amazon Bedrock -- including a new "Managed Agents powered by OpenAI" service. This is seismic. OpenAI had been Azure-exclusive for years; now AWS customers can access OpenAI models and Codex with IAM, PrivateLink, guardrails, and CloudTrail logging baked in. Amazon invested $50 billion in OpenAI, while OpenAI committed $100 billion in AWS spend over eight years. The exclusivity era is definitively over.
+A day after restructuring its partnership with Microsoft, OpenAI announced its models will be available through Amazon Bedrock -- including a new "Managed Agents powered by OpenAI" service. This is seismic. OpenAI had been Azure-exclusive for years; now AWS customers can access OpenAI models and Codex with IAM, PrivateLink, guardrails, and CloudTrail logging baked in. Amazon invested $50 billion in OpenAI, while OpenAI committed $100 billion in additional AWS spend over eight years (on top of an existing $38B agreement). The exclusivity era is definitively over.
 [Source](https://aws.amazon.com/about-aws/whats-new/2026/04/bedrock-openai-models-codex-managed-agents/)
 
 **Google pledges up to $40 billion for Anthropic** --
@@ -30,6 +30,10 @@ Google is investing up to $40 billion in Anthropic -- $10 billion upfront at a $
 
 **DeepMind's David Silver raises $1.1B for reinforcement-learning AI startup** --
 David Silver, the researcher behind AlphaZero at DeepMind, has raised $1.1 billion at a $5.1 billion valuation for Ineffable Intelligence, a new lab aiming to build a "superlearner" that discovers knowledge without human data. The approach is pure reinforcement learning -- the same technique that beat world champions at chess and Go by learning entirely from self-play. Silver spent over a decade at DeepMind and brings deep expertise in the approach. If this works, it could represent a fundamentally different path from the LLM paradigm.
+**DeepSeek launches V4 -- 1.6 trillion parameter MoE, fully open-source under MIT** --
+DeepSeek released V4 on April 24, a Mixture-of-Experts model with 1.6 trillion total parameters (49 billion active per token). It uses a two-level routing MoE architecture and achieves competitive performance against GPT-5.5 and Claude Mythos on coding and reasoning benchmarks. DeepSeek claims V4 was trained for roughly $60 million -- a fraction of what US labs spend on comparable models. The model is available under an MIT license on Hugging Face, making it the most permissively licensed frontier-class model yet.
+[Source](https://www.cnbc.com/2026/04/24/deepseek-v4-china-open-source-ai-model.html)
+
 [Source](https://techcrunch.com/2026/04/27/deepminds-david-silver-just-raised-1-1b-to-build-an-ai-that-learns-without-human-data/)
 
 ## 🔧 Site Reliability Engineering
