@@ -98,6 +98,9 @@ languages:
       - identifier: Blog
         name: Blog
         url: /posts
+      - identifier: uses
+        name: /uses
+        url: /uses
       - identifier: newsletter
         name: Newsletter
         url: /tags/weekly-roundup/
