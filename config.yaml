@@ -1,63 +1,69 @@
 baseUrl: https://www.adityakonarde.com/
 languageCode: en-us
 theme: PaperMod
-copyright: 2026 Aditya Konarde
+copyright: '2026 Aditya Konarde'
 pagination:
   pagerSize: 5
-  sortBy: date
-  sortDirection: desc
+  sortBy: "date"
+  sortDirection: "desc"
 outputs:
   home:
-  - HTML
-  - RSS
-  - JSON
+    - HTML
+    - RSS
+    - JSON
   section:
-  - HTML
-  - RSS
+    - HTML
+    - RSS
   taxonomy:
-  - HTML
-  - RSS
+    - HTML
+    - RSS
   term:
-  - HTML
-  - RSS
+    - HTML
+    - RSS
 services:
   googleAnalytics:
-    ID: G-32YZMDJ7FF
+    ID: "G-32YZMDJ7FF" 
+
 params:
   author:
-    name: Aditya Konarde
-    email: aditya.konarde@gmail.com
+    name: "Aditya Konarde"
+    email: "aditya.konarde@gmail.com"
   profileMode:
     enabled: true
-    title: Aditya Konarde
-    subtitle: Engineering Leader | Technology Enthusiast | Photographer
-    imageUrl: images/propic-square.jpeg
-    imageTitle: Aditya Konarde
+    title: "Aditya Konarde"
+    subtitle: "Engineering Leader | Technology Enthusiast | Photographer"
+    imageUrl: "images/propic-square.jpeg"
+    imageTitle: "Aditya Konarde"
     imageWidth: 200
     imageHeight: 200
     buttons:
-    - name: About
-      url: about
-    - name: Blog
-      url: posts
-    - name: Contact
-      url: https://www.linkedin.com/in/adityakonarde/
+      - name: "About"
+        url: "about"
+      - name: "Blog"
+        url: "posts"
+      - name: "Contact"
+        url: "https://www.linkedin.com/in/adityakonarde/"
+
   socialIcons:
-  - name: linkedin
-    url: https://www.linkedin.com/in/adityakonarde/
-  - name: github
-    url: https://github.com/aditya-konarde
-  - name: twitter
-    url: https://twitter.com/aditya_konarde
-  - name: instagram
-    url: https://instagram.com/aditya.konarde
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/adityakonarde/"
+    - name: "github"
+      url: "https://github.com/aditya-konarde"
+    - name: "twitter"
+      url: "https://twitter.com/aditya_konarde"
+    - name: "instagram"
+      url: "https://instagram.com/aditya.konarde"
+
+  # Theme settings
   defaultTheme: auto
   disableThemeToggle: false
   showMenuItems: 4
   ShowRssButtonInSectionTermList: true
+
+  # Search configuration
   search:
     enable: true
-    type: fuse
+    type: "fuse"
     fuseOptions:
       isCaseSensitive: false
       shouldSort: true
@@ -65,8 +71,10 @@ params:
       distance: 100
       threshold: 0.4
       minMatchCharLength: 2
+
   footer:
-    text: Made with ❤️ by me and my bots
+    text: "Made with ❤️ by me and my bots"
+
 languages:
   en:
     title: Aditya Konarde's Blog
@@ -84,6 +92,7 @@ languages:
       logo:
         logoText: Aditya Konarde
         logoHomeLink: /
+    
     menu:
       main:
       - identifier: about
