@@ -32,7 +32,7 @@ Google is investing up to $40 billion in Anthropic -- $10 billion upfront at a $
 David Silver, the researcher behind AlphaZero at DeepMind, has raised $1.1 billion at a $5.1 billion valuation for Ineffable Intelligence, a new lab aiming to build a "superlearner" that discovers knowledge without human data. The approach is pure reinforcement learning -- the same technique that beat world champions at chess and Go by learning entirely from self-play. Silver spent over a decade at DeepMind and brings deep expertise in the approach. If this works, it could represent a fundamentally different path from the LLM paradigm.
 **DeepSeek launches V4 -- 1.6 trillion parameter MoE, fully open-source under MIT** --
 DeepSeek released V4 on April 24, a Mixture-of-Experts model with 1.6 trillion total parameters (49 billion active per token). It uses a two-level routing MoE architecture and achieves competitive performance against GPT-5.5 and Claude Mythos on coding and reasoning benchmarks. DeepSeek claims V4 was trained for roughly $60 million -- a fraction of what US labs spend on comparable models. The model is available under an MIT license on Hugging Face, making it the most permissively licensed frontier-class model yet.
-[Source](https://www.cnbc.com/2026/04/24/deepseek-v4-china-open-source-ai-model.html)
+[Source](https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html)
 
 [Source](https://techcrunch.com/2026/04/27/deepminds-david-silver-just-raised-1-1b-to-build-an-ai-that-learns-without-human-data/)
 
@@ -75,7 +75,7 @@ The OpenTelemetry Operator v0.150.0 updates the default .NET auto-instrumentatio
 - **Microsoft, Meta, and Google announce billions more in AI capex** -- All three reported massive infrastructure spending increases in earnings. Only Google convinced investors it's paying off. [Fortune](https://fortune.com/2026/04/29/microsoft-meta-google-ai-capex-spending-billions/)
 - **Anthropic weighs fundraise at $900B valuation** -- Would surpass OpenAI if completed. [CNBC](https://www.cnbc.com/2026/04/29/anthropic-weighs-raising-funds-at-900b-valuation-topping-openai.html)
 - **Datadog ARFBench** -- A new time-series question-answering benchmark based on real incidents, designed to evaluate AI's ability to triage production issues. [Datadog Blog](https://www.datadoghq.com/blog/ai/introducing-arfbench/)
-- **Mastra AI Framework v1.29.0** -- Adds Azure Blob Storage workspace, `streamUntilIdle()` for background tasks, and Cloudflare Workers support for MCP. [GitHub](https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.29.0)
+- **Mastra AI Framework v1.29.0** -- Adds Azure Blob Storage workspace, `streamUntilIdle()` for background tasks, and Cloudflare Workers support for MCP. [GitHub](https://github.com/mastra-ai/mastra/releases/tag/@mastra/core@1.29.0)
 
 ## 💬 My Take
 
