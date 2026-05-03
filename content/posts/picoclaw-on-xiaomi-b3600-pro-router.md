@@ -18,7 +18,7 @@ It turned out to be more practical than I expected.
 
 ## The Starting Point
 
-I used the trick to get the ssh password from the xiaomi dev panel. I won't go into detail here, but a quick google search should show you how. 
+I used the trick to get the ssh password from the xiaomi dev panel. I won't go into detail here, but a quick google search should show you how.
 
 Once I had SSH access, the device turned out to be a fairly interesting little box:
 
@@ -58,9 +58,9 @@ At the time of writing on April 7, 2026, the latest PicoClaw release was [v0.2.5
 
 Even better, the binaries are self-contained enough that they run happily in a stripped-down BusyBox/OpenWrt environment.
 
-In other words: this is exactly the sort of workload that benefits from a single Go binary. 
+In other words: this is exactly the sort of workload that benefits from a single Go binary.
 
-I do maintain my own fork of picoclaw, with some bells and whistles inspired by other agents (OpenClaw, Heremes) and hardened much more than regular picoclaw. If picoclaw could run there, my assistant could too. 
+I do maintain my own fork of picoclaw, with some bells and whistles inspired by other agents (OpenClaw, Heremes) and hardened much more than regular picoclaw. If picoclaw could run there, my assistant could too.
 
 ## The Trick: Use RAM for Binaries, Flash for Config
 
@@ -140,7 +140,7 @@ The launcher's virtual memory size looked large in `ps`, which is common and not
 
 That is perfectly reasonable on a router with roughly `443 MB` RAM.
 
-So in practice, PicoClaw was not stressing the device at all. It really does what it says on the Readme. You can run it on some seriously low powered devices. 
+So in practice, PicoClaw was not stressing the device at all. It really does what it says on the Readme. You can run it on some seriously low powered devices.
 
 ## Making It Reusable
 
@@ -274,4 +274,4 @@ If I keep pushing this further, the next steps will probably be:
 
 For now, though, I have a router that can host an AI assistant. That is already a pretty fun place to stop.
 
-Credits to Codex and Amp. It would have taken me a long time banging my head against a Linux book without you. And I'd have never written this post. 
+Credits to Codex and Amp. It would have taken me a long time banging my head against a Linux book without you. And I'd have never written this post.
