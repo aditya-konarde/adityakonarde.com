@@ -27,12 +27,12 @@ searchHidden: true
 
 ## Observability Stack
 
-- **Dashboarding:** Grafana (obviously)
+- **Dashboarding:** Grafana
 - **Metrics:** Prometheus, Mimir, VictoriaMetrics for side projects
-- **Logging:** Loki, Grafana Alloy (ex-Grafana Agent)
+- **Logging:** Loki, Grafana Alloy
 - **Tracing:** Tempo, OpenTelemetry Collector
 - **Alerting:** Grafana Alerting, PagerDuty, OnCall
-- **Synthetics:** Grafana k6, Keeps
+- **Synthetics:** Grafana k6
 
 ## AI & Automation
 
@@ -43,12 +43,13 @@ searchHidden: true
 
 ## Hardware
 
-- **Laptop:** MacBook Pro M4 Max (64GB) — daily driver
-- **Desktop:** Custom AMD Ryzen 9 / 128GB / RTX 4090 — local LLM experiments
-- **Keyboard:** ZSA Voyager (all the cool people have one) with custom Colemak-DH layout
-- **Mouse:** Logitech MX Master 3S
-- **Monitor:** LG 40WP95C — 40" 5K2K ultrawide
-- **Home lab:** Intel NUC running Proxmox + some Raspberry Pis
+- **Laptop:** MacBook Pro M1 (14")
+- **Monitor:** Dell P2518D (secondary display)
+- **Keyboard:** Keychron K1 (low profile mechanical)
+- **Mouse:** MX Master 3 (work), Logitech G Pro wired (gaming)
+- **Webcam:** Logitech C920 (everyday), Fujifilm XT-4 + Elgato Camlink 4K (higher quality)
+- **Mic:** Tonor microphone
+- **Audio:** Bose NC 700 (work calls), Apple AirPods Pro 2 (everyday), Edifier speakers (music)
 
 ## Productivity & Desk
 
@@ -57,8 +58,6 @@ searchHidden: true
 - **Browser:** Arc (personal), Firefox (dev)
 - **Desk:** Fully Jarvis standing desk
 - **Chair:** Herman Miller Aeron
-- **Audio:** AirPods Pro 2, Sony WH-1000XM5
-- **Lighting:** BenQ ScreenBar
 
 ## Other Tools I Reach For
 
