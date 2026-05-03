@@ -12,7 +12,7 @@ canonicalURL: ""
 searchHidden: false
 ---
 
-If you blinked this week, you missed a model war. OpenAI dropped GPT-5.5 on Wednesday; DeepSeek shipped V4 -- open-source, 1.6T parameters, Apache 2.0 -- within hours. Meanwhile, Kubernetes 1.36 landed with gang scheduling for AI batch workloads, GrafanaCON in Barcelona delivered Grafana 13 and a ground-up Loki rearchitecture, and Vercel disclosed an OAuth supply-chain breach that should make every platform team audit their third-party integrations today. This was one of those weeks where multiple tectonic plates moved at once.
+If you blinked this week, you missed a model war. OpenAI dropped GPT-5.5 on Wednesday; DeepSeek shipped V4 -- open-source, 1.6T parameters, MIT -- within hours. Meanwhile, Kubernetes 1.36 landed with gang scheduling for AI batch workloads, GrafanaCON in Barcelona delivered Grafana 13 and a ground-up Loki rearchitecture, and Vercel disclosed an OAuth supply-chain breach that should make every platform team audit their third-party integrations today. This was one of those weeks where multiple tectonic plates moved at once.
 
 ## AI and Machine Learning
 
@@ -21,7 +21,7 @@ OpenAI shipped GPT-5.5 on April 23, calling it their smartest model yet. The hea
 [Source](https://openai.com/index/introducing-gpt-5-5/)
 
 **DeepSeek ships V4 -- open-source, 1.6T parameters, same-day counter-launch** --
-Hours after GPT-5.5, DeepSeek released V4 in preview: a 1.6T-parameter MoE model (49B activated) with a 1M-token context window, Apache 2.0 license, and weights on Hugging Face. The Flash variant (284B total, 13B activated) is separately trained, not a trimmed Pro. API pricing lands at $1.74/$3.48 per million tokens for Pro -- significantly cheaper than Opus 4.7, GPT-5.5, or competitors. V4 introduces Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) to cut KV cache requirements by roughly 10x. The model was pre-trained on 32T+ tokens using FP4+FP8 mixed precision. Huawei also announced its Ascend 950-based supernode will fully support V4.
+Hours after GPT-5.5, DeepSeek released V4 in preview: a 1.6T-parameter MoE model (49B activated) with a 1M-token context window, MIT license, and weights on Hugging Face. The Flash variant (284B total, 13B activated) is separately trained, not a trimmed Pro. API pricing lands at $1.74/$3.48 per million tokens for Pro -- significantly cheaper than Opus 4.7, GPT-5.5, or competitors. V4 introduces Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) to cut KV cache requirements by roughly 10x. The model was pre-trained on 32T+ tokens using FP4+FP8 mixed precision. Huawei also announced its Ascend 950-based supernode will fully support V4.
 [Source](https://api-docs.deepseek.com/news/news0424)
 
 **Anthropic launches Claude Opus 4.7 with stronger coding and high-res vision** --
@@ -35,7 +35,7 @@ Kubernetes 1.36 dropped on April 22 with 18 stable, 25 beta, and 25 alpha featur
 [Source](https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/)
 
 **Vercel discloses OAuth supply-chain breach originating from third-party AI tool** --
-On April 19, Vercel disclosed a security incident that's become this week's must-read postmortem. The attack didn't start at Vercel -- it started at Context.ai, a third-party AI SaaS, where an employee was infected with Lumma Stealer. The attacker used stolen OAuth tokens to pivot through Google Workspace into a Vercel employee's corporate account, then accessed internal environments and read a subset of customer environment variables not marked "sensitive." The detection gap: roughly 22 months, from mid-2024 to April 2026. Mandiant and law enforcement are involved. The lesson is uncomfortable: your supply chain isn't just your code and npm packages anymore -- it's every SaaS app your employees authenticate with via OAuth.
+On April 19, Vercel disclosed a security incident that's become this week's must-read postmortem. The attack didn't start at Vercel -- it started at Context.ai, a third-party AI SaaS, where an employee was infected with Lumma Stealer. The attacker used stolen OAuth tokens to pivot through Google Workspace into a Vercel employee's corporate account, then accessed internal environments and read a subset of customer environment variables not marked "sensitive." The detection gap: roughly 2 months, from February 2026 to April 2026. Mandiant and law enforcement are involved. The lesson is uncomfortable: your supply chain isn't just your code and npm packages anymore -- it's every SaaS app your employees authenticate with via OAuth.
 [Source](https://vercel.com/blog/postmortem-supply-chain-attack)
 
 **Gateway API v1.5 ships biggest release yet -- six features graduate to stable** --
@@ -53,7 +53,7 @@ The most technically significant GrafanaCON announcement: Loki is getting a new 
 [Source](https://www.infoq.com/news/2026/04/grafana-loki-ai-agents/)
 
 **Grafana Labs targets the "AI blind spot" with LLM observability and agent-aware CLI** --
-Also at GrafanaCON: Grafana launched AI Observability in Grafana Cloud (public preview) for monitoring LLM-powered applications in production -- tracking token usage, latency, error rates, and evaluation metrics in real time. They also shipped GCX, a new agent-aware CLI designed to surface Grafana Cloud data inside agentic development environments. And o11y-bench, an open-source benchmark for evaluating AI agents running observability workflows, is now available. The quote from Jen Villa, Senior Director of Product: "AI systems are starting to look a lot like distributed systems did a decade ago: powerful, but difficult to reason about and even harder to operate."
+Also at GrafanaCON: Grafana launched AI Observability in Grafana Cloud (public preview) for monitoring LLM-powered applications in production -- tracking token usage, latency, error rates, and evaluation metrics in real time. They also shipped GCX, a new agent-aware CLI designed to surface Grafana Cloud data inside agentic development environments. And o11y-bench, an open-source benchmark for evaluating AI agents running observability workflows, is now available.
 [Source](https://grafana.com/press/2026/04/21/grafana-labs-targets-the-ai-blind-spot-with-new-observability-tools-announced-at-grafanacon-2026/)
 
 **OpenTelemetry formally deprecates OpenTracing compatibility requirements** --
