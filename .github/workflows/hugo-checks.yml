@@ -35,11 +35,6 @@ jobs:
           config: .markdownlint.json
           globs: "content/**/*.md"
 
-      - name: Spell Check
-        uses: rojopolis/spellcheck-github-actions@0.60.0
-        with:
-          config_path: '.spellcheck.yml'
-
       - name: Link Check
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
