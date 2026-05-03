@@ -99,7 +99,7 @@ languages:
         name: Blog
         url: /posts
       - identifier: uses
-        name: /uses
+        name: Setup
         url: /uses
       - identifier: newsletter
         name: Newsletter
