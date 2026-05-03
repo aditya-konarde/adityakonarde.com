@@ -72,6 +72,9 @@ params:
       threshold: 0.4
       minMatchCharLength: 2
 
+  footer:
+    text: "Made with ❤️ by me and my bots"
+
 languages:
   en:
     title: Aditya Konarde's Blog
