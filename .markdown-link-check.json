@@ -10,6 +10,7 @@
     { "pattern": "^https?://(www\\.)?reuters\\.com" },
     { "pattern": "^https?://venturebeat\\.com" },
     { "pattern": "^https?://www\\.marktechpost\\.com" },
+    { "pattern": "^https?://techcommunity\\.microsoft\\.com" },
     { "pattern": "^/" }
   ],
   "retryOn429": true,
