@@ -2,6 +2,14 @@
   "ignorePatterns": [
     { "pattern": "^https?://www\\.linkedin\\.com" },
     { "pattern": "^https?://linkedin\\.com" },
+    { "pattern": "^https?://punchbowl\\.news" },
+    { "pattern": "^https?://finance\\.yahoo\\.com" },
+    { "pattern": "^https?://nirmata\\.com" },
+    { "pattern": "^https?://ko-fi\\.com" },
+    { "pattern": "^https?://starchart\\.cc" },
+    { "pattern": "^https?://(www\\.)?reuters\\.com" },
+    { "pattern": "^https?://venturebeat\\.com" },
+    { "pattern": "^https?://www\\.marktechpost\\.com" },
     { "pattern": "^/" }
   ],
   "retryOn429": true,

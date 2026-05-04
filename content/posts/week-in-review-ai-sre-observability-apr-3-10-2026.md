@@ -18,7 +18,7 @@ This was the week open-weight AI went mainstream. Google and Meta shipped major 
 
 **Google launches Gemma 4 -- open-weight models with agentic capabilities from phones to data centers** --
 Google DeepMind released Gemma 4, a family of four open-weight models (E2B, E4B, 26B MoE, 31B Dense) under an Apache 2.0 license. Built on Gemini 3 research, these models bring native function calling, structured JSON outputs, and vision understanding to hardware ranging from a Raspberry Pi to an H100. The 26B MoE variant activates only 4B parameters per token while delivering frontier-level quality, and Cloudflare already made it available on Workers AI within days. With 400 million cumulative Gemma downloads, Google is making a clear bet: the future of open AI is agentic, multimodal, and runs everywhere.
-[Source](https://blog.google/technology/developers/gemma-4/)
+[Source](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
 
 **Meta ships Llama 4 Scout and Maverick -- first open-weight multimodal MoE models** --
 Meta released Llama 4 Scout (17B active params, 109B total, 16 experts) and Maverick (17B active, 400B total, 128 experts), marking the most significant architectural shift in the Llama family to date. Scout's headline feature is an industry-leading 10-million-token context window -- the longest in any open-weight model -- while fitting on a single H100 GPU. Maverick competes directly with GPT-4o and Gemini 2.0 Flash on benchmarks while using less than half the active parameters. Both models are natively multimodal (text, images, video) and available on Hugging Face.
@@ -72,7 +72,7 @@ A new OTEP (OpenTelemetry Enhancement Proposal) landed in the OTel specification
 
 - **GitHub Agentic Workflows ships OTLP tracing overhaul (v0.67.1)** -- Accurate span names, OTLP payload sanitization, headers masking, and MCP Gateway OTel integration. [GitHub](https://github.github.com/gh-aw/blog/2026-04-06-weekly-update/)
 - **eBPF monitoring replacing sidecars gains momentum** -- Analysis of how Datadog's kernel-level observability with eBPF is making sidecar-based service mesh monitoring increasingly obsolete. [Kunal Ganglani](https://www.kunalganglani.com/blog/ebpf-monitoring-replacing-sidecars)
-- **Grafana visualization suggestions now GA** -- Updated suggestions leverage data source metadata for higher-quality chart recommendations. [Grafana Labs](https://grafana.com/whats-new/2026-04-10-updated-visualization-suggestions-now-generally-available/)
+- **Grafana visualization suggestions now GA** -- Updated suggestions leverage data source metadata for higher-quality chart recommendations. [Grafana Labs](https://grafana.com/whats-new/2026-03-30-updated-visualization-suggestions-now-generally-available/)
 - **Azure Container Apps adds Dynamic Sessions for AI agent code execution** -- Sandboxed session pools let agents safely execute AI-generated code on ACA. [Microsoft](https://github.com/microsoft/azure-container-apps/issues/1687)
 - **Alibaba releases Qwen 3.6 Plus** -- Optimized for agentic coding with autonomous plan-test-iterate loops and a 1M-token context window. [Alibaba Cloud](https://treasurytoday.com/press-releases/press-release-alibaba-unveils-qwen-3-6-plus-to-accelerate-agentic-ai-deployment-for-enterprises-and-alibabas-ai-applications/)
 - **OTel Collector Contrib weekly report** -- 42 new issues including a Datadog exporter bug that silently reports success on log send failures. [GitHub](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/47401)

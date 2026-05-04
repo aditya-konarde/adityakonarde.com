@@ -22,7 +22,7 @@ OpenAI shipped GPT-5.5 on April 23, calling it their smartest model yet. The hea
 
 **DeepSeek ships V4 -- open-source, 1.6T parameters, same-day counter-launch** --
 Hours after GPT-5.5, DeepSeek released V4 in preview: a 1.6T-parameter MoE model (49B activated) with a 1M-token context window, MIT license, and weights on Hugging Face. The Flash variant (284B total, 13B activated) is separately trained, not a trimmed Pro. API pricing lands at $1.74/$3.48 per million tokens for Pro -- significantly cheaper than Opus 4.7, GPT-5.5, or competitors. V4 introduces Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) to cut KV cache requirements by roughly 10x. The model was pre-trained on 32T+ tokens using FP4+FP8 mixed precision. Huawei also announced its Ascend 950-based supernode will fully support V4.
-[Source](https://api-docs.deepseek.com/news/news0424)
+[Source](https://api-docs.deepseek.com/news/news260424)
 
 **Anthropic launches Claude Opus 4.7 with stronger coding and high-res vision** --
 Anthropic released Claude Opus 4.7 on April 16, shipping notable improvements over Opus 4.6 in advanced software engineering -- particularly on the hardest tasks. The model can now accept images up to 2,576 pixels on the long edge (3x the prior limit), making it significantly better at interpreting charts, dense documents, and UIs. A new "xhigh" effort level gives developers control over the reasoning-depth-vs-latency tradeoff. Pricing stays at $5/$25 per million tokens. Alongside the launch, Anthropic introduced a Cyber Verification Program that gives vetted security researchers full model access without standard restrictions -- a direct response to the Project Glasswing findings about AI cybersecurity risk.
@@ -36,7 +36,7 @@ Kubernetes 1.36 dropped on April 22 with 18 stable, 25 beta, and 25 alpha featur
 
 **Vercel discloses OAuth supply-chain breach originating from third-party AI tool** --
 On April 19, Vercel disclosed a security incident that's become this week's must-read postmortem. The attack didn't start at Vercel -- it started at Context.ai, a third-party AI SaaS, where an employee was infected with Lumma Stealer. The attacker used stolen OAuth tokens to pivot through Google Workspace into a Vercel employee's corporate account, then accessed internal environments and read a subset of customer environment variables not marked "sensitive." The detection gap: roughly 2 months, from February 2026 to April 2026. Mandiant and law enforcement are involved. The lesson is uncomfortable: your supply chain isn't just your code and npm packages anymore -- it's every SaaS app your employees authenticate with via OAuth.
-[Source](https://vercel.com/blog/postmortem-supply-chain-attack)
+[Source](https://vercel.com/kb/bulletin/vercel-april-2026-security-incident)
 
 **Gateway API v1.5 ships biggest release yet -- six features graduate to stable** --
 Gateway API v1.5, released in March but getting widespread adoption this month, is the project's largest release to date. Six widely-requested features move to the Standard (stable) channel: ListenerSet for multi-tenant listener management, TLSRoute, HTTPRoute CORS Filter, Client Certificate Validation, Certificate Selection for Gateway TLS Origination, and ReferenceGrant. The project has also moved to a release-train model, which should produce a more predictable cadence going forward. For teams still on Ingress: this is the release that closes most of the remaining feature gaps.
@@ -62,11 +62,11 @@ The OpenTelemetry Specification project merged the deprecation of OpenTracing co
 
 ## Quick Links
 
-- **Kong launches Agent Gateway for multi-agent AI traffic** -- AI Gateway 3.14 adds governance for agent-to-agent communication alongside LLM and MCP traffic, with unified observability in Konnect. [Kong](https://konghq.com/blog/product-releases/agent-gateway)
+- **Kong launches Agent Gateway for multi-agent AI traffic** -- AI Gateway 3.14 adds governance for agent-to-agent communication alongside LLM and MCP traffic, with unified observability in Konnect. [Kong](https://konghq.com/blog/product-releases/kong-agent-gateway)
 - **OpenTelemetry eBPF Instrumentation (OBI) hits beta** -- The successor to Grafana Beyla reaches v0.8.0 with zero-code observability for Kubernetes, targeting 1.0 GA in late 2026. [DEV Community](https://dev.to/x4nent/opentelemetry-ebpf-instrumentation-obi-the-complete-guide-kubecon-eu-2026-beta-launch-5e2o)
 - **Auto-diagnosing Kubernetes alerts with HolmesGPT** -- A two-person SRE team at STCLab shares how they built an AI investigation pipeline using HolmesGPT (CNCF Sandbox) with runbook-driven investigation. [CNCF Blog](https://www.cncf.io/blog/2026/04/21/auto-diagnosing-kubernetes-alerts-with-holmesgpt-and-cncf-tools/)
 - **Skyscanner shares OTel scaling story** -- Managing OpenTelemetry collectors across 24 production clusters with 1,000+ microservices. [OpenTelemetry Blog](https://opentelemetry.io/blog/2026/devex-skyscanner/)
-- **Kubernetes AI Gateway Working Group + Agent Sandbox** -- The community is building two complementary primitives: AI Gateway for inference traffic routing (KV-cache-aware scheduling) and Agent Sandbox for isolated, stateful agent runtimes. [Kubernetes Blog](https://kubernetes.io/blog/2026/04/08/running-agents-kubernetes-sandbox/)
+- **Kubernetes AI Gateway Working Group + Agent Sandbox** -- The community is building two complementary primitives: AI Gateway for inference traffic routing (KV-cache-aware scheduling) and Agent Sandbox for isolated, stateful agent runtimes. [Kubernetes Blog](https://kubernetes.io/blog/2026/03/20/running-agents-on-kubernetes-with-agent-sandbox/)
 - **Grafana Cloud observability survey: 77% of orgs now lean on open source/open standards** -- Yet 38% still cite complexity as their top challenge. [Grafana Labs](https://grafana.com/observability-survey/)
 
 ## My Take
