@@ -59,7 +59,7 @@ On May 5 the OpenTelemetry project created [open-telemetry/semantic-conventions-
 
 **OpenTelemetry JS experimental 0.217.0 ships a custom OTLP serializer and config-driven log levels** —
 The OTel JS experimental release on May 6 replaced the protobufjs-based OTLP trace serializer with a custom implementation, auto-generated TypeScript types from the stable v1.0.0 declarative-config JSON schema, and started honoring `log_level` in YAML config to wire up the diagnostic console logger. Subtle but important: invalid YAML config now produces a no-op SDK instead of a half-initialized one — exactly the failure mode you want during a deploy regression.
-[Source](https://github.com/open-telemetry/opentelemetry-js/releases/tag/experimental%2Fv0.217.0)
+[Source](https://github.com/open-telemetry/opentelemetry-js/releases/tag/experimental/v0.217.0)
 
 **Datadog Reference Tables in Observability Pipelines** —
 On May 1, Datadog added Reference Tables to Observability Pipelines, letting teams enrich logs at ingest with dynamically updating context from Snowflake, S3, ServiceNow CMDB, Databricks, and similar systems — instead of duplicating lookups downstream or correlating by hand during investigations. For SOC and platform teams stitching threat-intel feeds and asset inventories into queries by hand, this collapses a real chunk of toil.
@@ -78,7 +78,6 @@ On May 6, Datadog for Government achieved FedRAMP High certification on US1-FED.
 - **Anthropic, Blackstone, H&F, and Goldman launch a new enterprise AI services company** — Pairs the labs that have the models with the PE/finance shops that have the customers and patience for multi-year deployments (May 4). [Anthropic](https://www.anthropic.com/news)
 - **arXiv 2605.02572: "On Training LLMs for Long-Horizon Tasks"** — Isolates horizon length as a training bottleneck and shows horizon reduction stabilizes training and generalizes to longer horizons at inference. ICML 2026. [arXiv](https://arxiv.org/abs/2605.02572)
 - **arXiv 2605.00347: "Odysseus"** — VLMs to 100+ turn decision-making via RL using a small CNN critic + positive-advantage filtering, past the 20–30 turn ceiling that dogs GRPO/Reinforce++. [arXiv](https://arxiv.org/abs/2605.00347)
-- **Red Hat publishes an eBPF integration overview** — High-level map of how OpenShift, RHEL, and Red Hat networking use eBPF, and the upstream projects Red Hat backports from. [Red Hat Developer](https://developers.redhat.com/articles/2026/05/06/using-ebpf-red-hat-products)
 
 ## 💬 My Take
 
