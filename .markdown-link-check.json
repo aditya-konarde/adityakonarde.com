@@ -1,5 +1,6 @@
 {
   "ignorePatterns": [
+<<<<<<< HEAD
     {
       "pattern": "^https?://www\\.linkedin\\.com"
     },
@@ -93,6 +94,26 @@
     {
       "pattern": "^https?://(www\\.)?apmdigest\\.com"
     }
+=======
+    { "pattern": "^https?://www\\.linkedin\\.com" },
+    { "pattern": "^https?://linkedin\\.com" },
+    { "pattern": "^https?://punchbowl\\.news" },
+    { "pattern": "^https?://finance\\.yahoo\\.com" },
+    { "pattern": "^https?://nirmata\\.com" },
+    { "pattern": "^https?://ko-fi\\.com" },
+    { "pattern": "^https?://starchart\\.cc" },
+    { "pattern": "^https?://(www\\.)?reuters\\.com" },
+    { "pattern": "^https?://venturebeat\\.com" },
+    { "pattern": "^https?://www\\.marktechpost\\.com" },
+    { "pattern": "^https?://techcommunity\\.microsoft\\.com" },
+    { "pattern": "^https?://microsoft\\.ai" },
+    { "pattern": "^https?://huggingface\\.co" },
+    { "pattern": "^https?://fortune\\.com" },
+    { "pattern": "^https?://(www\\.)?honeycomb\\.io" },
+    { "pattern": "^https?://research\\.ibm\\.com" },
+    { "pattern": "^https?://konghq\\.com" },
+    { "pattern": "^/" }
+>>>>>>> 8491864 (fix: add WAF-blocked domains to markdown-link-check ignore list)
   ],
   "retryOn429": true,
   "retryCount": 3,
