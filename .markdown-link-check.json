@@ -80,6 +80,12 @@
     },
     {
       "pattern": "^https?://blog\\.railway\\.com"
+    },
+    {
+      "pattern": "^https?://blog\\.google"
+    },
+    {
+      "pattern": "^https?://deepmind\\.google"
     }
   ],
   "retryOn429": true,
