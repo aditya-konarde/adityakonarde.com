@@ -76,7 +76,7 @@ Grafana Labs rolled [SQL Expressions support into Grafana Assistant](https://gra
 - **Gemini in Chrome gets "Skills" for one-click prompt workflows** — Save and replay prompts across tabs with a slash-command UI; sensitive actions still require confirmation. [Google](https://blog.google/products-and-platforms/products/chrome/skills-in-chrome/)
 - **GitHub enables model selection for Claude and Codex coding agents** — Pick between Sonnet/Opus 4.5 or 4.6, or GPT-5.2/5.3-Codex and GPT-5.4, when kicking off third-party agent tasks. [GitHub Changelog](https://github.blog/changelog/2026-04-14-model-selection-for-claude-and-codex-agents-on-github-com/)
 - **GitHub is drowning in AI-generated pull requests** — AI agent PRs jumped from 4M to 17M per month in six months; the platform logged five separate incidents in the first two days of April. [Analysis](https://danilchenko.dev/posts/2026-04-11-github-ai-agents-pull-requests/)
-- **GitHub posts March 2026 availability report** — Four March outages exposed caching, Redis, auth, and dependency weaknesses; mitigations so far have been tactical killswitches. [Dev Digest](https://www.devtoolsfeed.com/article/github-availability-report-march-2026/)
+- **GitHub posts March 2026 availability report** — Four March outages exposed caching, Redis, auth, and dependency weaknesses; mitigations so far have been tactical killswitches. [Dev Digest](https://github.blog/news-insights/company-news/github-availability-report-march-2026/)
 
 ## My Take
 
