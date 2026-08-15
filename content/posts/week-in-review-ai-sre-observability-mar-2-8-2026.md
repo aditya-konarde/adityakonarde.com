@@ -52,7 +52,7 @@ This was a week where the AI race got tangibly closer to your desktop, the Kuber
 [Source: OpenTelemetry Blog](https://opentelemetry.io/blog/2026/ottl-context-inference-come-to-filterprocessor/)
 
 **The "observability tax" conversation heats up — enterprises pivot to OpenTelemetry for cost control.** Multiple pieces this week covered the growing frustration with observability costs, with 66% of enterprises reporting unexpected overages on observability tooling. The core argument: standardizing on OpenTelemetry eliminates the duplicated engineering effort of building custom pipelines, reduces vendor lock-in premiums, and lets teams route telemetry data more efficiently. Combined with eBPF-based collection (sub-1% CPU overhead) and tiered collector architectures, organizations are finding they can cut costs while improving coverage.
-[Source: IPv6.net](https://ipv6.net/news/the-end-of-the-observability-tax-why-enterprises-are-pivoting-to-opentelemetry/)
+[Source: IPv6.net](https://web.archive.org/web/20260317155340/https://ipv6.net/news/the-end-of-the-observability-tax-why-enterprises-are-pivoting-to-opentelemetry/)
 
 ## Quick Links
 

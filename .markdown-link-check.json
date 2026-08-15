@@ -1,18 +1,58 @@
 {
   "ignorePatterns": [
-    { "pattern": "^https?://www\\.linkedin\\.com" },
-    { "pattern": "^https?://linkedin\\.com" },
-    { "pattern": "^https?://punchbowl\\.news" },
-    { "pattern": "^https?://finance\\.yahoo\\.com" },
-    { "pattern": "^https?://nirmata\\.com" },
-    { "pattern": "^https?://ko-fi\\.com" },
-    { "pattern": "^https?://starchart\\.cc" },
-    { "pattern": "^https?://(www\\.)?reuters\\.com" },
-    { "pattern": "^https?://venturebeat\\.com" },
-    { "pattern": "^https?://www\\.marktechpost\\.com" },
-    { "pattern": "^/" }
+    {
+      "pattern": "^https?://www\\.linkedin\\.com"
+    },
+    {
+      "pattern": "^https?://linkedin\\.com"
+    },
+    {
+      "pattern": "^https?://punchbowl\\.news"
+    },
+    {
+      "pattern": "^https?://finance\\.yahoo\\.com"
+    },
+    {
+      "pattern": "^https?://nirmata\\.com"
+    },
+    {
+      "pattern": "^https?://ko-fi\\.com"
+    },
+    {
+      "pattern": "^https?://starchart\\.cc"
+    },
+    {
+      "pattern": "^https?://(www\\.)?reuters\\.com"
+    },
+    {
+      "pattern": "^https?://venturebeat\\.com"
+    },
+    {
+      "pattern": "^https?://www\\.marktechpost\\.com"
+    },
+    {
+      "pattern": "^/"
+    },
+    {
+      "pattern": "^https?://(www\\.)?openai\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?isdown\\.app"
+    },
+    {
+      "pattern": "^https?://medium\\.com"
+    },
+    {
+      "pattern": "^https?://blog\\.argoproj\\.io"
+    },
+    {
+      "pattern": "^https?://help\\.openai\\.com"
+    }
   ],
   "retryOn429": true,
   "retryCount": 3,
-  "aliveStatusCodes": [200, 206]
+  "aliveStatusCodes": [
+    200,
+    206
+  ]
 }
