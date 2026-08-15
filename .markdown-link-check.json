@@ -92,6 +92,12 @@
     },
     {
       "pattern": "^https?://(www\\.)?apmdigest\\.com"
+    },
+    {
+      "pattern": "^https?://opensource\\.googleblog\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?theregister\\.com"
     }
   ],
   "retryOn429": true,
