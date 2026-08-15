@@ -26,7 +26,7 @@ Cohere released Command A+, a 218-billion-parameter Sparse Mixture-of-Experts mo
 
 **Meta ships Llama 4 — the open-weight model that closed the gap** —
 Meta released the Llama 4 family in mid-May, headlined by a 405B-parameter flagship using a Mixture-of-Experts architecture. Independent evaluations show it competitive with GPT-5 and Claude 4 Opus on most benchmarks, while the MoE design enables deployment configurations impossible with dense models of comparable capability. The 8B variant rivals Llama 3 70B on most tasks, and the 70B hits a sweet spot for enterprise deployment on a single 8-GPU server with 4-bit quantization. The frontier-tier "Behemoth" variant remains in training. The gap between open-weight and proprietary models is now narrow enough that the tradeoffs are no longer obvious.
-[Source](https://goodlandworld.com/articles/llama-4-meta-open-source.html)
+[Source](https://ai.meta.com/blog/llama-4-multimodal-intelligence/)
 
 **Microsoft open-sources RAMPART and Clarity for AI agent safety** —
 Microsoft released two open-source tools aimed at making AI safety an engineering discipline rather than a periodic audit. RAMPART (Risk Assessment and Measurement Platform for Agentic Red Teaming) is a pytest-based framework that embeds adversarial and benign test scenarios into CI/CD pipelines, letting teams simulate prompt injection, unauthorized tool use, and behavioral boundary violations with statistical guarantees. Clarity is a structured pre-development tool that helps teams decide whether they are building the right thing before writing code. Both emerged from Microsoft's internal AI red team and are designed to turn one-off red-team findings into lasting regression coverage.
