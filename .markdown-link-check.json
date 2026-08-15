@@ -86,6 +86,12 @@
     },
     {
       "pattern": "^https?://deepmind\\.google"
+    },
+    {
+      "pattern": "^https?://(www\\.)?youtube\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?apmdigest\\.com"
     }
   ],
   "retryOn429": true,
