@@ -61,7 +61,7 @@ The Contrib distribution [shipped v0.150.0](https://github.com/open-telemetry/op
 [Source (GitHub release notes)](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.150.0)
 
 **Grafana's SQL Expressions land in Grafana Assistant** —
-Grafana Labs rolled [SQL Expressions support into Grafana Assistant](https://grafana.com/whats-new/2026-04-14-sql-expressions-support-in-grafana-assistant/) on April 14 — GA for Grafana Cloud, public preview for Enterprise. Describe what you want across multiple queries — joins, ratios, filtering before aggregation — and Assistant writes the MySQL-dialect SQL, using your query names as table names and checking first that SQL Expressions is enabled. The flashy part is "AI writes a query," but the real win is that Assistant now *knows the feature exists* so you don't have to remember it — that's how AI quietly gets adopted in observability tooling.
+Grafana Labs rolled [SQL Expressions support into Grafana Assistant](https://grafana.com/whats-new/2026-04-14-sql-expressions-support-in-grafana-assistant/) on April 14 (GA for Grafana Cloud, public preview for Enterprise). Describe what you want across multiple queries — joins, ratios, filtering before aggregation — and Assistant writes the MySQL-dialect SQL, using your query names as table names and checking first that SQL Expressions is enabled. The flashy part is "AI writes a query," but the real win is that Assistant now *knows the feature exists* so you don't have to remember it. That's how AI quietly gets adopted in observability tooling.
 [Source (Grafana Labs)](https://grafana.com/whats-new/2026-04-14-sql-expressions-support-in-grafana-assistant/)
 
 **Datadog's Python APM adds LiteLLM guardrail integration, deprecates RAGAS** —
