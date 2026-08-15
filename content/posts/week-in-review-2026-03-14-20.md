@@ -54,7 +54,7 @@ Komodor unveiled a new extensibility framework for its Klaudia AI platform, enab
 ### Azure SRE Agent hits general availability
 
 Microsoft's Azure SRE Agent, which continuously observes telemetry, correlates incidents with recent changes, and assists with remediation, went GA this week after several months in public preview. Unlike traditional AIOps tools, it operates as a genuine agentic system integrated natively with incident management workflows. Elastic published a same-day integration guide showing how to pair it with Elasticsearch for higher-fidelity data foundations.
-[Azure SRE Agent overview](https://www.007ffflearning.com/post/azure-sre-agent-intro/) | [Elastic integration guide](https://www.elastic.co/observability-labs/blog/azure-sre-agent-elasticsearch)
+[Azure SRE Agent overview](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-sre-agent-at-microsoft-build-2026-bringing-agentic-operations-to-the-enter/4524669) | [Elastic integration guide](https://www.elastic.co/observability-labs/blog/azure-sre-agent-elasticsearch)
 
 ## Observability
 

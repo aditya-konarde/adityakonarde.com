@@ -47,6 +47,12 @@
     },
     {
       "pattern": "^https?://help\\.openai\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?thekubeguy\\.com"
+    },
+    {
+      "pattern": "^https?://aws\\.plainenglish\\.io"
     }
   ],
   "retryOn429": true,
