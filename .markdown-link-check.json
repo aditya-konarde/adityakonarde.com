@@ -95,6 +95,9 @@
     },
     {
       "pattern": "^https?://opensource\\.googleblog\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?theregister\\.com"
     }
   ],
   "retryOn429": true,
