@@ -53,6 +53,33 @@
     },
     {
       "pattern": "^https?://aws\\.plainenglish\\.io"
+    },
+    {
+      "pattern": "^https?://microsoft\\.ai"
+    },
+    {
+      "pattern": "^https?://techcommunity\\.microsoft\\.com"
+    },
+    {
+      "pattern": "^https?://huggingface\\.co"
+    },
+    {
+      "pattern": "^https?://fortune\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?honeycomb\\.io"
+    },
+    {
+      "pattern": "^https?://research\\.ibm\\.com"
+    },
+    {
+      "pattern": "^https?://konghq\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?axios\\.com"
+    },
+    {
+      "pattern": "^https?://blog\\.railway\\.com"
     }
   ],
   "retryOn429": true,
