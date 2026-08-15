@@ -1,6 +1,5 @@
 {
   "ignorePatterns": [
-<<<<<<< HEAD
     {
       "pattern": "^https?://www\\.linkedin\\.com"
     },
@@ -94,21 +93,6 @@
     {
       "pattern": "^https?://(www\\.)?apmdigest\\.com"
     }
-=======
-    { "pattern": "^https?://www\\.linkedin\\.com" },
-    { "pattern": "^https?://linkedin\\.com" },
-    { "pattern": "^https?://punchbowl\\.news" },
-    { "pattern": "^https?://finance\\.yahoo\\.com" },
-    { "pattern": "^https?://nirmata\\.com" },
-    { "pattern": "^https?://ko-fi\\.com" },
-    { "pattern": "^https?://starchart\\.cc" },
-    { "pattern": "^https?://(www\\.)?reuters\\.com" },
-    { "pattern": "^https?://venturebeat\\.com" },
-    { "pattern": "^https?://www\\.marktechpost\\.com" },
-    { "pattern": "^https?://(www\\.)?axios\\.com" },
-    { "pattern": "^https?://blog\\.railway\\.com" },
-    { "pattern": "^/" }
->>>>>>> e205ca7 (chore: add axios and railway blog to link check ignore patterns)
   ],
   "retryOn429": true,
   "retryCount": 3,
