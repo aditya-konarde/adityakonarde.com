@@ -47,7 +47,7 @@ A production incident surfaced where Dapr sidecars failed to recover after repea
 [Source](https://github.com/dapr/dapr/issues/9743)
 
 **CNCF publishes hands-on guide to GitOps policy-as-code with Argo CD and Kyverno** --
-The CNCF published a detailed walkthrough for deploying Kyverno alongside Argo CD, covering baseline policies from the official Helm chart and custom policy creation. The guide emphasizes that GitOps without guardrails means misconfigured or non-compliant resources can reach production unchecked. For teams already using Argo CD for declarative infrastructure, adding Kyverno as a policy enforcement layer at the admission controller level is a natural extension that keeps everything in Git.
+The CNCF published a detailed walkthrough for deploying Kyverno alongside Argo CD, covering baseline policies from the official Helm chart and custom policy creation. The guide stresses that GitOps without guardrails means misconfigured or non-compliant resources can reach production unchecked. For teams already using Argo CD for declarative infrastructure, adding Kyverno as a policy enforcement layer at the admission controller level is a natural extension that keeps everything in Git.
 [Source](https://www.cncf.io/blog/2026/04/02/gitops-policy-as-code-securing-kubernetes-with-argo-cd-and-kyverno/)
 
 ## Observability
@@ -72,7 +72,7 @@ A new OTEP (OpenTelemetry Enhancement Proposal) landed in the OTel specification
 
 - **GitHub Agentic Workflows ships OTLP tracing overhaul (v0.67.1)** -- Accurate span names, OTLP payload sanitization, headers masking, and MCP Gateway OTel integration. [GitHub](https://github.github.com/gh-aw/blog/2026-04-06-weekly-update/)
 - **eBPF monitoring replacing sidecars gains momentum** -- Analysis of how Datadog's kernel-level observability with eBPF is making sidecar-based service mesh monitoring increasingly obsolete. [Kunal Ganglani](https://www.kunalganglani.com/blog/ebpf-monitoring-replacing-sidecars)
-- **Grafana visualization suggestions now GA** -- Updated suggestions leverage data source metadata for higher-quality chart recommendations. [Grafana Labs](https://grafana.com/whats-new/2026-03-30-updated-visualization-suggestions-now-generally-available/)
+- **Grafana visualization suggestions now GA** -- Updated suggestions use data source metadata for higher-quality chart recommendations. [Grafana Labs](https://grafana.com/whats-new/2026-03-30-updated-visualization-suggestions-now-generally-available/)
 - **Azure Container Apps adds Dynamic Sessions for AI agent code execution** -- Sandboxed session pools let agents safely execute AI-generated code on ACA. [Microsoft](https://github.com/microsoft/azure-container-apps/issues/1687)
 - **Alibaba releases Qwen 3.6 Plus** -- Optimized for agentic coding with autonomous plan-test-iterate loops and a 1M-token context window. [Alibaba Cloud](https://treasurytoday.com/press-releases/press-release-alibaba-unveils-qwen-3-6-plus-to-accelerate-agentic-ai-deployment-for-enterprises-and-alibabas-ai-applications/)
 - **OTel Collector Contrib weekly report** -- 42 new issues including a Datadog exporter bug that silently reports success on log send failures. [GitHub](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/47401)
