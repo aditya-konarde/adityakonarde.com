@@ -150,6 +150,7 @@ CASB
 CD
 CDN
 CEOs
+CFP
 CI
 CI-pipeline
 CIEM
@@ -206,6 +207,7 @@ ChatGPT
 ChatOps
 Checksum
 Cherry-pick
+Christoph
 Chroma
 Cilium
 CiliumCon
@@ -534,6 +536,7 @@ Husky
 Hybrid-cloud
 Hyper
 IAM
+IAS
 IAST
 ID-token
 IDOR
@@ -544,6 +547,7 @@ ISO27001
 IT
 IaC
 Iaas
+Ihr
 Image
 Impact
 Incident
@@ -601,6 +605,7 @@ KV
 Kafka
 Kaizen
 Kanban
+Karl-Liebknecht-Straße
 Karpenter
 Kata
 Keda
@@ -649,6 +654,7 @@ Leica
 Less
 LetsEncrypt
 License
+Liebknecht
 Life
 Lifecycle-hook
 Lightroom
@@ -757,6 +763,7 @@ NetOps
 Netlify
 Network
 NetworkPolicy
+Neumann
 NewRelic
 Next.js
 Nextcloud
@@ -1034,6 +1041,7 @@ SSD
 SSH
 SSL
 SSRF
+STACKIT
 STS
 STT
 SVN
@@ -1047,6 +1055,8 @@ Sass
 Scalability
 Scaleway
 Schiit
+Schimanski
+Schwarz
 Screen
 Scrum
 Scylla
@@ -1063,6 +1073,7 @@ SemanticRelease
 Sematext
 Senior
 Sennheiser
+Sergiusz
 Serverless
 Service
 Service-account
@@ -1126,6 +1137,7 @@ Step
 StorageClass
 Strapi
 Strategy
+Straße
 Stress-test
 Strong-typing
 Structural-typing
@@ -1231,6 +1243,7 @@ Universe
 Unlicense
 Unraid
 Unstyled
+Urbaniak
 Usage-plan
 User
 VAD
@@ -1252,9 +1265,11 @@ Vision
 Visualization
 Vite
 VitePress
+Voigt
 Volume
 Volume-mount
 Volumemounts
+Von
 Vorbis
 Vtop
 Vulnerability-management
@@ -1321,6 +1336,7 @@ amtool
 apk
 auth
 autoscaling
+avodaq
 backend
 balancers
 brancz
@@ -1359,6 +1375,8 @@ devops
 disableHLJS
 disableShare
 eBPF
+embeddings
+europäischer
 facto
 failover
 filesystem
@@ -1423,6 +1441,7 @@ nginx
 npm
 observability
 observable
+ocgroups
 oh-my-opencode
 olderPosts
 ons
@@ -1468,6 +1487,7 @@ stateful
 statefulset
 teardown
 throughline
+tokenization
 toolchain
 tradeoff
 ty
@@ -1475,6 +1495,7 @@ unglamorous
 uv
 vLLM
 vSphere
+von
 walkthrough
 webhook
 webhooks
