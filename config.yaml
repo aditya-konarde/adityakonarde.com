@@ -21,9 +21,6 @@ outputs:
   term:
     - HTML
     - RSS
-services:
-  googleAnalytics:
-    ID: "G-32YZMDJ7FF"
 
 params:
   author:

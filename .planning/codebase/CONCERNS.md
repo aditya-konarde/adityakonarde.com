@@ -74,17 +74,7 @@
 
 ## Security Considerations
 
-**Google Analytics ID Exposed:**
-- Risk: GA tracking ID visible in source code (expected but worth noting)
-- Files: `config.yaml:11`
-- Current mitigation: Public tracking ID is normal practice
-- Recommendations: None needed; not sensitive data
-
-**No CSP or Security Headers Configuration:**
-- Risk: Missing Content-Security-Policy and other security headers
-- Files: `netlify.toml` (no headers section)
-- Current mitigation: None detected
-- Recommendations: Add `[[headers]]` section to `netlify.toml` with CSP, X-Frame-Options, X-Content-Type-Options
+**No CSP or Security Headers Configuration:** (resolved 2026-08-23 — `netlify.toml` now ships CSP, clickjacking, nosniff, referrer, and permissions headers)
 
 **XMLHttpRequest Instead of Fetch API:**
 - Risk: Using legacy API more prone to CORS issues and less secure defaults

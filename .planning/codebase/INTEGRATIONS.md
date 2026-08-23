@@ -4,12 +4,7 @@
 
 ## APIs & External Services
 
-**Analytics:**
-- Google Analytics - Web traffic analytics
-  - SDK/Client: GA4 (Google Analytics 4)
-  - Configuration: `config.yaml` → `services.googleAnalytics.ID`
-  - ID: `G-32YZMDJ7FF`
-  - Integration: Client-side tracking via Hugo template
+**Analytics:** none — the site removed Google Analytics on 2026-08-23 and sets no cookies
 
 **Social Media:**
 - LinkedIn - Profile link integration (`https://www.linkedin.com/in/adityakonarde/`)
@@ -46,9 +41,6 @@
 - Build logs via Netlify deployment
 - GitHub Actions logs for CI checks (`.github/workflows/hugo-checks.yml`)
 
-**Analytics:**
-- Google Analytics 4 for user behavior tracking
-
 ## CI/CD & Deployment
 
 **Hosting:**
@@ -84,8 +76,7 @@
 - Netlify sets: `HUGO_VERSION`, `HUGO_ENV`, `HUGO_ENABLEGITINFO`, `DEPLOY_PRIME_URL`
 
 **Secrets location:**
-- Google Analytics ID stored in plain text in `config.yaml` (public, non-sensitive)
-- No other secrets required
+- None — the static site has no API keys or tracking IDs
 
 ## Webhooks & Callbacks
 

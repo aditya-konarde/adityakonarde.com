@@ -9,17 +9,11 @@ searchHidden: false
 
 ## Overview
 
-This site is a personal blog run by me, Aditya Konarde. I collect as little data as possible, but the site does use one third-party analytics service, described below.
+This site is a personal blog run by me, Aditya Konarde. I collect as little data as possible; the site does not use third-party analytics, advertising, or tracking.
 
-## Analytics
+## Analytics and cookies
 
-This site uses Google Analytics (Google Ireland Limited) to understand aggregate traffic patterns: which posts are read, from which countries, and via which referrers. Google Analytics sets cookies and collects identifiers, IP addresses, and device information. IP anonymization is standard for properties created under GDPR.
-
-You can opt out by blocking cookies in your browser, using your browser's tracking protection, or installing [Google's official opt-out browser add-on](https://tools.google.com/dlpage/gaoptout).
-
-## Cookies
-
-The only cookies set on this site come from Google Analytics (`_ga`, `_ga_*`). The site itself stores nothing on your device: there are no login sessions, no comment system, and no advertising cookies.
+This site does not use Google Analytics or any other third-party analytics service, and it sets no cookies. There are no login sessions, no comment system, and no advertising.
 
 ## Data I collect directly
 
@@ -31,8 +25,10 @@ The site is hosted on Netlify. Netlify processes request logs (including IP addr
 
 ## Your rights
 
-If you are in the EU/EEA, you have the right to access, correct, or delete personal data processed about you, and to object to analytics processing. Since this site has no user database, the practical scope is limited to analytics data held by Google. To exercise rights or ask questions, email me at <aditya.konarde@gmail.com>.
+If you are in the EU/EEA, you have the right to access, correct, or delete personal data processed about you. Since this site has no user database and uses no analytics, there is no personal data held by the site beyond transient hosting logs. To ask questions about this policy, email me at <aditya.konarde@gmail.com>.
 
 ## Changes
+
+2026-08-23: removed Google Analytics; the site now sets no cookies and uses no third-party analytics.
 
 Material changes to this policy will be reflected in the page date above.
