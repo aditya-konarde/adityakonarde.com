@@ -122,3 +122,6 @@ target/
 vendor/
 coverage/
 .cache/
+
+# Agent codebase-analysis artifacts (accidentally committed 2026-05; do not re-add)
+/.planning/
