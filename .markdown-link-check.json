@@ -98,6 +98,9 @@
     },
     {
       "pattern": "^https?://(www\\.)?theregister\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?kunalganglani\\.com"
     }
   ],
   "retryOn429": true,
