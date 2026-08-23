@@ -1,5 +1,5 @@
 ---
-title: "/uses"
+title: "Uses"
 layout: "single"
 hidemeta: true
 ShowReadingTime: false
@@ -8,6 +8,7 @@ ShowShareButtons: false
 ShowBreadCrumbs: false
 comments: false
 searchHidden: true
+description: "The hardware, editor, terminal, and observability tooling behind adityakonarde.com and my day-to-day engineering work."
 ---
 
 ## Editor & Terminal

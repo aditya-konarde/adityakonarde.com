@@ -87,6 +87,6 @@ The combination of voice input and multi-model routing removes the friction that
 
 ---
 
-*What's your experience with voice coding or multi-agent setups? I'd love to hear your thoughts: [LinkedIn](https://www.linkedin.com/in/aditya-konarde/)*
+*What's your experience with voice coding or multi-agent setups? I'd love to hear your thoughts: [LinkedIn](https://www.linkedin.com/in/adityakonarde/)*
 
 *This post was written with AI assistance—voice-to-text conversion and proofreading. The thoughts and setup are my own.*

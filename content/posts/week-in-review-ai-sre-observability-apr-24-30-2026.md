@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — April 24–30, 2026"
 date: 2026-05-01
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "OpenAI ships GPT-5.5 and breaks free from Azure exclusivity, Kubernetes 1.36 makes GPU scheduling a first-class citizen, Grafana rearchitects Loki with Kafka, and a 15-line Python script exposed Azure SRE Agent credentials."
+description: "OpenAI ships GPT-5.5 and breaks free from Azure exclusivity, Kubernetes 1.36 makes GPU scheduling a first-class citizen."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

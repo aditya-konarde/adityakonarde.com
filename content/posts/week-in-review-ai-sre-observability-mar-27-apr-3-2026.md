@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability -- March 27 - April 3, 2026"
 date: 2026-04-03
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Google drops Gemma 4 under Apache 2.0, KubeCon EU wraps with AI-on-Kubernetes as the main event, Microsoft open-sources agent governance, and a critical OTel Java Agent RCE shakes up the observability world."
+description: "Google drops Gemma 4 under Apache 2.0, KubeCon EU wraps with AI-on-Kubernetes as the main event, Microsoft open-sources agent governance."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

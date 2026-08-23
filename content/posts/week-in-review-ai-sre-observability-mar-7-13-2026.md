@@ -1,7 +1,8 @@
 ---
 title: "Week in Review: AI, SRE & Observability — March 7–13, 2026"
 date: 2026-03-13
-description: "NVIDIA ships Nemotron 3 Super for agentic AI, Grafana Labs inks a five-year AWS deal, Honeycomb goes GA on metrics with MCP integrations, and Kubernetes v1.36 previews HPA scale-to-zero."
+description: "NVIDIA ships Nemotron 3 Super for agentic AI, Grafana Labs inks a five-year AWS deal, and Honeycomb goes GA on metrics."
+aliases: ["/posts/week-in-review-ai-sre-observability-2026-03-07-13/"]
 tags: ["ai", "sre", "observability", "weekly-roundup"]
 author: "Aditya Konarde"
 showToc: true

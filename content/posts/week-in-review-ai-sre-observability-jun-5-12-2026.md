@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — June 5–12, 2026"
 date: 2026-06-12
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Anthropic apologizes for invisible Claude Fable guardrails, DeepMind funds $10M in multi-agent safety research, Datadog DASH drops 100+ features including BYOC, and Kubernetes gets autonomous rightsizing without restarts."
+description: "Anthropic apologizes for invisible Claude Fable guardrails, DeepMind funds $10M in multi-agent safety research."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

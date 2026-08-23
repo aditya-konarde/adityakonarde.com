@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability -- April 3-10, 2026"
 date: 2026-04-10
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Open-weight AI models dominated the week as Google shipped Gemma 4 and Meta launched Llama 4, while AWS brought native OTel and PromQL to CloudWatch and the eBPF-over-sidecars movement gained momentum."
+description: "Open-weight AI models dominated the week as Google shipped Gemma 4 and Meta launched Llama 4."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

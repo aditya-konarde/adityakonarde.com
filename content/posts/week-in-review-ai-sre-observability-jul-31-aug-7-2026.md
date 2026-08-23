@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — July 31–August 7, 2026"
 date: 2026-08-07
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Cloudflare's Agents Week reboots MCP and ships Cloudflare OS, AMD buys Taalas to etch models into silicon, Kubernetes previews v1.37 as Gateway API v1.6 lands, and OpenTelemetry's Collector retires the legacy batch processor."
+description: "Cloudflare's Agents Week reboots MCP and ships Cloudflare OS, AMD buys Taalas to etch models into silicon."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

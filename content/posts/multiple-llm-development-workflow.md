@@ -108,4 +108,4 @@ While it might seem complex to juggle multiple LLMs, for me the benefits far out
 
 In the coming weeks, I plan to explore a multi-agent setup.
 
-I'm curious to hear how others are using LLMs in their workflows. What tools do you use? What are your favorite models? Let's discuss on [LinkedIn](https://www.linkedin.com/in/aditya-konarde/)
+I'm curious to hear how others are using LLMs in their workflows. What tools do you use? What are your favorite models? Let's discuss on [LinkedIn](https://www.linkedin.com/in/adityakonarde/)

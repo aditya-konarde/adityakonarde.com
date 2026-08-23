@@ -1,0 +1,4 @@
+{{- /* Preload the profile-mode image on the homepage; it is the LCP element */ -}}
+{{- if and .IsHome site.Params.profileMode.enabled site.Params.profileMode.imageUrl -}}
+<link rel="preload" as="image" href="{{ site.Params.profileMode.imageUrl | absURL }}">
+{{- end -}}

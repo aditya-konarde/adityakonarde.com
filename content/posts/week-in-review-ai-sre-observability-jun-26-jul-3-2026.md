@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — June 26–July 3, 2026"
 date: 2026-07-03
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Anthropic ships Claude Sonnet 5 and gets its export ban lifted, Kimi K2.7 becomes the first open-weight model in GitHub Copilot, EKS gets a Kubernetes rollback button, and Datadog acquires Adaptive ML to build autonomous observability agents."
+description: "Anthropic ships Claude Sonnet 5 and gets its export ban lifted, Kimi K2.7 becomes the first open-weight model in GitHub Copilot."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

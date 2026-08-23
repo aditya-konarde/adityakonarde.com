@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — May 8–15, 2026"
 date: 2026-05-15
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Mistral ships a 128B open-weight coding model that rivals the best closed alternatives, AWS US-EAST-1 goes down because a building got too hot, OpenTelemetry launches Blueprints to tame adoption complexity, and Cloudflare publishes a masterclass postmortem on a hidden ClickHouse bottleneck."
+description: "Mistral ships a 128B open-weight coding model that rivals the best closed alternatives, AWS US-EAST-1 goes down because a building got too hot."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

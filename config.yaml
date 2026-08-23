@@ -1,4 +1,5 @@
 baseUrl: https://www.adityakonarde.com/
+enableRobotsTXT: true
 languageCode: en-us
 theme: PaperMod
 copyright: '2026 Aditya Konarde'
@@ -22,12 +23,14 @@ outputs:
     - RSS
 services:
   googleAnalytics:
-    ID: "G-32YZMDJ7FF" 
+    ID: "G-32YZMDJ7FF"
 
 params:
   author:
     name: "Aditya Konarde"
     email: "aditya.konarde@gmail.com"
+  images:
+    - "images/propic-square.jpeg"
   profileMode:
     enabled: true
     title: "Aditya Konarde"
@@ -57,7 +60,7 @@ params:
   # Theme settings
   defaultTheme: auto
   disableThemeToggle: false
-  showMenuItems: 4
+  showMenuItems: 5
   ShowRssButtonInSectionTermList: true
 
   # Search configuration
@@ -79,8 +82,7 @@ languages:
   en:
     title: Aditya Konarde's Blog
     params:
-      subtitle: ''
-      keywords: ''
+      description: "Aditya Konarde is a Berlin-based engineering leader writing weekly about AI, site reliability engineering, and observability."
       menuMore: Show more
       writtenBy: Written by
       readMore: Read more
@@ -107,3 +109,6 @@ languages:
       - identifier: newsletter
         name: Newsletter
         url: /tags/weekly-roundup/
+      - identifier: privacy
+        name: Privacy
+        url: /privacy/

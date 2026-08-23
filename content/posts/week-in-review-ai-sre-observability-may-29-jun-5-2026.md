@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — May 29–June 5, 2026"
 date: 2026-06-05
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Microsoft launches seven in-house MAI models, NVIDIA ships the most intelligent US open-weights model at Computex, Anthropic files for an IPO at nearly $1 trillion, Google publishes its SRE AI whitepaper, and OpenTelemetry gets opinionated with Blueprints."
+description: "Microsoft launches seven in-house MAI models, NVIDIA ships the most intelligent US open-weights model at Computex."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

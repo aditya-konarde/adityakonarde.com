@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — June 12–19, 2026"
 date: 2026-06-19
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Noam Shazeer defects from Google to OpenAI, China's Z.AI ships GLM-5.2 on zero NVIDIA chips, Claude racks up 10 outages in 12 days, Datadog goes BYOC, and Flipkart wins CNCF's chaos engineering award at KubeCon India."
+description: "Noam Shazeer defects from Google to OpenAI, China's Z.AI ships GLM-5.2 on zero NVIDIA chips, Claude racks up 10 outages in 12 days, Datadog goes BYOC."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

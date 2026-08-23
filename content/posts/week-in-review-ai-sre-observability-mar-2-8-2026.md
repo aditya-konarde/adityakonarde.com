@@ -73,6 +73,6 @@ Meanwhile, the Ingress NGINX retirement is a reminder that even foundational inf
 
 ---
 
-*What caught your eye this week? I'd love to hear your thoughts — find me on [LinkedIn](https://www.linkedin.com/in/aditya-konarde/) or [X](https://twitter.com/aditya_konarde).*
+*What caught your eye this week? I'd love to hear your thoughts — find me on [LinkedIn](https://www.linkedin.com/in/adityakonarde/) or [X](https://twitter.com/aditya_konarde).*
 
 *Subscribe to stay updated on the latest across AI, SRE, and Observability.*

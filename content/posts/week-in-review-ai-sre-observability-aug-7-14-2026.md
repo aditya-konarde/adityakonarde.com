@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — August 7–14, 2026"
 date: 2026-08-14
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Three frontier model drops in three days, GitHub's brutally honest Actions postmortem, Kubernetes 1.37 hitting RC, and Dynatrace buying Arize for $915M -- the week AI observability stopped being a side quest."
+description: "Three frontier model drops in three days, GitHub's brutally honest Actions postmortem, Kubernetes 1.37 hitting RC."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

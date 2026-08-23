@@ -2,7 +2,8 @@
 title: "Week in Review: AI, SRE & Observability — March 14–20, 2026"
 date: 2026-03-20
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "GTC 2026 dominates the AI narrative, agentic SRE goes mainstream across every major cloud, and OpenTelemetry makes bold moves on span events and Kubernetes semantic conventions."
+description: "GTC 2026 dominates the AI narrative, agentic SRE goes mainstream, and OpenTelemetry makes bold moves on span events."
+aliases: ["/posts/week-in-review-2026-03-14-20/"]
 author: "Aditya Konarde"
 showToc: true
 TocOpen: false
@@ -102,6 +103,6 @@ The NVIDIA keynote and the Astral acquisition share a common thread too: the inf
 
 ---
 
-*What caught your eye this week? I'd love to hear your thoughts: [LinkedIn](https://www.linkedin.com/in/aditya-konarde/)*
+*What caught your eye this week? I'd love to hear your thoughts: [LinkedIn](https://www.linkedin.com/in/adityakonarde/)*
 
 *If you found this useful, share it with your team and subscribe for next week's roundup.*
