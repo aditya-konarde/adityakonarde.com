@@ -2,13 +2,13 @@
 title: "Week in Review: AI, SRE & Observability — April 10–17, 2026"
 date: 2026-04-17
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Anthropic and OpenAI reshape the cybersecurity AI market with restricted-access models, Bluesky publishes a candid memcached port-exhaustion postmortem, and OpenTelemetry quietly ships the header enrichment feature responders have been asking for."
+description: "Anthropic and OpenAI reshape the cybersecurity AI market, and Bluesky publishes a candid memcached port-exhaustion postmortem."
+aliases: ["/posts/week-in-review-ai-sre-observability-2026-04-10-17/"]
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true
 hidemeta: false
 comments: false
-canonicalURL: ""
 searchHidden: false
 ---
 

@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability -- March 20-27, 2026"
 date: 2026-03-27
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "KubeCon Europe dominated the week with GPU donations, in-place pod resizing going stable, and OTel profiling hitting alpha -- while AI labs shipped new models and Grafana patched a critical RCE."
+description: "KubeCon Europe dominated the week with GPU donations, in-place pod resizing going stable."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

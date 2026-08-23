@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — July 17–24, 2026"
 date: 2026-07-24
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Google ships three Gemini models but still no 3.5 Pro, Moonshot's Kimi K3 sells out of GPUs in 48 hours, an AWS billing bug shows customers trillion-dollar invoices while its own alarms sit idle, and the OpenTelemetry Collector starts shipping config schemas."
+description: "Google ships three Gemini models but still no 3.5 Pro, Moonshot's Kimi K3 sells out of GPUs in 48 hours."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

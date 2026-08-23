@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — August 14–21, 2026"
 date: 2026-08-21
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "GLM-5.3's vulnerability-finding numbers, OpenAI's paused RL runs, GitHub's 7h47m outage amplified by a VS Code retry bug, and metric renames in Prometheus 3.14 and the OTel Collector."
+description: "GLM-5.3's vulnerability-finding numbers, OpenAI's paused RL runs, GitHub's 7h47m outage amplified by a VS Code retry bug."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

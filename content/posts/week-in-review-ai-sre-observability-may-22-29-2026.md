@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — May 22–29, 2026"
 date: 2026-05-29
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Anthropic ships Claude Opus 4.8 with 3x cheaper fast mode, OpenTelemetry graduates to CNCF's highest tier, Google I/O delivers Gemini 3.5 Flash and Omni, and Railway's 8-hour outage reveals the terrifying fragility of cloud account-level dependencies."
+description: "Anthropic ships Claude Opus 4.8 with 3x cheaper fast mode, OpenTelemetry graduates to CNCF's highest tier, Google I/O delivers Gemini 3.5 Flash and Omni."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

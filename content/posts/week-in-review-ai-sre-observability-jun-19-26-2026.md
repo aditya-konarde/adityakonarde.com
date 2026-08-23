@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability -- June 19--26, 2026"
 date: 2026-06-26
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "The US government steps in to delay GPT-5.6, Anthropic accuses Alibaba of the largest Claude cloning attack yet, OpenAI unveils its first custom chip, Trigger.dev publishes a brutal etcd postmortem, and Grafana 13.1 ships Git Sync and AI Assistant upgrades."
+description: "The US government steps in to delay GPT-5.6, Anthropic accuses Alibaba of the largest Claude cloning attack yet, OpenAI unveils its first custom chip."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

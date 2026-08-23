@@ -7,8 +7,8 @@ showToc: true
 TocOpen: false
 hidemeta: false
 comments: false
-description: "A blog post about the tech hardware I use."
-canonicalURL: "https://www.adityakonarde.com/posts/tech-hardware"
+description: "The laptops, monitors, keyboards, and networking gear that power my home lab and daily engineering work."
+canonicalURL: "https://www.adityakonarde.com/posts/tech-hardware/"
 disableHLJS: true
 disableShare: false
 hideSummary: false

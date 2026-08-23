@@ -1,4 +1,10 @@
-# About Me
+---
+title: "About"
+description: "Aditya Konarde is a Berlin-based engineering leader at Grafana Labs working on observability, SRE, and cloud-native systems."
+hidemeta: true
+comments: false
+---
+
 
 I am a Technologist (TM) based in Berlin, Germany, with a passion for building scalable and reliable systems involving computers.
 

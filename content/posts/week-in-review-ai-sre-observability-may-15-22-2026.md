@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — May 15–22, 2026"
 date: 2026-05-22
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Google I/O drops Gemini 3.5 Flash and the agentic era arrives, OpenTelemetry graduates at CNCF, Railway's 8-hour outage exposes multi-cloud single points of failure, and Cohere open-sources a frontier-class model under Apache 2.0."
+description: "Google I/O drops Gemini 3.5 Flash and the agentic era arrives, OpenTelemetry graduates at CNCF."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — July 3–10, 2026"
 date: 2026-07-10
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "GPT-5.6 raises the agentic ceiling, PyTorch 2.13 targets production-scale training, etcd 3.7 tackles control-plane efficiency, and OpenTelemetry fixes two failure modes operators should care about."
+description: "GPT-5.6 raises the agentic ceiling, PyTorch 2.13 targets production-scale training, etcd 3.7 tackles control-plane efficiency."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

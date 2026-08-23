@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability -- April 17-24, 2026"
 date: 2026-04-24
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "A massive week: OpenAI ships GPT-5.5, DeepSeek drops V4 hours later, Kubernetes 1.36 lands with gang scheduling for AI workloads, GrafanaCON delivers Grafana 13 and a Loki rearchitecture -- and Vercel's OAuth supply-chain breach becomes the security story everyone's talking about."
+description: "A massive week: OpenAI ships GPT-5.5, DeepSeek drops V4 hours later, Kubernetes 1.36 lands with gang scheduling for AI workloads."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

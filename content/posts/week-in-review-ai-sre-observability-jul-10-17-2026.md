@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — July 10–17, 2026"
 date: 2026-07-17
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "A single mis-set NTP server rewound Telstra's network to 2006, AWS CloudFront fell over again, researchers backdoored an open-weight model for under $100, and Grafana's AI assistant sprawled across 30+ data sources."
+description: "A single mis-set NTP server rewound Telstra's network to 2006, AWS CloudFront fell over again, researchers backdoored an open-weight model for under $100."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

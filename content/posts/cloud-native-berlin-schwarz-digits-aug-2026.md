@@ -22,13 +22,13 @@ Dr. Stefan Schimanski (NVIDIA) and Sergiusz Urbaniak (Defense Unicorns) opened w
 
 A personal note: Sergiusz and I worked together in the CoreOS office back in the day. I miss being in that environment.
 
-![The Von Neumann to Transformers talk at Cloud Native Berlin, hosted by Schwarz Digits](/images/meetup-berlin-aug-2026/von-neumann-talk.jpg)
+{{< figure src="/images/meetup-berlin-aug-2026/von-neumann-talk.jpg" alt="The Von Neumann to Transformers talk at Cloud Native Berlin, hosted by Schwarz Digits" width="1600" height="900" loading="eager" >}}
 
 ## A Cluster API Provider with Agentic AI
 
 After a break with plenty of food, Christoph Voigt took the stage with "Building a Kubernetes Cluster API Provider with Agentic AI: What Actually Changed?" He walked through what it takes to build a Cluster API provider and where agentic AI shifts the work: the boring scaffolding, the deep domain logic, and the parts where a model's suggestions have to be verified against real cluster behavior.
 
-![Schwarz Digits office, Cloud Native Berlin August meetup](/images/meetup-berlin-aug-2026/schwarz-digits-venue.jpg)
+{{< figure src="/images/meetup-berlin-aug-2026/schwarz-digits-venue.jpg" alt="Schwarz Digits office, Cloud Native Berlin August meetup" width="1600" height="900" >}}
 
 ## Full House
 

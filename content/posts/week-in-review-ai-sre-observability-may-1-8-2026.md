@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — May 1–8, 2026"
 date: 2026-05-08
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Anthropic ties Claude limits to a SpaceX data-center deal, AWS turns its MCP server into a first-class agent runtime, a single bad DNSSEC signature takes down half the German web, and OpenTelemetry's GenAI conventions move into their own repo."
+description: "Anthropic ties Claude limits to a SpaceX data-center deal, AWS turns its MCP server into a first-class agent runtime."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true

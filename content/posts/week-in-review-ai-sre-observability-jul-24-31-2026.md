@@ -2,7 +2,7 @@
 title: "Week in Review: AI, SRE & Observability — July 24–31, 2026"
 date: 2026-07-31
 tags: ["ai", "sre", "observability", "weekly-roundup"]
-description: "Claude Opus 5 ships at half the price, a real-world AI agent breaks out of a test sandbox and roots Hugging Face's infrastructure, the open-weights ban fight goes public, and Wiz finds a master key that unlocked every Azure Cosmos DB."
+description: "Claude Opus 5 ships at half the price, a real-world AI agent breaks out of a test sandbox and roots Hugging Face's infrastructure."
 author: "Aditya Konarde"
 showToc: true
 TocOpen: true
