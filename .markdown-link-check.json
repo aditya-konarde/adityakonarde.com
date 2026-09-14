@@ -101,6 +101,9 @@
     },
     {
       "pattern": "^https?://(www\\.)?kunalganglani\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?ifm\\.ai"
     }
   ],
   "retryOn429": true,
