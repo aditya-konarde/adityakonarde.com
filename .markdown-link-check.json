@@ -101,6 +101,12 @@
     },
     {
       "pattern": "^https?://(www\\.)?kunalganglani\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?microsoft\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?ifm\\.ai"
     }
   ],
   "retryOn429": true,
