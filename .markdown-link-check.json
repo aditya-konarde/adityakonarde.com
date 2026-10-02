@@ -101,6 +101,12 @@
     },
     {
       "pattern": "^https?://(www\\.)?kunalganglani\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?ifm\\.ai"
+    },
+    {
+      "pattern": "^https?://(www\\.)?scmp\\.com"
     }
   ],
   "retryOn429": true,
