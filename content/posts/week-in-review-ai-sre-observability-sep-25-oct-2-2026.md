@@ -8,9 +8,6 @@ showToc: true
 TocOpen: true
 ---
 
-<!-- markdownlint-disable-next-line MD025 -->
-# Week in review: AI, SRE & Observability
-
 OpenAI and Anthropic shipped mid-tier models a day apart at the same list price: $2 per million input tokens and $10 per million output. Both SRE stories are about dependencies you may not know you have.
 
 ## AI & machine learning
