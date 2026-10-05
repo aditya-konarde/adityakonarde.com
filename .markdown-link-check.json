@@ -107,8 +107,15 @@
     },
     {
       "pattern": "^https?://(www\\.)?scmp\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?cyberkendra\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?canonical\\.com"
     }
   ],
+  "timeout": "30s",
   "retryOn429": true,
   "retryCount": 3,
   "aliveStatusCodes": [
