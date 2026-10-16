@@ -113,6 +113,15 @@
     },
     {
       "pattern": "^https?://(www\\.)?canonical\\.com"
+    },
+    {
+      "pattern": "^https?://ai\\.google\\.dev"
+    },
+    {
+      "pattern": "^https?://(www\\.)?komodor\\.com"
+    },
+    {
+      "pattern": "^https?://web\\.archive\\.org"
     }
   ],
   "timeout": "30s",
