@@ -1,6 +1,0 @@
-[submodule "themes/hello-friend"]
-    path = themes/hello-friend
-    url = https://github.com/aditya-konarde/hugo-theme-hello-friend.git
-[submodule "themes/PaperMod"]
-	path = themes/PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git

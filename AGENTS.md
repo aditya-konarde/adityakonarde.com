@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI coding agents working in this repository. This site is a Hugo + PaperMod blog; the main content is the weekly newsletter roundup ("Week in Review: AI, SRE & Observability") in `content/posts/week-in-review-*.md`.
+Guidance for AI coding agents working in this repository. This site is a Hugo blog with its own theme in `themes/konarde`; the main content is the weekly newsletter roundup ("Week in Review: AI, SRE & Observability") in `content/posts/week-in-review-*.md`.
 
 ## Content standard: no-slop (REQUIRED for all prose)
 
@@ -61,7 +61,7 @@ Learned from repeated audits of this archive — a naive scan will flag them; th
 ```bash
 npx markdownlint-cli2 "content/**/*.md"   # must be: 0 issues
 # link check runs in CI via .markdown-link-check.json
-# hugo build runs in CI (Netlify); the local Debian hugo (v0.111) is too old to build the current PaperMod theme — trust the Netlify preview
+# hugo build runs in CI (Netlify); the local Debian hugo (v0.111) is too old to build this site; use Hugo 0.146 extended — trust the Netlify preview
 ```
 
 - Local commits: the husky pre-commit hook runs `bunx lint-staged`. If bun isn't installed the hook fails silently — commit with `git commit --no-verify` and confirm the new HEAD SHA after pushing.
