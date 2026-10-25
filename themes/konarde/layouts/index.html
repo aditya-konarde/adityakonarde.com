@@ -4,18 +4,17 @@
 {{- $pag := .Paginate $posts }}
 {{- $issues := where $posts "Params.tags" "intersect" (slice "weekly-roundup") }}
 {{- $essays := $posts | complement $issues }}
-{{- $latest := index $issues 0 }}
-{{- $first := index $issues.ByDate 0 }}
+{{- $essays = $essays.ByDate.Reverse }}
 {{- $firstEssay := index $essays.ByDate 0 }}
-{{- $newsletter := site.GetPage "/tags/weekly-roundup" }}
-{{- $nlFeed := "tags/weekly-roundup/index.xml" | relURL }}
+{{- $linkedin := "https://www.linkedin.com/in/adityakonarde/" }}
+{{- $writing := site.GetPage "/posts" }}
 
 {{- if gt $pag.PageNumber 1 }}
 {{- /* Older pages of the home feed keep their URLs (/page/N/) as a plain archive */}}
 <header class="page-head wrap">
   <a class="back" href="{{ "/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Home</a>
   <h1>Everything, newest first</h1>
-  <p class="lede">Weekly issues and essays in one stream. Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}.</p>
+  <p class="lede">Essays and weekly notes in one stream. Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}.</p>
 </header>
 <div class="wrap">
   {{ partial "year-list.html" $pag.Pages }}
@@ -27,18 +26,16 @@
   <div class="hero-grid">
     <div>
       <p class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>{{ site.Params.author.name }} · Berlin</p>
-      <h1 id="hero-title">The week in AI, SRE<br> and observability,<br> read by an engineer.</h1>
-      <p class="lede" data-reveal data-delay="2">I lead engineering teams at Grafana Labs. Every Friday I publish one page on the AI, reliability and observability news worth your time, with a source for every story.</p>
+      <h1 id="hero-title">Reliable systems,<br> and the teams<br> that run them.</h1>
+      <p class="lede" data-reveal data-delay="2">I'm Aditya, an engineering leader at Grafana Labs, where my teams build observability tools. I write about site reliability, monitoring and building with AI, and I help organise cloud native meetups in Berlin.</p>
       <div class="actions" data-reveal data-delay="3">
-        {{- with $latest }}
-        <a class="btn" href="{{ .RelPermalink }}">Read this week's issue{{ partial "icon.html" (dict "name" "arrow-right") }}</a>
-        {{- end }}
-        <a class="text-link" href="{{ $nlFeed }}">{{ partial "icon.html" (dict "name" "rss") }}Follow via RSS</a>
+        <a class="btn" href="{{ $writing.RelPermalink }}">Read my writing{{ partial "icon.html" (dict "name" "arrow-right") }}</a>
+        <a class="text-link" href="{{ $linkedin }}" rel="me noopener">{{ partial "icon.html" (dict "name" "linkedin-logo") }}Connect on LinkedIn</a>
       </div>
       <p class="proof" data-reveal data-delay="4">
-        <span><strong>{{ len $issues }} issues</strong> since {{ $first.Date.Format "January 2006" }}</span>
         <span><strong>{{ len $essays }} essays</strong> since {{ $firstEssay.Date.Format "2006" }}</span>
-        <span>No tracking, no email list</span>
+        <span><strong>4 meetups</strong> organised or spoken at</span>
+        <span>Kubernetes, Prometheus, OpenTelemetry</span>
       </p>
     </div>
     <figure class="portrait" data-reveal data-delay="2">
@@ -53,61 +50,53 @@
       <dl class="spec">
         <dt>Role</dt><dd>Engineering leader, Grafana Labs</dd>
         <dt>Based</dt><dd>Berlin, Germany</dd>
-        <dt>Writes</dt><dd>AI, SRE, observability</dd>
+        <dt>Focus</dt><dd>SRE, observability, AI</dd>
         <dt>Also</dt><dd>Photographer, meetup organiser</dd>
       </dl>
     </figure>
   </div>
 </section>
 
-{{- with $latest }}
-<section class="section wrap" aria-labelledby="issue-title">
-  <div class="section-head" data-reveal>
-    <p class="eyebrow">Newsletter</p>
-    <h2 id="issue-title">One page a week, sources included.</h2>
-    <p>AI helps gather the source material. I read every story before an issue goes out.</p>
-  </div>
-  <div class="issues">
-    <a class="feature" href="{{ .RelPermalink }}" data-reveal>
-      <div class="kicker">
-        <span class="tag">Latest · No. {{ len $issues }}</span>
-        <span class="eyebrow"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time> · {{ .ReadingTime }} min</span>
-      </div>
-      <h3>{{ partial "issue-label.html" . }}</h3>
-      {{- with .Description }}<p>{{ . }}</p>{{ end }}
-      {{- with partial "issue-stories.html" . }}
-      <ul class="stories" aria-label="Stories in this issue">
-        {{- range first 3 . }}<li>{{ . }}</li>{{ end }}
-      </ul>
-      {{- end }}
-      <span class="text-link more">Read the issue{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</span>
-    </a>
-    <div data-reveal data-delay="1">
-      <ul class="index only-issues">
-        {{- range first 5 (after 1 $issues) }}{{ partial "row.html" . }}{{ end }}
-      </ul>
-      <div class="index-foot">
-        {{- with $newsletter }}<a class="text-link" href="{{ .RelPermalink }}">All {{ len $issues }} issues{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>{{ end }}
-      </div>
-    </div>
-  </div>
-</section>
-{{- end }}
-
-{{- $lines := slice "Fewer links, more context." "Every story has a source" "and a reason it matters" "to people who run production." }}
-<section class="tagline wrap" aria-label="What the newsletter is">
+{{- $lines := slice "Most of my work sits where" "reliable systems, good tooling" "and healthy teams meet" "in production." }}
+<section class="tagline wrap" aria-label="What I work on">
   <p>
     {{- range $lines }}<span class="br">{{ range $i, $w := split . " " }}{{ if $i }} {{ end }}<span class="w{{ if eq $w "production." }} accent{{ end }}">{{ $w }}</span>{{ end }} </span>{{ end -}}
   </p>
+</section>
+
+{{- $topics := slice
+  (dict "n" "01" "title" "Site reliability" "body" "How SRE work really splits between building, operating and helping other teams, and what that means for a career." "links" (slice "/posts/sre-time-management"))
+  (dict "n" "02" "title" "Observability" "body" "Prometheus, Alertmanager and Grafana from the operator's side: how they fit together and how to run them on Kubernetes." "links" (slice "/posts/prometheus-deep-dive-series-intro" "/posts/alertmanager-deployment-patterns" "/posts/provisioning-dashboards-grafana"))
+  (dict "n" "03" "title" "Building with AI" "body" "Practical setups for working with several models, voice and agents, down to an agent running on a home router." "links" (slice "/posts/multiple-llm-development-workflow" "/posts/ai-frankenstein-development-workflow" "/posts/picoclaw-on-xiaomi-b3600-pro-router"))
+}}
+<section class="section wrap" aria-labelledby="topics-title">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">What I think about</p>
+    <h2 id="topics-title">Three threads run through my work.</h2>
+  </div>
+  <ol class="topics">
+    {{- range $i, $t := $topics }}
+    <li class="topic" data-reveal data-delay="{{ $i }}">
+      <span class="mono">{{ $t.n }}</span>
+      <h3>{{ $t.title }}</h3>
+      <p>{{ $t.body }}</p>
+      <ul class="topic-links">
+        {{- range $t.links }}{{ with site.GetPage . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a></li>
+        {{- end }}{{ end }}
+      </ul>
+    </li>
+    {{- end }}
+  </ol>
 </section>
 
 <section class="section wrap" aria-labelledby="essays-title">
   <div class="split">
     <div class="rail" data-reveal>
       <p class="eyebrow">Writing</p>
-      <h2 id="essays-title">Longer notes from production.</h2>
+      <h2 id="essays-title">Notes from production.</h2>
       <p>Essays on SRE practice, monitoring, developer tools and the occasional personal post.</p>
-      {{- with site.GetPage "/posts" }}<a class="text-link" href="{{ .RelPermalink }}">All writing{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>{{ end }}
+      <a class="text-link" href="{{ $writing.RelPermalink }}">All writing{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
     </div>
     <div>
       {{ partial "year-list.html" (first 6 $essays) }}
@@ -124,7 +113,10 @@
     <div class="zig-row" data-reveal>
       <div>
         <h3>Work</h3>
-        <p>I lead engineering teams at Grafana Labs, building observability tools. My career runs through software engineering and site reliability, with most of the work on Kubernetes, Prometheus and OpenTelemetry.</p>
+        <p>I lead engineering teams at Grafana Labs, building observability tools. Earlier I worked as a site reliability engineer at Red Hat. Most of my career has been around Kubernetes, Prometheus and OpenTelemetry.</p>
+        {{- with site.GetPage "/about" }}
+        <p><a class="text-link" href="{{ .RelPermalink }}">More about me{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a></p>
+        {{- end }}
       </div>
       <div class="panel">
         <ul class="chips" aria-label="Projects I have worked on">
@@ -140,12 +132,7 @@
     <div class="zig-row flip" data-reveal>
       <div>
         <h3>Community</h3>
-        <p>I have helped organise and spoken at cloud native meetups in Bangalore and Berlin. If you are new to the CNCF community, a local meetup is the easiest way in.</p>
-        {{- with site.GetPage "/posts/cloud-native-berlin-schwarz-digits-aug-2026" }}
-        <p><a class="text-link" href="{{ .RelPermalink }}">Read the latest meetup notes{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a></p>
-        {{- end }}
-      </div>
-      <div class="panel">
+        <p>I have helped organise and spoken at cloud native meetups in Bangalore and Berlin. In August 2026 the Cloud Native Berlin meetup came back and filled all 45 seats.</p>
         <ul class="meetups">
           <li><a href="https://www.meetup.com/cloud-native-computing-berlin/">Cloud Native Berlin <span class="mono">Berlin</span></a></li>
           <li><a href="https://www.meetup.com/berlin-kubernetes-meetup/">Kubernetes Berlin <span class="mono">Berlin</span></a></li>
@@ -153,6 +140,13 @@
           <li><a href="https://www.meetup.com/kubernetes-openshift-India-Meetup/">Bangalore Kubernetes <span class="mono">Bangalore</span></a></li>
         </ul>
       </div>
+      {{- with site.GetPage "/posts/cloud-native-berlin-schwarz-digits-aug-2026" }}
+      <a class="photo-card" href="{{ .RelPermalink }}">
+        <img src="{{ "images/meetup-berlin-aug-2026/von-neumann-talk.jpg" | relURL }}" width="1600" height="900" loading="lazy" decoding="async"
+          alt="The Von Neumann to Transformers talk at Cloud Native Berlin, hosted by Schwarz Digits">
+        <span class="caption"><span class="mono">Cloud Native Berlin · Aug 2026</span><span class="text-link">Read the meetup notes{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</span></span>
+      </a>
+      {{- end }}
     </div>
   </div>
 </section>
@@ -161,38 +155,38 @@
   <div class="split">
     <div class="rail" data-reveal>
       <p class="eyebrow">Questions</p>
-      <h2 id="qa-title">Before you subscribe.</h2>
+      <h2 id="qa-title">Good to know.</h2>
     </div>
     <dl class="qa" data-reveal>
-      <div><dt>When does the newsletter come out?</dt>
-        <dd>Every Friday. The first issue went out in {{ $first.Date.Format "January 2006" }}, and there have been {{ len $issues }} so far.</dd></div>
-      <div><dt>How do I subscribe?</dt>
-        <dd>With any RSS reader. Use the <a href="{{ $nlFeed }}">newsletter feed</a> for the weekly issue only, or the <a href="{{ "index.xml" | relURL }}">full feed</a> for everything. There is no email list.</dd></div>
-      <div><dt>Is the newsletter written by AI?</dt>
-        <dd>AI helps gather the source material. I read every story before an issue goes out, and every story links to where it came from.</dd></div>
-      <div><dt>Do you track readers?</dt>
-        <dd>No. There are no analytics, no cookies and no third party scripts. The <a href="{{ "privacy/" | relURL }}">privacy page</a> has the details.</dd></div>
+      <div><dt>What do you do at Grafana Labs?</dt>
+        <dd>I lead engineering teams building observability tools. The <a href="{{ "about/" | relURL }}">about page</a> has the longer version.</dd></div>
+      <div><dt>What do you write about?</dt>
+        <dd>Site reliability, monitoring and observability, developer tools and building with AI. There is also an archive of short <a href="{{ "tags/weekly-roundup/" | relURL }}">weekly notes</a> from 2026.</dd></div>
       <div><dt>Can I invite you to speak?</dt>
-        <dd>Yes. I speak at meetups and conferences about cloud native systems and engineering practice. Send me a message on <a href="https://www.linkedin.com/in/adityakonarde/" rel="me noopener">LinkedIn</a>.</dd></div>
+        <dd>I speak at meetups and conferences about cloud native technologies and engineering practice. Send me a message on <a href="{{ $linkedin }}" rel="me noopener">LinkedIn</a>.</dd></div>
       <div><dt>What do you work with every day?</dt>
         <dd>Grafana, Prometheus, Loki, Tempo and a fair number of AI agents. The <a href="{{ "uses/" | relURL }}">setup page</a> lists the hardware and tools.</dd></div>
+      <div><dt>Do you track visitors?</dt>
+        <dd>No. There are no analytics, no cookies and no third party scripts. The <a href="{{ "privacy/" | relURL }}">privacy page</a> has the details.</dd></div>
+      <div><dt>How can I follow along?</dt>
+        <dd>On <a href="{{ $linkedin }}" rel="me noopener">LinkedIn</a>, <a href="https://github.com/aditya-konarde" rel="me noopener">GitHub</a> or <a href="https://x.com/aditya_konarde" rel="me noopener">X</a>, or add the <a href="{{ "index.xml" | relURL }}">RSS feed</a> to your reader.</dd></div>
     </dl>
   </div>
 </section>
 
-{{- with $latest }}
 <section class="final wrap" aria-labelledby="final-title">
   <div class="final-card" data-reveal>
     <div>
-      <h2 id="final-title">Start with this week's issue.</h2>
-      <p>{{ partial "issue-label.html" . }}. A {{ .ReadingTime }} minute read, every story with its source.</p>
+      <h2 id="final-title">Say hello.</h2>
+      <p>LinkedIn is the quickest way to reach me. Email works for anything longer.</p>
     </div>
     <div class="actions">
-      <a class="btn" href="{{ .RelPermalink }}">Read this week's issue{{ partial "icon.html" (dict "name" "arrow-right") }}</a>
-      <a class="text-link" href="{{ $nlFeed }}">{{ partial "icon.html" (dict "name" "rss") }}Follow via RSS</a>
+      <a class="btn" href="{{ $linkedin }}" rel="me noopener">{{ partial "icon.html" (dict "name" "linkedin-logo") }}Connect on LinkedIn</a>
+      {{- with site.Params.author.email }}
+      <a class="text-link" href="mailto:{{ . }}">Email me{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
+      {{- end }}
     </div>
   </div>
 </section>
-{{- end }}
 {{- end }}
 {{- end }}

@@ -385,29 +385,43 @@ a { color: inherit; }
 .section-head p:not(.eyebrow) { color: var(--ink-2); max-width: 680px; font-size: 1.125rem; line-height: 1.75rem; }
 @media (min-width: 768px) { .section-head h2 { font-size: 2.25rem; line-height: 2.5rem; } }
 
-/* Latest issue: one feature, then a dense index */
-.issues { display: grid; gap: 32px; }
-@media (min-width: 1024px) { .issues { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; } }
-.feature {
-  position: relative; display: block; text-decoration: none;
-  padding: 24px; border-radius: 24px; background: var(--surface);
-  border: 1px solid var(--line);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease);
+/* Topics: three numbered threads, each with its own essays */
+.topics { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+@media (min-width: 1024px) { .topics { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+.topic {
+  display: flex; flex-direction: column; padding: 24px; border-radius: 24px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--edge);
 }
-.feature:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.feature:active { transform: translateY(1px); }
-@media (min-width: 768px) { .feature { padding: 32px; } }
-.feature .kicker { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
-.feature .tag {
-  font-family: var(--mono); font-size: 0.75rem; line-height: 1rem; color: var(--bg);
-  background: var(--accent); padding: 4px 8px; border-radius: 4px; font-weight: 500;
+@media (min-width: 768px) { .topic { padding: 32px; } }
+.topic .mono { font-size: 0.75rem; line-height: 1rem; color: var(--accent); }
+.topic h3 { margin-top: 24px; font-size: 1.5rem; line-height: 2rem; letter-spacing: -0.02em; }
+.topic p { margin: 12px 0 24px; color: var(--ink-2); }
+.topic-links { list-style: none; margin: auto 0 0; padding: 0; border-top: 1px solid var(--line); }
+.topic-links li { border-bottom: 1px solid var(--line); }
+.topic-links li:last-child { border-bottom: 0; }
+.topic-links a {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 12px;
+  font-size: 0.875rem; line-height: 1.25rem; font-weight: 600; text-decoration: none;
+  transition: color var(--dur-micro) var(--ease);
 }
-.feature h3 { margin-top: 40px; font-size: 1.875rem; line-height: 2.25rem; letter-spacing: -0.03em; }
-.feature p:not(.eyebrow) { margin-top: 16px; color: var(--ink-2); font-size: 1.125rem; line-height: 1.75rem; }
-.feature .more { margin-top: 32px; }
-.feature .stories { margin-top: 24px; padding: 0; list-style: none; display: grid; gap: 8px; }
-.feature .stories li { display: grid; grid-template-columns: 16px 1fr; gap: 8px; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink-2); }
-.feature .stories li::before { content: ""; width: 6px; height: 6px; margin-top: 8px; border-radius: 9999px; background: var(--ink-3); }
+.topic-links a .icon { flex: none; width: 16px; height: 16px; color: var(--accent); transition: transform var(--dur) var(--ease); }
+.topic-links a:hover { color: var(--accent); }
+.topic-links a:hover .icon { transform: translateX(4px); }
+
+/* Community photo */
+.photo-card {
+  display: block; overflow: hidden; border-radius: 24px; text-decoration: none;
+  background: var(--surface); border: 1px solid var(--line);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.photo-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0; }
+.photo-card .caption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 16px 24px; }
+.photo-card .caption .mono { font-size: 0.75rem; line-height: 1rem; color: var(--ink-3); }
+.photo-card .text-link { padding-block: 0; }
+.photo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.photo-card:hover .text-link { color: var(--accent); }
+.photo-card:active { transform: translateY(1px); }
+.zig-row .meetups { margin-top: 24px; border-top: 1px solid var(--line); max-width: 560px; }
 
 .index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .index li { border-bottom: 1px solid var(--line); }
@@ -428,7 +442,6 @@ a { color: inherit; }
   .index .t, .index .s { grid-column: 2; }
   .index .d { grid-row: 1 / span 2; }
 }
-.index-foot { margin-top: 24px; }
 
 /* Tagline reveal */
 .tagline { padding-block: 96px; }
