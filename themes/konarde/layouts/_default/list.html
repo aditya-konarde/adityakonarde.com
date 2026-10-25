@@ -40,7 +40,7 @@
   {{- end }}
 </header>
 
-<div class="wrap">
+<div class="wrap{{ if $isNewsletter }} only-issues{{ end }}">
   {{- if $pag.Pages }}
   {{ partial "year-list.html" $pag.Pages }}
   {{ partial "pager.html" $pag }}

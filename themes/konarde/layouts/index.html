@@ -83,7 +83,7 @@
       <span class="text-link more">Read the issue{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</span>
     </a>
     <div data-reveal data-delay="1">
-      <ul class="index">
+      <ul class="index only-issues">
         {{- range first 5 (after 1 $issues) }}{{ partial "row.html" . }}{{ end }}
       </ul>
       <div class="index-foot">

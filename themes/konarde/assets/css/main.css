@@ -743,3 +743,4 @@ html.js [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
 .lost .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; }
 .lost-recent { margin-top: 80px; display: grid; gap: 16px; max-width: 880px; }
 .anchor::before { content: "#"; }
+.only-issues .kind { display: none; }
