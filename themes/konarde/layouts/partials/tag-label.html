@@ -1,6 +1,8 @@
 {{- /* Readable tag label. Context: term page */ -}}
 {{- $out := "" -}}
-{{- if .File -}}
+{{- if eq .Data.Term "weekly-roundup" -}}
+  {{- $out = "Weekly notes" -}}
+{{- else if .File -}}
   {{- $out = .Title -}}
 {{- else -}}
   {{- $slug := .Data.Term | default (.Title | urlize) -}}

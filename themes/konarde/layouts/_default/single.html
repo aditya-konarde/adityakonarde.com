@@ -7,7 +7,7 @@
 <article>
   <header class="page-head wrap">
     {{- if $issue }}
-    <a class="back" href="{{ "tags/weekly-roundup/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Newsletter</a>
+    <a class="back" href="{{ "tags/weekly-roundup/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Weekly notes</a>
     {{- else if $isPost }}
     <a class="back" href="{{ "posts/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}All writing</a>
     {{- else }}
@@ -15,7 +15,7 @@
     {{- end }}
 
     {{- if $issue }}
-    <p class="eyebrow" data-gap><span class="dot" aria-hidden="true"></span>Week in review · AI, SRE and observability</p>
+    <p class="eyebrow" data-gap>Weekly notes · AI, SRE and observability</p>
     <h1>{{ partial "issue-label.html" . }}</h1>
     {{- else }}
     <h1>{{ .Title }}</h1>
@@ -75,10 +75,10 @@
       <img src="{{ $p.RelPermalink }}" width="64" height="64" alt="" loading="lazy">
       {{- end }}
       <div>
-        <p><strong>{{ partial "author.html" . }}</strong>Engineering leader at Grafana Labs in Berlin. {{ if $issue }}New issue every Friday.{{ else }}Writing about SRE, observability and AI.{{ end }}</p>
+        <p><strong>{{ partial "author.html" . }}</strong>Engineering leader at Grafana Labs in Berlin. Writing about SRE, observability and AI.</p>
         <div class="links">
-          <a class="text-link" href="{{ "tags/weekly-roundup/index.xml" | relURL }}">{{ partial "icon.html" (dict "name" "rss") }}Follow via RSS</a>
-          <a class="text-link" href="https://www.linkedin.com/in/adityakonarde/" rel="me noopener">{{ partial "icon.html" (dict "name" "linkedin-logo") }}Message on LinkedIn</a>
+          <a class="text-link" href="https://www.linkedin.com/in/adityakonarde/" rel="me noopener">{{ partial "icon.html" (dict "name" "linkedin-logo") }}Connect on LinkedIn</a>
+          <a class="text-link" href="{{ "posts/" | relURL }}">More writing{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
         </div>
       </div>
     </aside>
@@ -93,7 +93,7 @@
       {{- if lt (add $i 1) (len $same) }}{{ $older = index $same (add $i 1) }}{{ end }}
     {{- end }}{{ end }}
     {{- if or $newer $older }}
-    <nav class="post-nav" aria-label="More {{ if $issue }}issues{{ else }}essays{{ end }}">
+    <nav class="post-nav" aria-label="More {{ if $issue }}weekly notes{{ else }}essays{{ end }}">
       {{- with $older }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><span class="mono">Previous</span><span class="t">{{ if $issue }}{{ partial "issue-label.html" . }}{{ else }}{{ .Title }}{{ end }}</span></a>{{ end }}
       {{- with $newer }}<a class="next" href="{{ .RelPermalink }}" rel="next"><span class="mono">Next</span><span class="t">{{ if $issue }}{{ partial "issue-label.html" . }}{{ else }}{{ .Title }}{{ end }}</span></a>{{ end }}
     </nav>

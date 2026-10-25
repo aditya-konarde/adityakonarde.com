@@ -2,7 +2,7 @@
 {{- $issue := partial "is-issue.html" . -}}
 <li>
   <a href="{{ .RelPermalink }}">
-    <span class="d"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>{{ if $issue }}<span class="kind"> · Newsletter</span>{{ else }} · {{ .ReadingTime }} min{{ end }}</span>
+    <span class="d"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>{{ if $issue }}<span class="kind"> · Weekly notes</span>{{ else }} · {{ .ReadingTime }} min{{ end }}</span>
     <span class="t">{{ if $issue }}{{ partial "issue-label.html" . }}{{ else }}{{ .Title }}{{ end }}</span>
     {{- with .Description }}<span class="s">{{ . }}</span>{{ else }}<span class="s">{{ .Summary | plainify | truncate 160 }}</span>{{ end }}
   </a>

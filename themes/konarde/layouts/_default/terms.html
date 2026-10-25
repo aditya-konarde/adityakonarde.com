@@ -2,13 +2,16 @@
 <header class="page-head wrap">
   <a class="back" href="{{ "/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Home</a>
   <h1>{{ .Title }}</h1>
-  <p class="lede">{{ len .Data.Terms }} topics across the essays and the weekly issue, most used first.</p>
+  <p class="lede">{{ len .Data.Terms }} topics across the essays and weekly notes, most used first.</p>
 </header>
 <div class="wrap">
   {{- if .Data.Terms }}
   <ul class="tag-cloud" data-reveal>
-    {{- range .Data.Terms.ByCount }}
+    {{- range .Data.Terms.ByCount }}{{ if ne .Page.Data.Term "weekly-roundup" }}
     <li{{ if ge .Count 10 }} class="big"{{ end }}><a href="{{ .Page.RelPermalink }}">{{ partial "tag-label.html" .Page }}<span class="n">{{ .Count }}</span></a></li>
+    {{- end }}{{ end }}
+    {{- with site.GetPage "/tags/weekly-roundup" }}
+    <li><a href="{{ .RelPermalink }}">{{ partial "tag-label.html" . }}<span class="n">{{ len .Pages }}</span></a></li>
     {{- end }}
   </ul>
   {{- else }}
