@@ -5,6 +5,31 @@ Branch `redesign`. Method: the `redesign-existing-projects` skill
 `landing-page-design` (github.com/elayadesign/ai-design-skills). This file is the diagnosis
 the skill asks for before fixes, plus the decisions taken.
 
+## Revision 2: a personal brand, not a newsletter (2026-10-25)
+
+Feedback: the site should be about Aditya, not the newsletter, which he may drop. The
+intake below is superseded where it puts the weekly issue first.
+
+- Primary action: read his writing. Second: connect on LinkedIn (email for longer notes).
+  Third: follow on LinkedIn, GitHub, X or RSS.
+- Home, in order: hero (who, where, what he works on, portrait with a role spec), tagline
+  reveal, "What I think about" (three threads: site reliability, observability, building
+  with AI, each linking to his own essays), Writing (six latest essays), Work and
+  community (Grafana Labs, Red Hat, meetups, one Cloud Native Berlin photo), Questions,
+  "Say hello" card. Pages 2+ of the home paginator stay as a plain date stream.
+- Every claim comes from existing content: the about page, the 2020 SRE post, the
+  August 2026 meetup post and the live tagline. Nothing new was invented.
+- Newsletter framing removed everywhere: nav, footer, hero, latest issue card, "every
+  Friday", subscribe and RSS calls to action, newsletter Q and A, 404 link.
+- The 31 issues stay, at the same URLs, as "Weekly notes": `/posts/` page 1 lists the 11
+  essays by year, then a quiet "Weekly notes" note linking to `/tags/weekly-roundup/`,
+  which now reads "Weekly notes" (title, Open Graph, schema, tag chips). Issue pages say
+  "Weekly notes" in the back link and eyebrow, and the Writing nav item stays current.
+- `content/tags/weekly-roundup/_index.md` is untouched so every feed stays byte
+  identical; the display name is overridden in templates (`page-title.html`,
+  `page-desc.html`, `tag-label.html`). Renaming it later changes the feed channel title.
+- Visual system unchanged: Geist, paper tone, dark mode, orange accent, same motion.
+
 ## Intake assumptions (not asked, recorded per skill A1)
 
 - Site type: personal site of a Berlin engineering leader, not a product landing page.
@@ -129,16 +154,19 @@ Content
 - Light background is not specified by the skill (it lists dark values only). Chosen:
   warm paper `#F7F6F2`, the same hue family as `#131209`.
 
-## Verification (local, Hugo 0.146.0 extended)
+## Verification (local, Hugo 0.146.0 extended, after revision 2)
 
-- `hugo --gc --minify`: 143 pages, 56 paginator pages, 0 warnings, 0 errors.
-- URL parity: all 92 URLs in the live sitemap exist in the new `public/`. Every file in a
-  PaperMod baseline build exists in the new build except one content hashed image
-  derivative. `index.xml`, `posts/index.xml`, `tags/weekly-roundup/index.xml`,
-  `sitemap.xml` and `robots.txt` are byte identical to the baseline. Head metadata
-  (title, description, canonical, Open Graph, Twitter) matches; only the viewport and two
-  legacy IE/Windows tile tags changed.
-- Lighthouse 12 against a local static server (no compression), mobile / desktop:
-  home 98 / 100 performance, post and `/posts/` 99 / 100; accessibility, best practices
-  and SEO 100 everywhere.
-- Screenshots: `python3 tools/screenshots.py http://localhost:PORT screenshots`.
+- `HUGO_ENV=production hugo --gc --minify --cleanDestinationDir`: 0 warnings, 0 errors.
+- URL parity: all 92 URLs in the live sitemap exist in the new `public/`, plus the home and
+  `/posts/` paginator pages 2 to 9. Every file in a PaperMod baseline build exists except
+  one content hashed image derivative. All 48 XML files (every RSS feed and
+  `sitemap.xml`) and `robots.txt` are byte identical to the baseline.
+- Head metadata matches the baseline except: the home and list description (new site
+  description), and the weekly-roundup page title "Weekly notes".
+- Lighthouse 12, local static server, mobile / desktop performance: home 98 / 100,
+  `/posts/` 99 / 100, a post 99 / 100, weekly notes 99 / 100. Accessibility, best
+  practices and SEO 100 everywhere. CLS 0, TBT 0 ms.
+- Playwright: mobile menu opens and closes on Escape with focus returned, theme preference
+  persists, first Tab reaches the skip link, no console errors or failed requests on 11
+  pages.
+- Screenshots at 2x: `python3 tools/screenshots.py http://localhost:PORT screenshots`.
