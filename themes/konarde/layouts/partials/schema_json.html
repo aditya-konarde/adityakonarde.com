@@ -141,9 +141,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": {{ .Title | plainify }},
+  "name": {{ partial "page-title.html" . | plainify }},
   "url": {{ .Permalink | safeHTML }},
-  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}
+  "description": {{ with partial "page-desc.html" . | plainify }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}
 }
 </script>
 {{- end -}}

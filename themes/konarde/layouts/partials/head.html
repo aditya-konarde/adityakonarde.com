@@ -5,7 +5,7 @@
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
 {{- end }}
-<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+<title>{{ if .IsHome }}{{ else }}{{ with partial "page-title.html" . }}{{ . }} | {{ end }}{{ end }}{{ site.Title }}</title>
 {{- if .IsHome }}
 {{ with site.Params.keywords -}}<meta name="keywords" content="{{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">{{ end }}
 {{- else }}
@@ -13,7 +13,7 @@
     {{- range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} {{- else }}
     {{- range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} {{- end -}}">
 {{- end }}
-<meta name="description" content="{{- with .Description }}{{ . }}{{- else }}{{- if or .IsPage .IsSection}}
+<meta name="description" content="{{- with partial "page-desc.html" . }}{{ . }}{{- else }}{{- if or .IsPage .IsSection}}
     {{- .Summary | plainify | default (printf "%s - %s" .Title  site.Title) }}{{- else }}
     {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
 <meta name="author" content="{{ partial "author.html" . }}">
