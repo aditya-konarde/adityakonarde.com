@@ -22,15 +22,18 @@ the skill asks for before fixes, plus the decisions taken.
 
 ## Scan
 
-- Hugo 0.146 extended on Netlify, theme PaperMod (git submodule) with five root overrides:
+- Hugo 0.146 extended on Netlify, theme PaperMod (git submodule) with seven root overrides:
   `head.html`, `extend_head.html`, `author.html`, `anchored_headings.html`,
   `templates/schema_json.html`, `_default/list.html`, `shortcodes/figure.html`.
 - Vanilla CSS from the theme, no Tailwind, no JS framework. One inline theme script,
   Fuse search bundle configured but no search page exists.
-- Content: 43 posts (32 weekly issues, 11 essays), about, uses, privacy, a Newsletter
+- Content: 42 posts (31 weekly issues, 11 essays), about, uses, privacy, a Newsletter
   term page (`/tags/weekly-roundup/`). Outputs: HTML, RSS, home JSON index.
-- `/posts/` intentionally hides weekly issues; the home page paginates all posts
-  (`/page/2/` to `/page/9/`). Both behaviours define live URLs and are kept.
+- The old `_default/list.html` override tries to hide weekly issues from `/posts/`, but the
+  live build still lists all 42 posts there (`/posts/page/2/` to `/posts/page/9/`), and the
+  home page paginates all posts (`/page/2/` to `/page/9/`). Both define live URLs, so the
+  redesign keeps them: `/posts/` becomes "All writing" with issues labelled, and the
+  newsletter page is the issues-only view.
 
 ## Diagnosis: what reads as generic
 
@@ -104,7 +107,7 @@ Content
    nav, skip link.
 4. Layout: left aligned hero over an asymmetric grid, 680px hero measure, 65ch reading
    measure, spacing only from the approved scale, Tailwind radius values.
-5. Motion: `cubic-bezier(0.32,0.72,0,1)` everywhere, IntersectionObserver reveals at 800ms,
+5. Motion: `cubic-bezier(0.32,0.72,0,1)` everywhere, IntersectionObserver reveals at 900ms,
    floating island nav, hamburger that morphs into an X, full screen glass menu with
    staggered links. Everything is off under `prefers-reduced-motion` and content is fully
    visible without JS.
@@ -125,3 +128,17 @@ Content
   that is the author's voice and governed by AGENTS.md.
 - Light background is not specified by the skill (it lists dark values only). Chosen:
   warm paper `#F7F6F2`, the same hue family as `#131209`.
+
+## Verification (local, Hugo 0.146.0 extended)
+
+- `hugo --gc --minify`: 143 pages, 56 paginator pages, 0 warnings, 0 errors.
+- URL parity: all 92 URLs in the live sitemap exist in the new `public/`. Every file in a
+  PaperMod baseline build exists in the new build except one content hashed image
+  derivative. `index.xml`, `posts/index.xml`, `tags/weekly-roundup/index.xml`,
+  `sitemap.xml` and `robots.txt` are byte identical to the baseline. Head metadata
+  (title, description, canonical, Open Graph, Twitter) matches; only the viewport and two
+  legacy IE/Windows tile tags changed.
+- Lighthouse 12 against a local static server (no compression), mobile / desktop:
+  home 98 / 100 performance, post and `/posts/` 99 / 100; accessibility, best practices
+  and SEO 100 everywhere.
+- Screenshots: `python3 tools/screenshots.py http://localhost:PORT screenshots`.
