@@ -1,12 +1,19 @@
 baseUrl: https://www.adityakonarde.com/
 enableRobotsTXT: true
 languageCode: en-us
-theme: PaperMod
+theme: konarde
 copyright: '2026 Aditya Konarde'
 pagination:
   pagerSize: 5
   sortBy: "date"
   sortDirection: "desc"
+markup:
+  highlight:
+    noClasses: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
 outputs:
   home:
     - HTML
@@ -28,22 +35,6 @@ params:
     email: "aditya.konarde@gmail.com"
   images:
     - "images/propic-square.jpeg"
-  profileMode:
-    enabled: true
-    title: "Aditya Konarde"
-    subtitle: "Engineering Leader | Technology Enthusiast | Photographer"
-    imageUrl: "images/propic-square.jpeg"
-    imageTitle: "Aditya Konarde"
-    imageWidth: 200
-    imageHeight: 200
-    buttons:
-      - name: "About"
-        url: "about"
-      - name: "Blog"
-        url: "posts"
-      - name: "Contact"
-        url: "https://www.linkedin.com/in/adityakonarde/"
-
   socialIcons:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/adityakonarde/"
@@ -54,23 +45,8 @@ params:
     - name: "instagram"
       url: "https://instagram.com/aditya.konarde"
 
-  # Theme settings
-  defaultTheme: auto
-  disableThemeToggle: false
-  showMenuItems: 5
-  ShowRssButtonInSectionTermList: true
-
-  # Search configuration
-  search:
-    enable: true
-    type: "fuse"
-    fuseOptions:
-      isCaseSensitive: false
-      shouldSort: true
-      location: 0
-      distance: 100
-      threshold: 0.4
-      minMatchCharLength: 2
+  mainSections:
+    - posts
 
   footer:
     text: "Made with ❤️ by me and my bots"
@@ -94,18 +70,19 @@ languages:
     
     menu:
       main:
-      - identifier: about
-        name: About
-        url: /about
-      - identifier: Blog
-        name: Blog
-        url: /posts
-      - identifier: uses
-        name: Setup
-        url: /uses
       - identifier: newsletter
         name: Newsletter
         url: /tags/weekly-roundup/
-      - identifier: privacy
-        name: Privacy
-        url: /privacy/
+        weight: 1
+      - identifier: Blog
+        name: Writing
+        url: /posts/
+        weight: 2
+      - identifier: about
+        name: About
+        url: /about/
+        weight: 3
+      - identifier: uses
+        name: Setup
+        url: /uses/
+        weight: 4
