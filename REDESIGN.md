@@ -170,3 +170,54 @@ Content
   persists, first Tab reaches the skip link, no console errors or failed requests on 11
   pages.
 - Screenshots at 2x: `python3 tools/screenshots.py http://localhost:PORT screenshots`.
+
+## Revision 3: The Room (branch `room`)
+
+Feedback on revision 2 was "zero creativity". Aditya picked "The Room": the home hero becomes a
+painted, gently moving room of his life, and the objects in it are doors into the site.
+
+### What changed
+- Hero: headline in Instrument Serif (OFL, 21 KB, self hosted) above a full bleed painting.
+  The portrait hero and spec card are gone from the home page; the portrait stays on /about/.
+- Picture: one golden hour gouache still generated with Higgsfield (gpt_image_2_5), no people,
+  no baked in text. A 6.5 s locked off loop (minimax_h3, start frame = end frame) adds steam,
+  screen and rack light, leaves and the sunset. Shipped as AV1 webm plus H.264 mp4 at 1920 and
+  1080 wide, 2.7 MB for all four files; the visitor loads one (0.35 to 1.1 MB).
+- The still is the LCP: Hugo resizes it to WebP (960 to 2560), preloaded with imagesrcset.
+  The poster is the video's own first frame, so the fade from still to loop does not jump.
+- Loop loading: only after window load and idle, only while the room is on screen (paused when
+  it leaves), never with prefers-reduced-motion or data saver. Reduced motion hides the video.
+- Hotspots: real links (and two buttons for asides), focusable in left to right order, 44 px hit
+  area, visible focus ring, glass tooltip on hover and focus, positioned in percentages so they
+  stay on their objects at every width. Touch screens show every label as a chip.
+- Mobile: the stage keeps its height (62svh) and pans sideways, starting on the desk, with the
+  same destinations as a numbered list below it.
+- Palette warmed to the painting in light mode (paper #F6EFE3, surface #EEE4D2); dark stays #131209.
+  Display headings across the site use the serif; body stays Geist.
+- Small live details: pulsing pins, a live dot and Berlin time in the caption.
+
+### Hotspot map
+| Object | Destination |
+| --- | --- |
+| Espresso machine | aside: "Coffee first. Then usually a new recipe" |
+| Winged statue, top shelf | /tags/ai/ (Building with AI) |
+| Three monitors | /posts/ (Writing) |
+| Laptop | /uses/ (My setup) |
+| Server rack | /posts/picoclaw-on-xiaomi-b3600-pro-router/ (Homelab) |
+| Lemon tree | aside: "Still trying to keep my plants alive" |
+| TV tower through the window | /posts/cloud-native-berlin-schwarz-digits-aug-2026/ |
+| Framed Berlin map | /about/ |
+| Bookshelf | /tags/weekly-roundup/ (Weekly notes) |
+| Camera | Instagram (from site params) |
+
+Not interactive because the site has no content for them yet: 3D printers, model train, archer
+and moon figure, suitcase (travel), and no recipes, plants, photography or talks pages.
+
+### Verification (local static server, Lighthouse 12)
+- Clean `hugo --gc --minify` build. All 92 sitemap URLs plus /page/2-9/ and /posts/page/2-9/
+  exist. All 49 feeds, sitemap.xml and robots.txt are byte identical to the `redesign` build.
+- Only files dropped versus `redesign`: old fingerprinted CSS/JS and the hero's propic WebP resizes.
+- Home, mobile: performance 92, accessibility 100, best practices 100, SEO 100 (LCP 3.2 s on an
+  uncompressed python server). Desktop: 100 / 100 / 100 / 100 (LCP 0.6 s).
+- No console errors or warnings. Tab order through the ten hotspots verified; Escape closes asides.
+- Screenshots: `screenshots/room/` (gitignored).
