@@ -122,3 +122,61 @@ if (toc) {
     heads.forEach((h) => ho.observe(h));
   }
 }
+
+// ---- Home room: lazy loop, asides, Berlin clock, mobile pan ----
+const room = document.querySelector("[data-room]");
+if (room) {
+  // The painting is the first paint. The loop only loads after the page has loaded, while the
+  // room is on screen, when motion is welcome and the connection is not in data saver mode.
+  const video = room.querySelector("video");
+  const conn = navigator.connection;
+  const frugal = conn && (conn.saveData || /2g/.test(conn.effectiveType || ""));
+  if (video && !reduceMotion && !frugal && "IntersectionObserver" in window) {
+    const load = () => {
+      const small = video.clientWidth * Math.min(window.devicePixelRatio || 1, 2) <= 1400;
+      const av1 = video.canPlayType('video/webm; codecs="av01.0.05M.08"') !== "";
+      video.src = video.dataset[(av1 ? "av1" : "h264") + (small ? "Small" : "")];
+      video.addEventListener("playing", () => room.classList.add("is-playing"), { once: true });
+    };
+    const vo = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (!video.src) load();
+        video.play().catch(() => { /* autoplay refused: the painting stays */ });
+      } else if (video.src) {
+        video.pause();
+      }
+    }, { threshold: 0.15 });
+    const begin = () => vo.observe(video);
+    const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 800));
+    if (document.readyState === "complete") idle(begin);
+    else window.addEventListener("load", () => idle(begin), { once: true });
+  }
+
+  // Asides open in place; one at a time; Escape or a click elsewhere closes them.
+  const asides = [...room.querySelectorAll(".spot.is-aside")];
+  const closeAll = (except) => asides.forEach((b) => { if (b !== except) b.setAttribute("aria-expanded", "false"); });
+  asides.forEach((b) => b.addEventListener("click", () => {
+    const open = b.getAttribute("aria-expanded") !== "true";
+    closeAll(b);
+    b.setAttribute("aria-expanded", String(open));
+  }));
+  document.addEventListener("click", (e) => { if (!e.target.closest(".spot.is-aside")) closeAll(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const open = asides.find((b) => b.getAttribute("aria-expanded") === "true");
+    if (open) { closeAll(); open.focus(); }
+  });
+
+  // Live Berlin time in the caption.
+  const clock = room.querySelector("[data-berlin-clock]");
+  if (clock && window.Intl) {
+    const fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Berlin", hour: "2-digit", minute: "2-digit" });
+    const tick = () => { clock.textContent = fmt.format(new Date()); };
+    tick();
+    setInterval(tick, 30000);
+  }
+
+  // On narrow screens the room pans; start looking at the desk rather than the coffee machine.
+  const pan = room.querySelector("[data-room-pan]");
+  if (pan && pan.scrollWidth > pan.clientWidth) pan.scrollLeft = (pan.scrollWidth - pan.clientWidth) * 0.42;
+}

@@ -31,17 +31,14 @@
 </script>
 
 <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 {{- $css := slice (resources.Get "css/main.css") (resources.Get "css/chroma.css") | resources.Concat "assets/css/site.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 
-{{- if .IsHome }}
-{{- with resources.Get "images/propic-square.jpeg" }}
-{{- $s := .Process "fill 400x500 webp q78 Center" }}
-{{- $m := .Process "fill 640x800 webp q78 Center" }}
-{{- $l := .Process "fill 960x1200 webp q76 Center" }}
-{{- /* The portrait is above the fold only in the two column desktop hero */}}
-<link rel="preload" as="image" media="(min-width: 1024px)" href="{{ $m.RelPermalink }}" imagesrcset="{{ $s.RelPermalink }} 400w, {{ $m.RelPermalink }} 640w, {{ $l.RelPermalink }} 960w" imagesizes="(min-width: 1200px) 380px, 32vw" fetchpriority="high">
-{{- end }}
+{{- if and .IsHome (not .Paginator.HasPrev) }}
+{{- $still := partial "room-still.html" . }}
+{{- /* The room picture is the first paint and the LCP; the video loads later, on top of it */}}
+<link rel="preload" as="image" href="{{ $still.src }}" imagesrcset="{{ $still.srcset }}" imagesizes="{{ $still.sizes }}" fetchpriority="high">
 {{- end }}
 
 <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="48x48">

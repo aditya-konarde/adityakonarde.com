@@ -1,0 +1,9 @@
+{{- /* Responsive WebP set for the room picture. Returns src, srcset, sizes, width, height. Shared by the hero and its preload. */ -}}
+{{- $img := resources.Get "images/room/room.jpg" }}
+{{- $set := slice }}{{ $src := "" }}
+{{- range slice 960 1440 1920 2560 }}
+{{- $r := $img.Resize (printf "%dx webp q72 photo" .) }}
+{{- $set = $set | append (printf "%s %dw" $r.RelPermalink .) }}
+{{- if eq . 1920 }}{{ $src = $r.RelPermalink }}{{ end }}
+{{- end }}
+{{- return dict "src" $src "srcset" (delimit $set ", ") "sizes" "(max-width: 767px) 147vh, 100vw" "width" $img.Width "height" $img.Height }}

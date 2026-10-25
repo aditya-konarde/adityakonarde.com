@@ -22,39 +22,26 @@
 </div>
 {{- else }}
 
-<section class="hero wrap" aria-labelledby="hero-title">
-  <div class="hero-grid">
-    <div>
-      <p class="eyebrow" data-reveal><span class="dot" aria-hidden="true"></span>{{ site.Params.author.name }} · Berlin</p>
-      <h1 id="hero-title">Reliable systems,<br> and the teams<br> that run them.</h1>
-      <p class="lede">I'm Aditya, an engineering leader at Grafana Labs, where my teams build observability tools. I write about site reliability, monitoring and building with AI, and I help organise cloud native meetups in Berlin.</p>
-      <div class="actions" data-reveal data-delay="3">
-        <a class="btn" href="{{ $writing.RelPermalink }}">Read my writing{{ partial "icon.html" (dict "name" "arrow-right") }}</a>
-        <a class="text-link" href="{{ $linkedin }}" rel="me noopener">{{ partial "icon.html" (dict "name" "linkedin-logo") }}Connect on LinkedIn</a>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy wrap">
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>{{ site.Params.author.name }} · Berlin</p>
+    <div class="hero-grid">
+      <h1 id="hero-title" class="display">Reliable systems,<br> and the teams<br> that run them.</h1>
+      <div class="hero-side">
+        <p class="lede">I'm Aditya, an engineering leader at Grafana Labs, where my teams build observability tools. I write about site reliability, monitoring and building with AI, and I help organise cloud native meetups in Berlin.</p>
+        <div class="actions">
+          <a class="btn" href="{{ $writing.RelPermalink }}">Read my writing{{ partial "icon.html" (dict "name" "arrow-right") }}</a>
+          <a class="text-link" href="{{ $linkedin }}" rel="me noopener">{{ partial "icon.html" (dict "name" "linkedin-logo") }}Connect on LinkedIn</a>
+        </div>
       </div>
-      <p class="proof" data-reveal data-delay="4">
-        <span><strong>{{ len $essays }} essays</strong> since {{ $firstEssay.Date.Format "2006" }}</span>
-        <span><strong>4 meetups</strong> organised or spoken at</span>
-        <span>Kubernetes, Prometheus, OpenTelemetry</span>
-      </p>
     </div>
-    <figure class="portrait" data-reveal data-delay="2">
-      {{- with resources.Get "images/propic-square.jpeg" }}
-      {{- $s := .Process "fill 400x500 webp q78 Center" }}
-      {{- $m := .Process "fill 640x800 webp q78 Center" }}
-      {{- $l := .Process "fill 960x1200 webp q76 Center" }}
-      <img src="{{ $m.RelPermalink }}" srcset="{{ $s.RelPermalink }} 400w, {{ $m.RelPermalink }} 640w, {{ $l.RelPermalink }} 960w"
-        sizes="(min-width: 1200px) 380px, (min-width: 1024px) 32vw, 100vw" width="640" height="800"
-        alt="Aditya Konarde smiling outdoors under a blue sky, wearing a dark hoodie" fetchpriority="high" decoding="async">
-      {{- end }}
-      <dl class="spec">
-        <dt>Role</dt><dd>Engineering leader, Grafana Labs</dd>
-        <dt>Based</dt><dd>Berlin, Germany</dd>
-        <dt>Focus</dt><dd>SRE, observability, AI</dd>
-        <dt>Also</dt><dd>Photographer, meetup organiser</dd>
-      </dl>
-    </figure>
   </div>
+  {{ partial "room.html" . }}
+  <p class="proof wrap">
+    <span><strong>{{ len $essays }} essays</strong> since {{ $firstEssay.Date.Format "2006" }}</span>
+    <span><strong>4 meetups</strong> organised or spoken at</span>
+    <span>Kubernetes, Prometheus, OpenTelemetry</span>
+  </p>
 </section>
 
 {{- $lines := slice "Most of my work sits where" "reliable systems, good tooling" "and healthy teams meet" "in production." }}

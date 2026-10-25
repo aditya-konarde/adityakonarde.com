@@ -1,0 +1,61 @@
+{{- /*
+  The room: a painted, gently moving picture of the things Aditya spends his days with.
+  Hotspots sit at percentages of the picture, so they stay on their objects at every size.
+  Links go only to pages that exist. Asides quote lines already on the about page.
+  x and y are percentages of the 21:9 picture; "side" flips the label when a spot is near an edge.
+*/ -}}
+{{- $insta := "" }}{{ range site.Params.socialIcons }}{{ if eq .name "instagram" }}{{ $insta = .url }}{{ end }}{{ end }}
+{{- $spots := slice
+  (dict "id" "writing" "x" 43.5 "y" 35 "label" "Writing" "note" "Essays on SRE, monitoring and tools" "href" ("/posts/" | relURL))
+  (dict "id" "ai" "x" 43.4 "y" 8 "side" "below" "label" "Building with AI" "note" "Agents, models and how I work with them" "href" ("/tags/ai/" | relURL))
+  (dict "id" "setup" "x" 51.2 "y" 49 "label" "My setup" "note" "The hardware, editor and tools I use" "href" ("/uses/" | relURL))
+  (dict "id" "homelab" "x" 60.2 "y" 58 "label" "Homelab" "note" "An AI agent on a WiFi router" "href" ("/posts/picoclaw-on-xiaomi-b3600-pro-router/" | relURL))
+  (dict "id" "berlin" "x" 72.4 "y" 30 "label" "Cloud Native Berlin" "note" "The meetup is back" "href" ("/posts/cloud-native-berlin-schwarz-digits-aug-2026/" | relURL))
+  (dict "id" "about" "x" 84.4 "y" 27 "side" "left" "label" "About me" "note" "Who I am and where I work" "href" ("/about/" | relURL))
+  (dict "id" "notes" "x" 95.2 "y" 36 "side" "left" "label" "Weekly notes" "note" "What I read in 2026" "href" ("/tags/weekly-roundup/" | relURL))
+  (dict "id" "photos" "x" 94.2 "y" 64.5 "side" "left" "label" "Instagram" "note" "Photos" "href" $insta "external" true)
+  (dict "id" "coffee" "x" 5.6 "y" 61 "side" "right" "label" "Coffee first" "note" "Then usually a new recipe" "aside" true)
+  (dict "id" "lemons" "x" 67.4 "y" 50 "label" "The lemon tree" "note" "Still trying to keep my plants alive" "aside" true)
+}}
+{{- $still := partial "room-still.html" . }}
+<div class="room" data-room>
+  <div class="room-pan" data-room-pan>
+    <div class="room-stage">
+      <img class="room-still" src="{{ $still.src }}" srcset="{{ $still.srcset }}"
+        sizes="{{ $still.sizes }}" width="{{ $still.width }}" height="{{ $still.height }}"
+        alt="A painted room in Berlin at golden hour: an espresso machine, two 3D printers, a desk with three monitors, a server rack, a lemon tree by a window onto the TV tower, a leather armchair, a bookshelf and an old suitcase."
+        fetchpriority="high" decoding="async">
+      <video class="room-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
+        data-av1="{{ "video/room-1920.av1.webm" | relURL }}" data-h264="{{ "video/room-1920.mp4" | relURL }}"
+        data-av1-small="{{ "video/room-1080.av1.webm" | relURL }}" data-h264-small="{{ "video/room-1080.mp4" | relURL }}"></video>
+      <ul class="spots" aria-label="Things in the room">
+        {{- range $i, $s := $spots }}{{ if or $s.aside $s.href }}
+        <li class="spot-wrap{{ with $s.side }} tip-{{ . }}{{ end }}" style="--x: {{ $s.x }}%; --y: {{ $s.y }}%; --i: {{ $i }}">
+          {{- if $s.aside }}
+          <button type="button" class="spot is-aside" aria-expanded="false">
+          {{- else }}
+          <a class="spot" href="{{ $s.href }}"{{ if $s.external }} rel="me noopener"{{ end }}>
+          {{- end }}
+            <span class="pin" aria-hidden="true"></span>
+            <span class="tip">
+              <span class="tip-label">{{ $s.label }}{{ if not $s.aside }}{{ partial "icon.html" (dict "name" (cond (eq $s.external true) "arrow-up-right" "arrow-right")) }}{{ end }}</span>
+              <span class="tip-note">{{ $s.note }}</span>
+            </span>
+          {{- if $s.aside }}</button>{{ else }}</a>{{ end }}
+        </li>
+        {{- end }}{{ end }}
+      </ul>
+    </div>
+  </div>
+  <div class="room-plate wrap">
+    <p class="mono"><span class="live" aria-hidden="true"></span>Berlin, <time data-berlin-clock>golden hour</time></p>
+    <p class="mono room-hint"><span class="hint-wide">Hover anything in the room</span><span class="hint-narrow">Swipe to look around the room</span></p>
+  </div>
+  <nav class="room-index wrap" aria-label="Rooms of this site">
+    <ol>
+      {{- range $i, $s := $spots }}{{ if and $s.href (not $s.aside) }}
+      <li><a href="{{ $s.href }}"{{ if $s.external }} rel="me noopener"{{ end }}><span class="mono">{{ printf "%02d" (add $i 1) }}</span><span class="t">{{ $s.label }}</span><span class="n">{{ $s.note }}</span>{{ partial "icon.html" (dict "name" (cond (eq $s.external true) "arrow-up-right" "arrow-right") "class" "arrow") }}</a></li>
+      {{- end }}{{ end }}
+    </ol>
+  </nav>
+</div>
