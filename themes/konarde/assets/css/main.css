@@ -439,10 +439,9 @@ a { color: inherit; }
 }
 @media (min-width: 768px) { .tagline p { font-size: 3rem; line-height: 1; max-width: 880px; } .tagline p .br { display: block; } }
 .tagline .w { color: var(--ink); transition: color var(--dur) var(--ease); }
-html.js .tagline .w { color: color-mix(in srgb, var(--ink) 28%, transparent); }
+html.js .tagline .w { color: color-mix(in srgb, var(--ink) 50%, var(--bg)); }
 html.js .tagline .w.on { color: var(--ink); }
-.tagline .w.accent, html.js .tagline .w.accent.on { color: var(--accent); }
-html.js .tagline .w.accent { color: color-mix(in srgb, var(--accent) 28%, transparent); }
+html:not(.js) .tagline .w.accent, html.js .tagline .w.accent.on { color: var(--accent); }
 
 /* Essays: year rail + list */
 .split { display: grid; gap: 32px; }

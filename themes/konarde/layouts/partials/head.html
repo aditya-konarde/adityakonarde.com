@@ -36,8 +36,11 @@
 
 {{- if .IsHome }}
 {{- with resources.Get "images/propic-square.jpeg" }}
-{{- $p := .Process "fill 640x800 webp q78 Center" }}
-<link rel="preload" as="image" href="{{ $p.RelPermalink }}" fetchpriority="high">
+{{- $s := .Process "fill 400x500 webp q78 Center" }}
+{{- $m := .Process "fill 640x800 webp q78 Center" }}
+{{- $l := .Process "fill 960x1200 webp q76 Center" }}
+{{- /* The portrait is above the fold only in the two column desktop hero */}}
+<link rel="preload" as="image" media="(min-width: 1024px)" href="{{ $m.RelPermalink }}" imagesrcset="{{ $s.RelPermalink }} 400w, {{ $m.RelPermalink }} 640w, {{ $l.RelPermalink }} 960w" imagesizes="(min-width: 1200px) 380px, 32vw" fetchpriority="high">
 {{- end }}
 {{- end }}
 
