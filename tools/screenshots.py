@@ -31,9 +31,16 @@ with sync_playwright() as p:
             pg = ctx.new_page()
             for name, path in pages.items():
                 pg.goto(base + path, wait_until="networkidle")
+                # Grow the viewport to the page height so fixed layers (grain) cover
+                # the whole capture and lazy images load, then wait for decode.
+                full = pg.evaluate("document.documentElement.scrollHeight")
+                pg.set_viewport_size({"width": w, "height": full})
+                pg.wait_for_function("[...document.images].every(i => i.complete)")
+                pg.evaluate("Promise.all([...document.images].map(i => i.decode().catch(() => null)))")
                 pg.wait_for_timeout(300)
                 f = out / f"{prefix}{name}-{sname}-{scheme}.png"
                 pg.screenshot(path=str(f), full_page=True)
                 print(f)
+                pg.set_viewport_size({"width": w, "height": h})
             ctx.close()
     b.close()
