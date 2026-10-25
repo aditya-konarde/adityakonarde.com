@@ -24,12 +24,12 @@
   {{- end }}
   {{- else if $isNotes }}
   {{- $oldest := index $issueList.ByDate 0 }}{{ $newest := index $issueList.ByDate.Reverse 0 }}
-  <p class="eyebrow">Archive</p>
+  <p class="eyebrow" data-gap>Archive</p>
   <h1>Weekly notes</h1>
   <p class="lede">{{ len $issueList }} short roundups of AI, SRE and observability news, published from {{ $oldest.Date.Format "January" }} to {{ $newest.Date.Format "January 2006" }}. For longer pieces, see <a class="text-link" href="{{ "posts/" | relURL }}">Writing</a>.</p>
   {{- else if eq .Kind "term" }}
   {{- $label := partial "tag-label.html" . }}
-  <p class="eyebrow">Tag</p>
+  <p class="eyebrow" data-gap>Tag</p>
   <h1>{{ $label }}</h1>
   <p class="lede">{{ len $pages }} {{ cond (eq (len $pages) 1) "post" "posts" }} tagged {{ $label }}.{{ with .Description }} {{ . }}{{ end }}</p>
   {{- else }}
