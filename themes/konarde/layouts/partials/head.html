@@ -38,7 +38,7 @@
 {{- if and .IsHome (not .Paginator.HasPrev) }}
 {{- $still := partial "room-still.html" . }}
 {{- /* The room picture is the first paint and the LCP; the video loads later, on top of it */}}
-<link rel="preload" as="image" href="{{ $still.src }}" imagesrcset="{{ $still.srcset }}" imagesizes="{{ $still.sizes }}" fetchpriority="high">
+<link rel="preload" as="image" href="{{ $still.src }}" {{ printf `imagesrcset="%s" imagesizes="%s"` $still.srcset $still.sizes | safeHTMLAttr }} fetchpriority="high">
 {{- end }}
 
 <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="48x48">
@@ -47,7 +47,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
 <link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | absURL }}" color="#131209">
-<meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#F6EFE3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131209" media="(prefers-color-scheme: dark)">
 
 {{ range .AlternativeOutputFormats -}}

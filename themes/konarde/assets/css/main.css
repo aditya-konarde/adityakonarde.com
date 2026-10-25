@@ -346,6 +346,7 @@ a { color: inherit; }
   -webkit-text-fill-color: transparent; color: transparent;
   padding-bottom: 8px;
 }
+.hero h1 .ln { display: block; }
 @media (forced-colors: active) { .hero h1 { -webkit-text-fill-color: CanvasText; background: none; color: CanvasText; } }
 .hero .lede {
   max-width: 560px;
@@ -365,9 +366,11 @@ a { color: inherit; }
   .hero h1 { font-size: 4.5rem; line-height: 1; }
 }
 @media (min-width: 1024px) {
-  .hero { padding-top: 64px; padding-bottom: 80px; }
-  .hero-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; align-items: end; }
-  .hero h1 { font-size: 6rem; line-height: 1; }
+  .hero { padding-top: 24px; padding-bottom: 80px; }
+  .hero-grid { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); column-gap: 48px; align-items: end; }
+  .hero h1 .ln { display: inline; }
+  .hero .lede { font-size: 1rem; line-height: 1.5rem; }
+  .room { margin-top: 40px; }
 }
 
 /* ---------- Home: the room ----------

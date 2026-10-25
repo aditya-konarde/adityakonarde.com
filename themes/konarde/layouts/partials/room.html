@@ -6,16 +6,16 @@
 */ -}}
 {{- $insta := "" }}{{ range site.Params.socialIcons }}{{ if eq .name "instagram" }}{{ $insta = .url }}{{ end }}{{ end }}
 {{- $spots := slice
-  (dict "id" "writing" "x" 43.5 "y" 35 "label" "Writing" "note" "Essays on SRE, monitoring and tools" "href" ("/posts/" | relURL))
+  (dict "id" "coffee" "x" 5.6 "y" 61 "side" "right" "label" "Coffee first" "note" "Then usually a new recipe" "aside" true)
   (dict "id" "ai" "x" 43.4 "y" 8 "side" "below" "label" "Building with AI" "note" "Agents, models and how I work with them" "href" ("/tags/ai/" | relURL))
+  (dict "id" "writing" "x" 43.5 "y" 35 "label" "Writing" "note" "Essays on SRE, monitoring and tools" "href" ("/posts/" | relURL))
   (dict "id" "setup" "x" 51.2 "y" 49 "label" "My setup" "note" "The hardware, editor and tools I use" "href" ("/uses/" | relURL))
   (dict "id" "homelab" "x" 60.2 "y" 58 "label" "Homelab" "note" "An AI agent on a WiFi router" "href" ("/posts/picoclaw-on-xiaomi-b3600-pro-router/" | relURL))
+  (dict "id" "lemons" "x" 67.4 "y" 50 "label" "The lemon tree" "note" "Still trying to keep my plants alive" "aside" true)
   (dict "id" "berlin" "x" 72.4 "y" 30 "label" "Cloud Native Berlin" "note" "The meetup is back" "href" ("/posts/cloud-native-berlin-schwarz-digits-aug-2026/" | relURL))
   (dict "id" "about" "x" 84.4 "y" 27 "side" "left" "label" "About me" "note" "Who I am and where I work" "href" ("/about/" | relURL))
   (dict "id" "notes" "x" 95.2 "y" 36 "side" "left" "label" "Weekly notes" "note" "What I read in 2026" "href" ("/tags/weekly-roundup/" | relURL))
   (dict "id" "photos" "x" 94.2 "y" 64.5 "side" "left" "label" "Instagram" "note" "Photos" "href" $insta "external" true)
-  (dict "id" "coffee" "x" 5.6 "y" 61 "side" "right" "label" "Coffee first" "note" "Then usually a new recipe" "aside" true)
-  (dict "id" "lemons" "x" 67.4 "y" 50 "label" "The lemon tree" "note" "Still trying to keep my plants alive" "aside" true)
 }}
 {{- $still := partial "room-still.html" . }}
 <div class="room" data-room>
@@ -53,8 +53,8 @@
   </div>
   <nav class="room-index wrap" aria-label="Rooms of this site">
     <ol>
-      {{- range $i, $s := $spots }}{{ if and $s.href (not $s.aside) }}
-      <li><a href="{{ $s.href }}"{{ if $s.external }} rel="me noopener"{{ end }}><span class="mono">{{ printf "%02d" (add $i 1) }}</span><span class="t">{{ $s.label }}</span><span class="n">{{ $s.note }}</span>{{ partial "icon.html" (dict "name" (cond (eq $s.external true) "arrow-up-right" "arrow-right") "class" "arrow") }}</a></li>
+      {{- $n := 0 }}{{ range $spots }}{{ if and .href (not .aside) }}{{ $n = add $n 1 }}
+      <li><a href="{{ .href }}"{{ if .external }} rel="me noopener"{{ end }}><span class="mono">{{ printf "%02d" $n }}</span><span class="t">{{ .label }}</span><span class="n">{{ .note }}</span>{{ partial "icon.html" (dict "name" (cond (eq .external true) "arrow-up-right" "arrow-right") "class" "arrow") }}</a></li>
       {{- end }}{{ end }}
     </ol>
   </nav>
