@@ -1,0 +1,32 @@
+{{- $items := partial "nav-items.html" . }}
+<header class="site-header">
+  <nav class="island" aria-label="Main">
+    <a class="brand" href="{{ "/" | relURL }}" {{ if .IsHome }}aria-current="page"{{ end }}>
+      <span class="brand-mark" aria-hidden="true">AK</span>
+      <span>{{ site.Params.author.name }}</span>
+    </a>
+    <ul class="nav-links">
+      {{- range $items }}
+      <li><a href="{{ .url }}"{{ if .active }} aria-current="page"{{ else if .section }} class="is-section"{{ end }}>{{ .name }}</a></li>
+      {{- end }}
+    </ul>
+    <a class="nav-rss" href="{{ "index.xml" | relURL }}" aria-label="RSS feed for everything">{{ partial "icon.html" (dict "name" "rss") }}</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </nav>
+</header>
+<div class="menu-overlay" id="menu" aria-label="Menu" role="dialog" aria-modal="true" inert>
+  <ul>
+    <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}><span class="mono">00</span>Home</a></li>
+    {{- range $i, $e := $items }}
+    <li><a href="{{ .url }}"{{ if .active }} aria-current="page"{{ else if .section }} class="is-section"{{ end }}><span class="mono">{{ printf "%02d" (add $i 1) }}</span>{{ .name }}</a></li>
+    {{- end }}
+  </ul>
+  <div class="menu-foot">
+    <a href="{{ "index.xml" | relURL }}" aria-label="RSS feed">{{ partial "icon.html" (dict "name" "rss") }}</a>
+    {{- range site.Params.socialIcons }}
+    <a href="{{ .url }}" rel="me noopener" aria-label="{{ partial "social-label.html" .name }}">{{ partial "icon.html" (dict "name" (printf "%s-logo" .name)) }}</a>
+    {{- end }}
+  </div>
+</div>

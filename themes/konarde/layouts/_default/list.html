@@ -1,0 +1,55 @@
+{{- define "main" }}
+{{- $pages := union .RegularPages .Sections }}
+{{- $isPosts := and (eq .Kind "section") (eq .Section "posts") }}
+{{- $isNewsletter := and (eq .Kind "term") (eq .Data.Term "weekly-roundup") }}
+{{- $pag := .Paginate $pages }}
+{{- $nlFeed := "tags/weekly-roundup/index.xml" | relURL }}
+
+<header class="page-head wrap">
+  {{- if eq .Kind "term" }}
+  <a class="back" href="{{ "tags/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}All tags</a>
+  {{- else }}
+  <a class="back" href="{{ "/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Home</a>
+  {{- end }}
+
+  {{- if $isPosts }}
+  <h1>All writing</h1>
+  <p class="lede">Essays on SRE practice, monitoring and developer tools, plus every weekly issue, newest first. For the issues alone, see the <a class="text-link" href="{{ "tags/weekly-roundup/" | relURL }}">newsletter page</a>.</p>
+  {{- else if $isNewsletter }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p class="lede">{{ . }} Published every Friday.</p>{{ end }}
+  {{- with .Content }}<div class="lede">{{ . }}</div>{{ end }}
+  <div class="actions">
+    {{- with index $pages 0 }}<a class="btn" href="{{ .RelPermalink }}">Read this week's issue{{ partial "icon.html" (dict "name" "arrow-right") }}</a>{{ end }}
+    <a class="text-link" href="{{ $nlFeed }}">{{ partial "icon.html" (dict "name" "rss") }}Follow via RSS</a>
+  </div>
+  {{- else if eq .Kind "term" }}
+  {{- $label := partial "tag-label.html" . }}
+  <p class="eyebrow">Tag</p>
+  <h1>{{ $label }}</h1>
+  <p class="lede">{{ len $pages }} {{ cond (eq (len $pages) 1) "post" "posts" }} tagged {{ $label }}.{{ with .Description }} {{ . }}{{ end }}</p>
+  {{- else }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  {{- end }}
+
+  {{- if and (not $isNewsletter) (or (eq .Kind "term") (eq .Kind "section")) }}
+  {{- with .OutputFormats.Get "rss" }}
+  <div class="actions"><a class="text-link" href="{{ .RelPermalink }}">{{ partial "icon.html" (dict "name" "rss") }}RSS for this page</a></div>
+  {{- end }}
+  {{- end }}
+</header>
+
+<div class="wrap">
+  {{- if $pag.Pages }}
+  {{ partial "year-list.html" $pag.Pages }}
+  {{ partial "pager.html" $pag }}
+  {{- else }}
+  <div class="empty">
+    <h2>Nothing here yet.</h2>
+    <p>New writing shows up here first. In the meantime, the newsletter has a fresh issue every Friday.</p>
+    <a class="text-link" href="{{ "tags/weekly-roundup/" | relURL }}">Go to the newsletter{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
+  </div>
+  {{- end }}
+</div>
+{{- end }}

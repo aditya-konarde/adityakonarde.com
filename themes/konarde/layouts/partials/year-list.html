@@ -1,0 +1,9 @@
+{{- /* Rows grouped by year. Context: slice of pages */ -}}
+{{- range .GroupByDate "2006" }}
+<section class="year-group" data-reveal>
+  <h2>{{ .Key }}</h2>
+  <ul class="index">
+    {{- range .Pages }}{{ partial "row.html" . }}{{ end }}
+  </ul>
+</section>
+{{- end }}

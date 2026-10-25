@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-name">{{ site.Params.author.name }}</p>
+        <p class="footer-note">Engineering leader in Berlin. Writing weekly about AI, SRE and observability.</p>
+      </div>
+      <ul class="footer-links">
+        {{- range site.Menus.main }}
+        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{- end }}
+        <li><a href="{{ "privacy/" | relURL }}">Privacy</a></li>
+        <li><a href="{{ "tags/" | relURL }}">Tags</a></li>
+        <li><a href="{{ "index.xml" | relURL }}">RSS</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <ul class="socials">
+        {{- range site.Params.socialIcons }}
+        <li><a href="{{ .url }}" rel="me noopener" aria-label="{{ partial "social-label.html" .name }}">{{ partial "icon.html" (dict "name" (printf "%s-logo" .name)) }}</a></li>
+        {{- end }}
+      </ul>
+      <label class="theme-pref">
+        <span>Theme</span>
+        <select id="theme-pref" aria-label="Colour theme">
+          <option value="auto">Match system</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <p class="copyright">© {{ site.Copyright }}{{ with site.Params.footer.text }} · {{ . }}{{ end }}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,10 @@
+{{- /* Readable tag label. Context: term page */ -}}
+{{- $out := "" -}}
+{{- if .File -}}
+  {{- $out = .Title -}}
+{{- else -}}
+  {{- $slug := .Data.Term | default (.Title | urlize) -}}
+  {{- $map := dict "ai" "AI" "sre" "SRE" "llm" "LLM" "macos" "macOS" "openwrt" "OpenWrt" "devops" "DevOps" "gitops" "GitOps" "picoclaw" "PicoClaw" "opencode" "OpenCode" "deepseek" "DeepSeek" "copilot" "Copilot" "tailscale" "Tailscale" "grafana" "Grafana" "prometheus" "Prometheus" "alertmanager" "Alertmanager" "kubernetes" "Kubernetes" "claude" "Claude" "gemini" "Gemini" "cursor" "Cursor" "xiaomi" "Xiaomi" "berlin" "Berlin" -}}
+  {{- $out = index $map $slug | default ($slug | replaceRE "-" " " | humanize) -}}
+{{- end -}}
+{{- return $out -}}

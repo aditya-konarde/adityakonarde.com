@@ -1,0 +1,2 @@
+{{- $m := dict "linkedin" "LinkedIn" "github" "GitHub" "x" "X" "instagram" "Instagram" -}}
+{{- return (index $m . | default .) -}}

@@ -1,0 +1,7 @@
+{{- /* First bold story titles in an issue, for previews */ -}}
+{{- $out := slice -}}
+{{- range findRE `(?m)^\*\*([^*\n]+)\*\*` .RawContent 4 -}}
+  {{- $s := . | replaceRE `^\*\*|\*\*$` "" | replaceRE `\s*(--|—)\s*$` "" | replaceRE `[.:]\s*$` "" -}}
+  {{- $out = $out | append $s -}}
+{{- end -}}
+{{- return $out -}}
