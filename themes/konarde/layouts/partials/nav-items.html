@@ -6,10 +6,7 @@
   {{- $active := false -}}
   {{- $section := false -}}
   {{- if eq ($cur.RelPermalink) ($url | strings.TrimSuffix "/" | printf "%s/") }}{{ $active = true }}{{ end -}}
-  {{- if and (not $active) (eq .Identifier "Blog") (eq $cur.Section "posts") }}
-    {{- if not (in ($cur.Params.tags | default slice) "weekly-roundup") }}{{ $section = true }}{{ end -}}
-  {{- end -}}
-  {{- if and (not $active) (eq .Identifier "newsletter") (in ($cur.Params.tags | default slice) "weekly-roundup") }}{{ $section = true }}{{ end -}}
+  {{- if and (not $active) (eq .Identifier "Blog") (or (eq $cur.Section "posts") (eq $cur.RelPermalink ("tags/weekly-roundup/" | relURL))) }}{{ $section = true }}{{ end -}}
   {{- $items = $items | append (dict "name" .Name "url" $url "active" $active "section" $section "id" .Identifier) -}}
 {{- end -}}
 {{- return $items -}}
