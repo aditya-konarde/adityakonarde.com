@@ -764,6 +764,6 @@ html.js [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
   margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line);
   display: grid; gap: 8px; max-width: 680px;
 }
-@media (min-width: 1024px) { .archive-note { margin-left: calc(160px + 48px); } }
+@media (min-width: 768px) { .archive-note { margin-left: calc(160px + 24px); } }
 .archive-note h2 { font-size: 1.125rem; line-height: 1.75rem; letter-spacing: -0.01em; }
 .archive-note p { color: var(--ink-3); font-size: 0.875rem; line-height: 1.25rem; }

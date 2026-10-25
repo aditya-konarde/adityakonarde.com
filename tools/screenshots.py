@@ -13,7 +13,7 @@ pages = {
     "post": "/posts/sre-time-management/",
     "issue": "/posts/week-in-review-ai-sre-observability-sep-25-oct-2-2026/",
     "list": "/posts/",
-    "newsletter": "/tags/weekly-roundup/",
+    "weekly-notes": "/tags/weekly-roundup/",
     "about": "/about/",
     "tags": "/tags/",
     "404": "/404.html",
@@ -26,7 +26,7 @@ with sync_playwright() as p:
     for scheme in ("light", "dark"):
         for sname, (w, h) in sizes.items():
             ctx = b.new_context(viewport={"width": w, "height": h}, color_scheme=scheme,
-                                device_scale_factor=1 if sname == "desktop" else 2,
+                                device_scale_factor=2,
                                 reduced_motion="reduce")
             pg = ctx.new_page()
             for name, path in pages.items():
