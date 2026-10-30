@@ -113,6 +113,9 @@
     },
     {
       "pattern": "^https?://(www\\.)?canonical\\.com"
+    },
+    {
+      "pattern": "^https?://(www\\.)?komodor\\.com"
     }
   ],
   "timeout": "30s",
