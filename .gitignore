@@ -125,3 +125,6 @@ coverage/
 
 # Agent codebase-analysis artifacts (accidentally committed 2026-05; do not re-add)
 /.planning/
+
+# Redesign screenshots (regenerate with tools/screenshots.py)
+/screenshots/

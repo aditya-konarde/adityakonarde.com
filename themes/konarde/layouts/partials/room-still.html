@@ -1,0 +1,10 @@
+{{- /* Responsive WebP set for the room picture. Returns src, srcset, sizes, width, height. Shared by the hero and its preload.
+  On phones the stage is about 147vh wide; sizes says 110vh on purpose so a phone fetches the 1600 file, not the 2560 one. */ -}}
+{{- $img := resources.Get "images/room/room.jpg" }}
+{{- $set := slice }}{{ $src := "" }}
+{{- range slice 960 1280 1600 1920 2560 }}
+{{- $r := $img.Resize (printf "%dx webp q68 photo" .) }}
+{{- $set = $set | append (printf "%s %dw" $r.RelPermalink .) }}
+{{- if eq . 1920 }}{{ $src = $r.RelPermalink }}{{ end }}
+{{- end }}
+{{- return dict "src" $src "srcset" (delimit $set ", ") "sizes" "(max-width: 767px) 110vh, 100vw" "width" $img.Width "height" $img.Height }}

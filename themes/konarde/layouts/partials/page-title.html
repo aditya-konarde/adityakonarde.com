@@ -1,0 +1,4 @@
+{{- /* Display title: the weekly-roundup term keeps its feed title, but reads as "Weekly notes" on the site */ -}}
+{{- $out := .Title -}}
+{{- if and (eq .Kind "term") (eq .Data.Term "weekly-roundup") -}}{{ $out = "Weekly notes" }}{{- end -}}
+{{- return $out -}}

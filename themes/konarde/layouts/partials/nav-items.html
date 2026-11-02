@@ -1,0 +1,12 @@
+{{- /* Returns the main menu with an "active" flag. Context: page */ -}}
+{{- $cur := . -}}
+{{- $items := slice -}}
+{{- range site.Menus.main -}}
+  {{- $url := .URL | relURL -}}
+  {{- $active := false -}}
+  {{- $section := false -}}
+  {{- if eq ($cur.RelPermalink) ($url | strings.TrimSuffix "/" | printf "%s/") }}{{ $active = true }}{{ end -}}
+  {{- if and (not $active) (eq .Identifier "Blog") (or (eq $cur.Section "posts") (eq $cur.RelPermalink ("tags/weekly-roundup/" | relURL))) }}{{ $section = true }}{{ end -}}
+  {{- $items = $items | append (dict "name" .Name "url" $url "active" $active "section" $section "id" .Identifier) -}}
+{{- end -}}
+{{- return $items -}}

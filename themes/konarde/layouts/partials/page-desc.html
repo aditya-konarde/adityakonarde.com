@@ -1,0 +1,3 @@
+{{- $out := .Description -}}
+{{- if and (eq .Kind "term") (eq .Data.Term "weekly-roundup") -}}{{ $out = "Short weekly roundups of AI, SRE and observability news by Aditya Konarde." }}{{- end -}}
+{{- return $out -}}
