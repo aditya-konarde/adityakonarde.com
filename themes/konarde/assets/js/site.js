@@ -1,5 +1,4 @@
-// adityakonarde.com: menu, theme preference, scroll reveals, tagline words, code copy, TOC state.
-// No dependencies. Every observer is an IntersectionObserver; there is no scroll listener.
+// adityakonarde.com: menu, theme preference, code copy, TOC state, home room.
 
 const doc = document.documentElement;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,41 +40,6 @@ if (pref) {
     } catch (e) { /* storage blocked: still apply for this page */ }
     if (v === "auto") delete doc.dataset.theme; else doc.dataset.theme = v;
   });
-}
-
-// ---- Scroll reveal: heavy fade up as elements enter the viewport ----
-const reveals = document.querySelectorAll("[data-reveal]");
-if (reduceMotion || !("IntersectionObserver" in window)) {
-  reveals.forEach((el) => el.classList.add("is-in"));
-} else {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add("is-in"); io.unobserve(entry.target); }
-    });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-  reveals.forEach((el) => {
-    // Anything already on screen at load reveals immediately, staggered.
-    io.observe(el);
-  });
-}
-
-// ---- Tagline: words light up one at a time as they cross a trigger line ----
-const words = document.querySelectorAll(".tagline .w");
-if (words.length) {
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    words.forEach((w) => w.classList.add("on"));
-  } else {
-    // Trigger line sits 35% above the bottom of the viewport.
-    const wo = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const below = entry.boundingClientRect.top > (entry.rootBounds ? entry.rootBounds.bottom : window.innerHeight);
-        if (entry.isIntersecting) entry.target.classList.add("on");
-        else if (below) entry.target.classList.remove("on");
-      });
-    }, { rootMargin: "0px 0px -35% 0px", threshold: 1 });
-    // Offset each word's trigger slightly by reading order so a line lights left to right.
-    words.forEach((w, i) => { w.style.transitionDelay = `${(i % 6) * 40}ms`; wo.observe(w); });
-  }
 }
 
 // ---- Copy buttons on code blocks ----
