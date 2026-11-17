@@ -1,0 +1,42 @@
+{{- define "main" }}
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true" }}
+{{- $pag := .Paginate $posts }}
+{{- $issues := where $posts "Params.tags" "intersect" (slice "weekly-roundup") }}
+{{- $essays := ($posts | complement $issues).ByDate.Reverse }}
+{{- $writing := site.GetPage "/posts" }}
+
+{{- if gt $pag.PageNumber 1 }}
+{{- /* Older pages of the home feed keep their URLs (/page/N/) as a plain archive */}}
+<header class="page-head wrap">
+  <a class="back" href="{{ "/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Home</a>
+  <h1>Everything, newest first</h1>
+  <p class="lede">Essays and weekly notes in one stream. Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}.</p>
+</header>
+<div class="wrap">
+  {{ partial "year-list.html" $pag.Pages }}
+  {{ partial "pager.html" $pag }}
+</div>
+{{- else }}
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy wrap">
+    <h1 id="hero-title" class="display">Hi, I'm Aditya.</h1>
+    <p class="lede">I write about Technology, focused on Software, AI and Reliability Engineering</p>
+  </div>
+  {{ partial "room.html" . }}
+</section>
+
+<section class="section wrap" aria-labelledby="essays-title">
+  <div class="split">
+    <div class="rail">
+      <h2 id="essays-title">Recent writing</h2>
+      <a class="text-link" href="{{ $writing.RelPermalink }}">All writing{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
+    </div>
+    <ul class="index">
+      {{- range first 5 $essays }}{{ partial "row.html" . }}{{ end }}
+    </ul>
+  </div>
+</section>
+{{- end }}
+{{- end }}

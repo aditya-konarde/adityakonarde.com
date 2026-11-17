@@ -1,0 +1,4 @@
+{{- /* "Week in Review: AI, SRE & Observability — June 19--26, 2026" -> "June 19–26, 2026" */ -}}
+{{- $t := .Title | replaceRE `^Week in Review: AI, SRE & Observability\s*(--|—|–|-)\s*` "" -}}
+{{- $t = $t | replaceRE `\s*(--|—)\s*` "–" | replaceRE `\s+-\s+` "–" | replaceRE `(\d)-(\d)` "${1}–${2}" -}}
+{{- return $t -}}

@@ -1,0 +1,66 @@
+{{- define "main" }}
+{{- $pages := union .RegularPages .Sections }}
+{{- $isPosts := and (eq .Kind "section") (eq .Section "posts") }}
+{{- $isNotes := and (eq .Kind "term") (eq .Data.Term "weekly-roundup") }}
+{{- $pag := .Paginate $pages }}
+{{- $issueList := where site.RegularPages "Params.tags" "intersect" (slice "weekly-roundup") }}
+{{- $allPosts := where site.RegularPages "Type" "posts" }}
+{{- $essays := (complement $issueList $allPosts).ByDate.Reverse }}
+{{- $postsHome := and $isPosts (eq $pag.PageNumber 1) }}
+
+<header class="page-head wrap">
+  {{- if eq .Kind "term" }}
+  <a class="back" href="{{ "tags/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}All tags</a>
+  {{- else }}
+  <a class="back" href="{{ "/" | relURL }}">{{ partial "icon.html" (dict "name" "arrow-left") }}Home</a>
+  {{- end }}
+
+  {{- if $isPosts }}
+  <h1>Writing</h1>
+  {{- if $postsHome }}
+  <p class="lede">Essays on site reliability, observability, developer tools and building with AI, plus the occasional personal post.</p>
+  {{- else }}
+  <p class="lede">Everything by date, essays and weekly notes together. Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}.</p>
+  {{- end }}
+  {{- else if $isNotes }}
+  {{- $oldest := index $issueList.ByDate 0 }}{{ $newest := index $issueList.ByDate.Reverse 0 }}
+  <p class="eyebrow" data-gap>Archive</p>
+  <h1>Weekly notes</h1>
+  <p class="lede">{{ len $issueList }} short roundups of AI, SRE and observability news, published from {{ $oldest.Date.Format "January" }} to {{ $newest.Date.Format "January 2006" }}. For longer pieces, see <a class="text-link" href="{{ "posts/" | relURL }}">Writing</a>.</p>
+  {{- else if eq .Kind "term" }}
+  {{- $label := partial "tag-label.html" . }}
+  <p class="eyebrow" data-gap>Tag</p>
+  <h1>{{ $label }}</h1>
+  <p class="lede">{{ len $pages }} {{ cond (eq (len $pages) 1) "post" "posts" }} tagged {{ $label }}.{{ with .Description }} {{ . }}{{ end }}</p>
+  {{- else }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  {{- end }}
+
+  {{- if and (not $isNotes) (or (eq .Kind "term") (eq .Kind "section")) }}
+  {{- with .OutputFormats.Get "rss" }}
+  <div class="actions"><a class="text-link" href="{{ .RelPermalink }}">{{ partial "icon.html" (dict "name" "rss") }}RSS for this page</a></div>
+  {{- end }}
+  {{- end }}
+</header>
+
+<div class="wrap{{ if $isNotes }} only-issues{{ end }}">
+  {{- if $postsHome }}
+  {{ partial "year-list.html" $essays }}
+  <section class="archive-note" aria-labelledby="archive-title">
+    <h2 id="archive-title">Weekly notes</h2>
+    <p>{{ len $issueList }} short roundups of AI, SRE and observability news from {{ (index $issueList.ByDate 0).Date.Format "2006" }}.</p>
+    <a class="text-link" href="{{ "tags/weekly-roundup/" | relURL }}">Browse the archive{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
+  </section>
+  {{- else if $pag.Pages }}
+  {{ partial "year-list.html" $pag.Pages }}
+  {{ partial "pager.html" $pag }}
+  {{- else }}
+  <div class="empty">
+    <h2>Nothing here yet.</h2>
+    <p>New writing shows up here first. In the meantime, the essays are a good place to start.</p>
+    <a class="text-link" href="{{ "posts/" | relURL }}">Go to Writing{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>
+  </div>
+  {{- end }}
+</div>
+{{- end }}

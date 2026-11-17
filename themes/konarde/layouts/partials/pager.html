@@ -1,0 +1,8 @@
+{{- $p := . -}}
+{{- if gt $p.TotalPages 1 }}
+<nav class="pager" aria-label="Pagination">
+  {{- if $p.HasPrev }}<a class="text-link" href="{{ $p.Prev.URL }}" rel="prev">{{ partial "icon.html" (dict "name" "arrow-left") }}Newer</a>{{ else }}<span class="disabled" aria-hidden="true"></span>{{ end }}
+  <span class="mono">Page {{ $p.PageNumber }} of {{ $p.TotalPages }}</span>
+  {{- if $p.HasNext }}<a class="text-link" href="{{ $p.Next.URL }}" rel="next">Older{{ partial "icon.html" (dict "name" "arrow-right" "class" "arrow") }}</a>{{ else }}<span class="disabled" aria-hidden="true"></span>{{ end }}
+</nav>
+{{- end }}

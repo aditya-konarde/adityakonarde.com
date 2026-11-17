@@ -1,0 +1,8 @@
+{{- /* Phosphor icon (regular). Usage: partial "icon.html" (dict "name" "rss" "class" "arrow") */ -}}
+{{- $name := .name -}}
+{{- with resources.Get (printf "icons/%s.svg" $name) -}}
+{{- $svg := .Content | replaceRE `<svg ` (printf `<svg class="icon %s" aria-hidden="true" focusable="false" ` ($.class | default "")) -}}
+{{- $svg | safeHTML -}}
+{{- else -}}
+{{- errorf "icon %q not found" $name -}}
+{{- end -}}
