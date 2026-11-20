@@ -23,7 +23,7 @@ The two big outage reports this week describe systems that were short on redunda
 
 ## Site reliability engineering
 
-**A July fix caused Microsoft's near-24-hour Exchange Online outage.** It caused lock contention on high-core-count gateway servers that load tests on weaker hardware never hit. On 2026-11-12, Teams traffic shifted onto the primary gateway while nearly 14% of its servers were down, and rerouting spread the load until over 80% stopped responding. Rollback couldn't quickly undo a months-old change, so engineers shipped an update reverting the code path.
+**A July fix caused Microsoft's near-24-hour Exchange Online outage.** The fix triggered lock contention on high-core-count gateway servers that load tests on weaker hardware never hit. On 2026-11-12, Teams traffic shifted onto the primary gateway while nearly 14% of its servers were down, and rerouting spread the load until over 80% stopped responding. Rollback couldn't quickly undo a months-old change, so engineers shipped an update reverting the code path.
 [Source (heise)](https://www.heise.de/en/news/Exchange-Online-outage-Latent-bug-in-July-fix-took-down-gateways-11527182.html)
 
 **Revolut's 2026-10-20 outage was a quorum nobody knew was short.** The report, published 2026-11-13, says some five-member coordination groups were down to four after routine server replacements, with no alert. When a Google Cloud London zone lost power, two survivors couldn't form quorum and PostgreSQL failover stalled. Revolut now monitors group membership and failure tolerance.
