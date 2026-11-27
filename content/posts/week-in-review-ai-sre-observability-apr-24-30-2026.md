@@ -71,7 +71,7 @@ The OpenTelemetry Operator v0.150.0 updates the default .NET auto-instrumentatio
 ## 🔗 Quick Links
 
 - **Hugging Face Transformers v5.7.0** -- Adds Poolside's Laguna MoE model and DEIMv2 real-time object detection. [GitHub](https://github.com/huggingface/transformers/releases/tag/v5.7.0)
-- **Microsoft Agent Framework v1.2.2** -- New Azure Content Understanding package and improvements to agent handoff and group chat. [GitHub](https://github.com/microsoft/agent-framework/releases/tag/python-1.2.2)
+- **Microsoft Agent Framework v1.2.2** -- New Azure Content Understanding package and improvements to agent handoff and group chat. [PyPI](https://pypi.org/project/agent-framework/1.2.2/)
 - **Microsoft, Meta, and Google announce billions more in AI capex** -- All three reported massive infrastructure spending increases in earnings. Only Google convinced investors it's paying off. [Fortune](https://fortune.com/2026/04/29/microsoft-meta-google-ai-capex-spending-billions/)
 - **Anthropic weighs fundraise at $900B valuation** -- Would surpass OpenAI if completed. [CNBC](https://www.cnbc.com/2026/04/29/anthropic-weighs-raising-funds-at-900b-valuation-topping-openai.html)
 - **Datadog ARFBench** -- A new time-series question-answering benchmark based on real incidents, designed to evaluate AI's ability to triage production issues. [Datadog Blog](https://www.datadoghq.com/blog/ai/introducing-arfbench/)
